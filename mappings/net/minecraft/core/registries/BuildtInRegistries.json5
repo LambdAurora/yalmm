@@ -1,0 +1,25 @@
+{
+	source: "net/minecraft/class_7923",
+	name: "net/minecraft/core/registries/BuiltInRegistries",
+	fields: [
+		{
+			source: "field_41170",
+			name: "ROOT",
+			descriptor: "Lnet/minecraft/class_2385;"
+		}
+	],
+	methods: [
+		{
+			source: "method_47476",
+			name: "bootstrap",
+			descriptor: "()V",
+			comments: "Bootstraps the built-in registries by ensuring the registries are initialized then freezing them."
+		},
+		{
+			source: "method_47487",
+			name: "init",
+			descriptor: "()V",
+			comments: "Initializes every built-in registries."
+		}
+	]
+}

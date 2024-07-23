@@ -1,0 +1,38 @@
+{
+	source: "net/minecraft/class_3298",
+	name: "net/minecraft/resources/io/Resource",
+	comments: [
+		"A resource of binary data.",
+		"<p>",
+		"The resource must be closed before disposal to avoid resource leaks.",
+		"",
+		"@see net.minecraft.resources.io.ResourceProvider#getResource(net.minecraft.resources.Identifier)",
+		"@see net.minecraft.resources.io.ResourceManager#getAllResources(net.minecraft.resources.Identifier)"
+	],
+	methods: [
+		{
+			source: "method_14482",
+			name: "open",
+			descriptor: "()Ljava/io/InputStream;",
+			comments: [
+				"Opens a new input stream to read this resource.",
+				"",
+				"@return an input stream of this resource",
+				"@throws IOException if opening this resource failed",
+				"@see #openAsReader()"
+			]
+		},
+		{
+			source: "method_43039",
+			name: "openAsReader",
+			descriptor: "()Ljava/io/BufferedReader;",
+			comments: [
+				"Opens a new buffered reader to read this resource.",
+				"",
+				"@return a buffered reader of this resource",
+				"@throws IOException if opening this resource failed",
+				"@see #open()"
+			]
+		}
+	]
+}

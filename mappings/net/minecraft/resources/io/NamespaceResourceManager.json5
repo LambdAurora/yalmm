@@ -1,0 +1,188 @@
+{
+	source: "net/minecraft/class_3294",
+	name: "net/minecraft/resources/io/NamespaceResourceManager",
+	comments: "Represents a {@link ResourceManager} which acts on a single namespace over multiple resource packs.",
+	fields: [
+		{
+			source: "field_14283",
+			name: "packs",
+			descriptor: "Ljava/util/List;"
+		}
+	],
+	methods: [
+		{
+			source: "<init>",
+			descriptor: "(Lnet/minecraft/unmapped/C_abwutbbk;Ljava/lang/String;)V",
+			params: {
+				"1": {
+					name: "type"
+				},
+				"2": {
+					name: "namespace"
+				}
+			}
+		},
+		{
+			source: "method_24233",
+			name: "addPack",
+			descriptor: "(Lnet/minecraft/class_3262;)V",
+			comments: "Adds a resource pack to this resource manager.",
+			params: {
+				"1": {
+					name: "pack",
+					comments: "the resource pack to add"
+				}
+			}
+		},
+		{
+			source: "method_41256",
+			name: "addPack",
+			descriptor: "(Lnet/minecraft/class_3262;Ljava/util/function/Predicate;)V",
+			comments: "Adds a filtered resource pack to this resource manager.",
+			params: {
+				"1": {
+					name: "pack",
+					comments: "the resource pack to add"
+				},
+				"2": {
+					name: "filter",
+					comments: "the filter to ignore matched resources"
+				}
+			}
+		},
+		{
+			source: "method_41261",
+			name: "addFilter",
+			descriptor: "(Ljava/lang/String;Ljava/util/function/Predicate;)V",
+			comments: "Adds a filter to this resource manager to ignore previously found resources that match the filter.",
+			params: {
+				"1": {
+					name: "name",
+					comments: "the name of the filter to add"
+				},
+				"2": {
+					name: "filter",
+					comments: "the filter to ignore matched resources"
+				}
+			}
+		},
+		{
+			source: "method_41260",
+			name: "addPack",
+			descriptor: "(Ljava/lang/String;Lnet/minecraft/class_3262;Ljava/util/function/Predicate;)V",
+			params: {
+				"1": {
+					name: "name"
+				},
+				"2": {
+					name: "pack"
+				},
+				"3": {
+					name: "filter"
+				}
+			}
+		},
+		{
+			source: "method_45298",
+			name: "getMetadataPath",
+			descriptor: "(Lnet/minecraft/class_2960;)Lnet/minecraft/class_2960;",
+			params: {
+				"0": {
+					name: "id"
+				}
+			}
+		},
+		{
+			source: "method_45296",
+			name: "isMetadata",
+			descriptor: "(Lnet/minecraft/class_2960;)Z",
+			params: {
+				"0": {
+					name: "id"
+				}
+			}
+		}
+	],
+	classes: [
+		{
+			source: "class_7081",
+			name: "ResourceEntries",
+			components: [
+				{
+					source: "comp_1005",
+					name: "path",
+					descriptor: "Lnet/minecraft/class_2960;"
+				},
+				{
+					source: "comp_527",
+					name: "metadataId",
+					descriptor: "Lnet/minecraft/class_2960;"
+				},
+				{
+					source: "comp_1007",
+					name: "metadataSources",
+					descriptor: "Ljava/util/Map;"
+				}
+			],
+			methods: [
+				{
+					source: "<init>",
+					descriptor: "(Lnet/minecraft/class_2960;Lnet/minecraft/class_2960;Ljava/util/List;Ljava/util/Map;)V",
+					params: {
+						"1": {
+							name: "id"
+						},
+						"2": {
+							name: "metadataId"
+						},
+						"4": {
+							name: "metadataSources"
+						}
+					}
+				},
+				{
+					source: "<init>",
+					descriptor: "(Lnet/minecraft/class_2960;)V",
+					params: {
+						"1": {
+							name: "path"
+						}
+					}
+				}
+			]
+		},
+		{
+			source: "class_7082",
+			name: "PackEntry"
+		},
+		{
+			source: "class_7682",
+			name: "ResourceEntry"
+		},
+		{
+			source: "class_7681",
+			name: "FindResourceEntry"
+		},
+		{
+			source: "class_3295",
+			name: "DebugInputStream",
+			methods: [
+				{
+					source: "<init>",
+					descriptor: "(Ljava/io/InputStream;Lnet/minecraft/class_2960;Ljava/lang/String;)V",
+					params: {
+						"1": {
+							name: "parent"
+						},
+						"2": {
+							name: "id"
+						},
+						"3": {
+							name: "packName"
+						}
+					}
+				}
+			]
+		}
+	]
+}

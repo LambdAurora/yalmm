@@ -1,0 +1,108 @@
+{
+	source: "net/minecraft/class_3302",
+	name: "net/minecraft/resources/io/ResourceReloader",
+	comments: [
+		"A resource reloader performs actual reloading in its {@linkplain #reload reload} in a reloadable resource manager it is registered to.",
+		"",
+		"@see ReloadableResourceManager",
+		"@see SinglePreparationResourceReloader SinglePreparationResourceReloader",
+		"(completes preparation in one method)",
+		"@see SynchronousResourceReloader SynchronousResourceReloader",
+		"(performs all reloading in the apply executor)"
+	],
+	methods: [
+		{
+			source: "method_22322",
+			name: "getName",
+			descriptor: "()Ljava/lang/String;",
+			comments: "{@return a user-friendly name for logging}"
+		},
+		{
+			source: "method_25931",
+			name: "reload",
+			descriptor: "(Lnet/minecraft/class_3302$class_4045;Lnet/minecraft/class_3300;Lnet/minecraft/class_3695;Lnet/minecraft/class_3695;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;",
+			comments: [
+				"Performs a reload. Returns a future that is completed when the reload is completed.",
+				"<p>",
+				"In a reload, there is a prepare stage and an apply stage.",
+				"For the prepare stage, you should create completable futures with",
+				"{@linkplain CompletableFuture#supplyAsync(java.util.function.Supplier, Executor) CompletableFuture.supplyAsync(..., prepareExecutor)}",
+				"to ensure the prepare actions are done with the prepare executor.",
+				"Then, you should have a completable future for all the prepared actions,",
+				"and call {@linkplain CompletableFuture#thenCompose(java.util.function.Function)",
+				"combinedPrepare.thenCompose(synchronizer::waitFor)}",
+				"to notify the {@code synchronizer}.",
+				"Finally, you should run {@linkplain CompletableFuture#thenAcceptAsync(java.util.function.Consumer, Executor)",
+				"CompletableFuture.thenAcceptAsync(..., applyExecutor)} for apply actions.",
+				"In the end, returns the result of {@code thenAcceptAsync}.",
+				"",
+				"@return a future for the reload",
+				"@see ReloadableResourceManager#reload(Executor, Executor, CompletableFuture, java.util.List)"
+			],
+			params: {
+				"1": {
+					name: "synchronizer",
+					comments: "the synchronizer"
+				},
+				"2": {
+					name: "manager",
+					comments: "the resource manager"
+				},
+				"3": {
+					name: "prepareProfiler",
+					comments: "the profiler for the prepare stage"
+				},
+				"4": {
+					name: "applyProfiler",
+					comments: "the profiler for the apply stage"
+				},
+				"5": {
+					name: "prepareExecutor",
+					comments: "the executor for the prepare stage"
+				},
+				"6": {
+					name: "applyExecutor",
+					comments: "the executor for the apply stage"
+				}
+			}
+		}
+	],
+	classes: [
+		{
+			source: "class_4045",
+			name: "Synchronizer",
+			comments: [
+				"A synchronizer to indicate completion of a reloader's prepare stage and",
+				"to allow start of the apply stage only if all reloaders have finished",
+				"the prepare stage."
+			],
+			methods: [
+				{
+					source: "method_18352",
+					name: "whenPrepared",
+					descriptor: "(Ljava/lang/Object;)Ljava/util/concurrent/CompletableFuture;",
+					comments: [
+						"Indicates, to the ongoing reload, that this reloader has finished its preparation stage",
+						"with the {@code preparedObject} as its result.",
+						"<p>",
+						"Returns a completable future that the apply stage depends on.",
+						"This returned future is completed when all the reloaders have completed their prepare stages in the reload.",
+						"<p>",
+						"Example:",
+						"<pre><code>CompletableFuture&lt;SomeObject> prepareStage = ...;",
+						"prepareStage.thenCompose(synchronizer::whenPrepared)",
+						"\t.thenAcceptAsync(..., applyExecutor);</code></pre>",
+						"",
+						"@return a completable future as the precondition for the apply stage"
+					],
+					params: {
+						"1": {
+							name: "preparedObject",
+							comments: "the result of the prepare stage"
+						}
+					}
+				}
+			]
+		}
+	]
+}

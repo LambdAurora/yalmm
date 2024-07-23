@@ -1,0 +1,32 @@
+{
+	source: "net/minecraft/class_151",
+	name: "net/minecraft/resources/InvalidIdentifierException",
+	comments: [
+		"Represents an exception thrown when parsing or constructing an {@link Identifier}",
+		"that contains an invalid character.",
+		"This should not be caught, instead {@link Identifier#tryParse} or {@link Identifier#of} should be used."
+	],
+	methods: [
+		{
+			source: "<init>",
+			descriptor: "(Ljava/lang/String;)V",
+			params: {
+				"1": {
+					name: "message"
+				}
+			}
+		},
+		{
+			source: "<init>",
+			descriptor: "(Ljava/lang/String;Ljava/lang/Throwable;)V",
+			params: {
+				"1": {
+					name: "message"
+				},
+				"2": {
+					name: "cause"
+				}
+			}
+		}
+	]
+}

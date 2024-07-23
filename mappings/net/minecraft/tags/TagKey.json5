@@ -1,0 +1,79 @@
+{
+	source: "net/minecraft/class_6862",
+	name: "net/minecraft/tags/TagKey",
+	comments: [
+		"Represents the key to a tag.",
+		"<p>",
+		"To create a tag key {@link #of} should be used instead of the constructor.",
+		"",
+		"@param registry the registry of the tag",
+		"@param id the identifier of the tag"
+	],
+	fields: [
+		{
+			source: "comp_327",
+			name: "id",
+			descriptor: "Lnet/minecraft/class_2960;"
+		}
+	],
+	methods: [
+		{
+			source: "comp_326",
+			name: "registry",
+			descriptor: "()Lnet/minecraft/class_5321;",
+			comments: "{@return the registry of the tag}"
+		},
+		{
+			source: "comp_327",
+			name: "id",
+			descriptor: "()Lnet/minecraft/class_2960;",
+			comments: "{@return the identifier of the tag}"
+		},
+		{
+			source: "<init>",
+			descriptor: "(Lnet/minecraft/class_5321;Lnet/minecraft/class_2960;)V",
+			params: {
+				"1": {
+					name: "registry"
+				},
+				"2": {
+					name: "id"
+				}
+			}
+		},
+		{
+			source: "method_40092",
+			name: "of",
+			descriptor: "(Lnet/minecraft/class_5321;Lnet/minecraft/class_2960;)Lnet/minecraft/class_6862;",
+			comments: [
+				"Returns an instance of the tag key of the specified registry and identifier.",
+				"<p>",
+				"This method is backed by an interner, which means any existing instances of a matching tag key",
+				"will be returned instead of instantiating a new tag key.",
+				"",
+				"@return an instance of the tag key"
+			],
+			params: {
+				"0": {
+					name: "registry",
+					comments: "the registry of the tag"
+				},
+				"1": {
+					name: "id",
+					comments: "the identifier of the tag"
+				}
+			}
+		},
+		{
+			source: "method_41007",
+			name: "isOfRegistry",
+			descriptor: "(Lnet/minecraft/class_5321;)Z",
+			comments: "{@return {@code true} if this tag key is of the given registry, or {@code false} otherwise}",
+			params: {
+				"1": {
+					name: "registry"
+				}
+			}
+		}
+	]
+}

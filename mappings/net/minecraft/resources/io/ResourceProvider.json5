@@ -1,0 +1,109 @@
+{
+	source: "net/minecraft/class_5912",
+	name: "net/minecraft/resources/io/ResourceProvider",
+	comments: [
+		"Provides resource access."
+	],
+	fields: [
+		{
+			source: "field_49043",
+			name: "EMPTY",
+			descriptor: "Lnet/minecraft/class_5912;"
+		}
+	],
+	methods: [
+		{
+			source: "method_14486",
+			name: "getResource",
+			descriptor: "(Lnet/minecraft/class_2960;)Ljava/util/Optional;",
+			comments: [
+				"Finds and returns the corresponding resource for the given identifier.",
+				"<p>",
+				"Starts by scanning each resource pack from highest priority to lowest.",
+				"If no resource packs were found to contain the requested entry, will return {@link Optional#empty()}.",
+				"<p>",
+				"The returned resource must be closed to avoid resource leaks.",
+				"",
+				"@return the corresponding resource for the given identifier, or {@link Optional#empty()} if not found"
+			],
+			params: {
+				"1": {
+					name: "id",
+					comments: "the identifier of the resource to search for"
+				}
+			}
+		},
+		{
+			source: "getResourceOrThrow",
+			descriptor: "(Lnet/minecraft/class_2960;)Lnet/minecraft/class_3298;",
+			comments: [
+				"Finds and returns the corresponding resource for the given identifier.",
+				"<p>",
+				"Starts by scanning each resource pack from highest priority to lowest.",
+				"If no resource packs were found to contain the requested entry, will throw {@link FileNotFoundException}.",
+				"<p>",
+				"The returned resource must be closed to avoid resource leaks.",
+				"",
+				"@return the corresponding resource for the given identifier",
+				"@throws FileNotFoundException if the corresponding resource was not found"
+			],
+			params: {
+				"1": {
+					name: "id",
+					comments: "the resource identifier to search for"
+				}
+			}
+		},
+		{
+			source: "open",
+			descriptor: "(Lnet/minecraft/class_2960;)Ljava/io/InputStream;",
+			comments: [
+				"Opens a new input stream to read the corresponding resource for the given identifier.",
+				"",
+				"@return an input stream of the corresponding resource",
+				"@throws IOException if opening this resource failed",
+				"@throws FileNotFoundException if the corresponding resource was not found",
+				"@see #openAsReader(Identifier)",
+				"@see Resource#open()"
+			],
+			params: {
+				"1": {
+					name: "id",
+					comments: "the resource identifier to search for"
+				}
+			}
+		},
+		{
+			source: "openAsReader",
+			descriptor: "(Lnet/minecraft/class_2960;)Ljava/io/BufferedReader;",
+			comments: [
+				"Opens a new buffered reader to read the corresponding resource for the given identifier.",
+				"",
+				"@return a buffered reader of the corresponding resource",
+				"@throws IOException if opening this resource failed",
+				"@throws FileNotFoundException if the corresponding resource was not found",
+				"@see #open(Identifier)",
+				"@see Resource#openAsReader()"
+			],
+			params: {
+				"1": {
+					name: "startingPath",
+					comments: "the starting path to begin scanning from"
+				},
+				"2": {
+					name: "pathFilter",
+					comments: "a predicate to determine whether a path should be included or not"
+				}
+			}
+		},
+		{
+			source: "method_56937",
+			descriptor: "(Lnet/minecraft/class_2960;)Ljava/util/Optional;",
+			params: {
+				"0": {
+					name: "id"
+				}
+			}
+		}
+	]
+}

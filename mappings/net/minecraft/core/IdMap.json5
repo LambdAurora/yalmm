@@ -1,0 +1,56 @@
+{
+	source: "net/minecraft/class_2359",
+	name: "net/minecraft/core/IdMap",
+	methods: [
+		{
+			source: "method_10200",
+			name: "get",
+			descriptor: "(I)Ljava/lang/Object;",
+			comments: "{@return the value at the given {@code index}, or {@code null} if not found}",
+			params: {
+				"1": {
+					name: "index",
+					comments: "the numerical identifier of the value to get"
+				}
+			}
+		},
+		{
+			source: "method_39974",
+			name: "getOrThrow",
+			descriptor: "(I)Ljava/lang/Object;",
+			comments: [
+				"{@return the value at the given {@code index}}",
+				"",
+				"@throws IllegalArgumentException if the value does not exist"
+			]
+		},
+		{
+			source: "method_10206",
+			name: "getRawId",
+			descriptor: "(Ljava/lang/Object;)I",
+			comments: "{@return the raw identifier of the given {@code value}, or {@value #DEFAULT} if the value is not known}",
+			params: {
+				"1": {
+					name: "value",
+					comments: "the value for which to get its raw identifier"
+				}
+			}
+		},
+		{
+			source: "method_56158",
+			name: "getRawIdOrThrow",
+			descriptor: "(Ljava/lang/Object;)I",
+			comments: [
+				"{@return the raw identifier of the given {@code value}}",
+				"",
+				"@throws IllegalArgumentException if the value is not known"
+			],
+			params: {
+				"1": {
+					name: "value",
+					comments: "the value for which to get its raw identifier"
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,126 @@
+{
+	source: "net/minecraft/class_2378",
+	name: "net/minecraft/core/Registry",
+	comments: [
+		"Represents a registry which is used to register various in-game components.",
+		"<p>",
+		"Almost all parts of the game - from blocks, items, and entity types, to cat types,",
+		"goat horn instruments, and structure pools - are registered in registries.",
+		"The registry system allows the game to enumerate all known types of something,",
+		"and to assign a unique identifier to each of those.",
+		"Therefore, registering an object in the registry plays a very important role,",
+		"and failure to register new instances of registerable object usually results in a bug or even a crash.",
+		"",
+		"<h2 id=\"terms\">Terminologies</h2>",
+		"<p>",
+		"A <strong>registry</strong> is an object that holds the mapping between three things:",
+		"the string identifier, the numeric identifier, and the registered value.",
+		"There are many registries for different types of registerable objects,",
+		"and a registry's type parameter indicates the accepted type.",
+		"For example, you register your {@link net.minecraft.world.level.block.Block} to {@code Registry<Block>}.",
+		"It's important to note that registries themselves are registered in a \"registry of registries\",",
+		"{@link net.minecraft.core.registries.BuiltInRegistries#REGISTRIES}.",
+		"<p>",
+		"The <strong>string identifier</strong>, usually just called \"ID\" or \"identifier\",",
+		"is a human-readable {@link Identifier} that uniquely identifies the registered value in a registry.",
+		"This should stay the same between two game versions, and is usually used for disk storage.",
+		"<p>",
+		"The <strong>numeric identifier</strong> or <strong>raw identifier</strong>",
+		"is an integer assigned automatically by the registry to each registered value.",
+		"This is not guaranteed to stay the same between two game versions, and is usually used for networking purposes.",
+		"<p>",
+		"The <strong>registered value</strong>, often just called \"value\" in the code, is the value added to the registry.",
+		"The registry's type parameter determines the type of the registered value.",
+		"<p>",
+		"Each registered value can also be identified with a <strong>{@linkplain ResourceKey resource key}</strong>.",
+		"A resource key is a combination of the registry's identifier and the registered value's identifier.",
+		"Using a registry key makes the type of the identifier's associated value clear, as the type parameter contains the type.",
+		"<p>",
+		"An <strong>{@linkplain Holder holder}</strong> is an object holding a value that can be registered in a registry.",
+		"In most cases, the value is already registered in a registry (\"reference entry\"), hence the name;",
+		"however, it is possible to create an holder by direct reference (\"direct entry\").",
+		"This is useful for data packs, as they can define one-time use values directly without having to register them every time."
+	],
+	methods: [
+		{
+			source: "method_10221",
+			name: "getId",
+			descriptor: "(Ljava/lang/Object;)Lnet/minecraft/class_2960;",
+			comments: "{@return the identifier associated with {@code value}, or {@code null} if it is not registered}",
+			params: {
+				"1": {
+					name: "value",
+					comments: "the value"
+				}
+			}
+		},
+		{
+			source: "method_29113",
+			name: "getKey",
+			descriptor: "(Ljava/lang/Object;)Ljava/util/Optional;",
+			comments: [
+				"{@return the resource key associated with {@code value},",
+				"or an {@linkplain Optional#empty() empty optional} if it is not registered}"
+			],
+			params: {
+				"1": {
+					name: "value",
+					comments: "the value"
+				}
+			}
+		},
+		{
+			source: "method_10223",
+			name: "get",
+			descriptor: "(Lnet/minecraft/class_2960;)Ljava/lang/Object;",
+			comments: "{@return the value that is assigned to {@code id}, or {@code null} if there is none}",
+			params: {
+				"1": {
+					name: "id",
+					comments: "the identifier of the value"
+				}
+			}
+		},
+		{
+			source: "method_29107",
+			name: "get",
+			descriptor: "(Lnet/minecraft/class_5321;)Ljava/lang/Object;",
+			comments: "{@return the value that is assigned to {@code key}, or {@code null} if there is none}",
+			params: {
+				"1": {
+					name: "key",
+					comments: "the resource key of the value"
+				}
+			}
+		},
+		{
+			source: "method_10250",
+			name: "containsId",
+			descriptor: "(Lnet/minecraft/class_2960;)Z",
+			comments: "{@return {@code true} if {@code id} is registered in this registry, or {@code false} otherwise}",
+			params: {
+				"1": {
+					name: "id",
+					comments: "the identifier to check for"
+				}
+			}
+		},
+		{
+			source: "method_10235",
+			name: "idSet",
+			descriptor: "()Ljava/util/Set;",
+			comments: "{@return the set of all identifiers registered in this registry}"
+		},
+		{
+			source: "method_42021",
+			name: "keySet",
+			descriptor: "()Ljava/util/Set;",
+			comments: "{@return the set of all resource keys registered in this registry}"
+		},
+		{
+			source: "method_31138",
+			name: "getLifecycle",
+			descriptor: "()Lcom/mojang/serialization/Lifecycle;"
+		}
+	]
+}

@@ -1,0 +1,68 @@
+{
+	source: "net/minecraft/class_4080",
+	name: "net/minecraft/resources/io/SinglePreparationResourceReloader",
+	comments: [
+		"A base resource reloader implementation that prepares an object in a",
+		"single call (as opposed to in multiple concurrent tasks) and handles",
+		"the prepared object in the apply stage.",
+		"",
+		"@param <T> the intermediate object type"
+	],
+	methods: [
+		{
+			source: "method_18789",
+			name: "prepare",
+			descriptor: "(Lnet/minecraft/class_3300;Lnet/minecraft/class_3695;)Ljava/lang/Object;",
+			comments: [
+				"Prepares the intermediate object.",
+				"<p>",
+				"This method is called in the prepare executor in a reload.",
+				"",
+				"@return the prepared object"
+			],
+			params: {
+				"1": {
+					name: "manager",
+					comments: "the resource manager"
+				},
+				"2": {
+					name: "profiler",
+					comments: "the prepare profiler"
+				}
+			}
+		},
+		{
+			source: "method_18788",
+			name: "apply",
+			descriptor: "(Ljava/lang/Object;Lnet/minecraft/class_3300;Lnet/minecraft/class_3695;)V",
+			comments: [
+				"Handles the prepared intermediate object.",
+				"<p>",
+				"This method is called in the apply executor, or the game engine, in a reload."
+			],
+			params: {
+				"1": {
+					name: "prepared",
+					comments: "the prepared object"
+				},
+				"2": {
+					name: "manager",
+					comments: "the resource manager"
+				},
+				"3": {
+					name: "profiler",
+					comments: "the apply profiler"
+				}
+			}
+		},
+		{
+			source: "method_18790",
+			descriptor: "(Lnet/minecraft/class_3300;Lnet/minecraft/class_3695;Ljava/lang/Object;)V",
+			params: {
+				"3": {
+					name: "prepared"
+				}
+			}
+		}
+	]
+}

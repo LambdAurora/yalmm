@@ -1,0 +1,49 @@
+{
+	source: "net/minecraft/class_7367",
+	name: "net/minecraft/resources/io/ResourceIoSupplier",
+	comments: [
+		"Represents a supplier of resource I/O."
+	],
+	methods: [
+		{
+			source: "create",
+			descriptor: "(Ljava/nio/file/Path;)Lnet/minecraft/class_7367;",
+			comments: "{@return an input stream supplier of the file at the given path}",
+			params: {
+				"0": {
+					name: "path",
+					"comments": [
+						"the path of the file"
+					]
+				}
+			}
+		},
+		{
+			source: "create",
+			descriptor: "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;)Lnet/minecraft/class_7367;",
+			comments: [
+				"{@return an input stream supplier of the given ZIP file's entry}"
+			],
+			params: {
+				"0": {
+					name: "zip",
+					comments: "the zip file"
+				},
+				"1": {
+					name: "entry",
+					comments: "the entry to open in the zip file"
+				}
+			}
+		},
+		{
+			source: "get",
+			descriptor: "()Ljava/lang/Object;",
+			comments: [
+				"Supplies the resource.",
+				"",
+				"@return the resource",
+				"@throws IOException if supplying the resource failed"
+			]
+		}
+	]
+}

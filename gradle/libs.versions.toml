@@ -1,0 +1,11 @@
+[versions]
+jetbrains-annotations = "24.0.1"
+download_task = "4.1.1"
+gson = "2.11.0"
+vineflower = "1.10.1"
+
+[libraries]
+jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains-annotations" }
+download_task = { module = "de.undercouch:gradle-download-task", version.ref = "download_task" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+vineflower = { module = "org.vineflower:vineflower", version.ref = "vineflower" }

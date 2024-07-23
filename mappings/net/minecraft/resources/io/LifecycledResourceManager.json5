@@ -1,0 +1,9 @@
+{
+	source: "net/minecraft/class_6860",
+	name: "net/minecraft/resources/io/LifecycledResourceManager",
+	comments: [
+		"Represents a lifecycled resource manager that is available until it is {@linkplain #close() closed}.",
+		"<p>",
+		"In principle, it should not be accessed any more after closing; use another resource manager instead."
+	]
+}
