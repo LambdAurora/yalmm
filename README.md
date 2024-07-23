@@ -45,7 +45,7 @@ Simply add the following to your buildscript:
 repositories {
 	maven {
 		name = "Gegy"
-		url = uri("https://maven.gegy.dev/")
+		url = uri("https://maven.gegy.dev/releases/")
 	}
 }
 
