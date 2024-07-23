@@ -27,7 +27,7 @@ publishing {
 			val mavenRepo = System.getenv("MAVEN_URL")
 			if (mavenRepo != null) {
 				maven {
-					name = "Maven Repository"
+					name = "ReleaseMaven"
 					url = uri(mavenRepo)
 					credentials {
 						username = (project.findProperty("gpr.user") ?: System.getenv("MAVEN_USERNAME")) as String

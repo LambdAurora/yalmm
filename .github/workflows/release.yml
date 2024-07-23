@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   build:
+    if: ${{ github.repository_owner == 'LambdAurora' }}
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
@@ -33,7 +34,7 @@ jobs:
         id: buildnumber
         uses: onyxmueller/build-tag-number@v1
         with:
-          token: ${{ secrets.github_token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           prefix: "build/${{ github.ref }}"
 
       - name: "Gradle Publish"
