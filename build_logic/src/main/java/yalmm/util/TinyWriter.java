@@ -6,7 +6,7 @@ import yalmm.model.MappingEntry;
 import yalmm.model.MappingField;
 import yalmm.model.MappingMethod;
 
-public class TinyWriter {
+public final class TinyWriter {
 	private final StringBuilder builder;
 	private final int level;
 

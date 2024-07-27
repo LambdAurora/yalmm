@@ -30,7 +30,7 @@ class Downloader(private val task: Task) {
 	@Throws(IOException::class)
 	fun download() {
 		val downloadAction = DownloadAction(this.project, this.task)
-		downloadAction.src(URI(this.src!!))
+		downloadAction.src(URI(this.src!!).toURL())
 		downloadAction.dest(this.dest!!)
 		downloadAction.overwrite(this.overwrite)
 

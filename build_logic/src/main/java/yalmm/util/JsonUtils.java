@@ -9,7 +9,7 @@ import yalmm.model.MappingMethod;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class JsonUtils {
+public final class JsonUtils {
 	public static final Type STRING_LIST_TYPE = TypeToken.getParameterized(List.class, String.class).getType();
 
 	public static final Gson GSON = new GsonBuilder()

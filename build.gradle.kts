@@ -9,6 +9,17 @@ plugins {
 version = "${Constants.MINECRAFT_VERSION}+build.${System.getenv().getOrDefault("BUILD_NUMBER", "local")}"
 base.archivesName.set("yalmm")
 
+repositories {
+	maven {
+		name = "Fabric Maven"
+		url = uri("https://maven.fabricmc.net/")
+	}
+}
+
+dependencies {
+	intermediaryMappings("net.fabricmc:intermediary:${Constants.MINECRAFT_VERSION}")
+}
+
 publishing {
 	publications {
 		create<MavenPublication>("maven") {
