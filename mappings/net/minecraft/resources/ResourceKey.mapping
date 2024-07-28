@@ -1,0 +1,2 @@
+CLASS net/minecraft/resources/ResourceKey
+	METHOD location id ()Lnet/minecraft/resources/ResourceLocation;

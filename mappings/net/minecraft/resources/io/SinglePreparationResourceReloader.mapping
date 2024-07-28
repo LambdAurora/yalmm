@@ -1,0 +1,28 @@
+CLASS net/minecraft/server/packs/resources/SimplePreparableReloadListener net/minecraft/resources/io/SinglePreparationResourceReloader
+	COMMENT A base resource reloader implementation that prepares an object in a
+	COMMENT single call (as opposed to in multiple concurrent tasks) and handles
+	COMMENT the prepared object in the apply stage.
+	COMMENT
+	COMMENT @param <T> the intermediate object type
+	METHOD apply apply (Ljava/lang/Object;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V
+		COMMENT Handles the prepared intermediate object.
+		COMMENT <p>
+		COMMENT This method is called in the apply executor, or the game engine, in a reload.
+		ARG 1 prepared
+			COMMENT the prepared object
+		ARG 2 resourceManager
+			COMMENT the resource manager
+		ARG 3 profiler
+			COMMENT the apply profiler
+	METHOD lambda$reload$1 (Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;Ljava/lang/Object;)V
+		ARG 3 prepared
+	METHOD prepare prepare (Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)Ljava/lang/Object;
+		COMMENT Prepares the intermediate object.
+		COMMENT <p>
+		COMMENT This method is called in the prepare executor in a reload.
+		COMMENT
+		COMMENT @return the prepared object
+		ARG 1 resourceManager
+			COMMENT the resource manager
+		ARG 2 profiler
+			COMMENT the prepare profiler

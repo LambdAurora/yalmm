@@ -1,0 +1,41 @@
+CLASS net/minecraft/server/packs/resources/ReloadableResourceManager net/minecraft/resources/io/ReloadableResourceManager
+	COMMENT Represents a resource manager that has a reload mechanism.
+	COMMENT Reloading allows reloaders to update when resources change.
+	COMMENT Accessing resources in reloads can reduce impact on game performance as well.
+	COMMENT <p>
+	COMMENT In each reload, all reloaders in this resource manager will have
+	COMMENT their {@linkplain ResourceReloader#reload reload} called.
+	COMMENT
+	COMMENT @see ResourceReloader
+	FIELD listeners reloaders Ljava/util/List;
+	FIELD resources activeManager Lnet/minecraft/server/packs/resources/CloseableResourceManager;
+	FIELD type type Lnet/minecraft/server/packs/PackType;
+	METHOD <init> (Lnet/minecraft/server/packs/PackType;)V
+		ARG 1 type
+	METHOD createReload reload (Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/List;)Lnet/minecraft/server/packs/resources/ReloadInstance;
+		COMMENT Performs a reload. Returns an object that yields some insights on the reload.
+		COMMENT <p>
+		COMMENT {@code prepareExecutor} may be asynchronous. {@code applyExecutor} must
+		COMMENT synchronize with the game engine so changes are properly made to it.
+		COMMENT The reload will only begin after {@code initialStage} has completed.
+		COMMENT Earlier elements in {@code packs} have lower priorities.
+		COMMENT <p>
+		COMMENT This also swaps the active resource manager with another backed by the given {@code packs}.
+		COMMENT
+		COMMENT @return the reload
+		COMMENT @see ResourceReloader#reload
+		ARG 1 prepareExecutor
+			COMMENT an executor for the prepare stage
+		ARG 2 applyExecutor
+			COMMENT an executor for the apply stage
+		ARG 3 initialStage
+			COMMENT a completable future to be completed before this reload
+		ARG 4 packs
+			COMMENT a list of resource packs providing the resources
+	METHOD registerReloadListener registerReloader (Lnet/minecraft/server/packs/resources/PreparableReloadListener;)V
+		COMMENT Registers a resource reloader to this manager.
+		COMMENT <p>
+		COMMENT The registered resource reloader will be triggered every time this
+		COMMENT resource manager is reloaded.
+		ARG 1 reloader
+			COMMENT the reloader to register

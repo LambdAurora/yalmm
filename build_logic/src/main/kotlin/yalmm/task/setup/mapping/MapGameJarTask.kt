@@ -10,13 +10,13 @@ open class MapGameJarTask : MapJarTask(Constants.Groups.SETUP, "official", "name
 	}
 
 	init {
-		this.dependsOn(MergeGameJarsTask.TASK_NAME, BuildMojangTiny.TASK_NAME)
+		this.dependsOn(MergeGameJarsTask.TASK_NAME, BuildMojangTinyTask.TASK_NAME)
 
 		this.inputJar.convention {
 			this.getTaskByName<MergeGameJarsTask>(MergeGameJarsTask.TASK_NAME).mergedJar
 		}
 		this.mappingsFile.convention {
-			this.getTaskByName<BuildMojangTiny>(BuildMojangTiny.TASK_NAME).tinyFile
+			this.getTaskByName<BuildMojangTinyTask>(BuildMojangTinyTask.TASK_NAME).tinyFile
 		}
 		this.outputJar.convention { this.fileConstants.mcVersionDir.resolve("mapped_game.jar").toFile() }
 

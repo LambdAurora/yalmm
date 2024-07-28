@@ -1,0 +1,91 @@
+CLASS com/mojang/blaze3d/vertex/PoseStack com/mojang/blaze3d/vertex/MatrixStack
+	COMMENT A stack of transformation matrices used to specify how 3D objects are
+	COMMENT {@linkplain #translate translated}, {@linkplain #scale scaled} or
+	COMMENT {@linkplain #rotate rotated} in 3D space. Each entry consists of a
+	COMMENT {@linkplain Entry#model model matrix} and its
+	COMMENT corresponding {@linkplain Entry#normal normal matrix}.
+	COMMENT <p>
+	COMMENT By putting matrices in a stack, a transformation can be expressed
+	COMMENT relative to another. You can {@linkplain #push push}, transform,
+	COMMENT render and {@linkplain #pop pop}, which allows you to restore the
+	COMMENT original matrix after rendering.
+	COMMENT <p>
+	COMMENT An entry of identity matrix is pushed when a stack is created. This
+	COMMENT means that a stack is {@linkplain #isEmpty empty} if and only if the
+	COMMENT stack contains exactly one entry.
+	FIELD poseStack stack Ljava/util/Deque;
+	METHOD clear isEmpty ()Z
+		COMMENT {@return {@code true} if the matrix stack is empty, or {@code false} otherwise}
+	METHOD last peek ()Lcom/mojang/blaze3d/vertex/PoseStack$Pose;
+		COMMENT {@return the current set of model and normal matrices that are being manipulated from the stack}
+	METHOD mulPose multiply (Lorg/joml/Matrix4f;)V
+		COMMENT Multiplies the current model matrix by the given matrix.
+		COMMENT <p>
+		COMMENT This does not update the normal matrix unlike other transformation methods.
+		ARG 1 matrix
+			COMMENT the matrix to multiply with
+	METHOD mulPose rotate (Lorg/joml/Quaternionf;)V
+		COMMENT Applies the rotation transformation of the given {@link Quaternionf} to the current matrix.
+		COMMENT
+		COMMENT @see #rotateAround(Quaternionf, float, float, float)
+		ARG 1 quaternion
+			COMMENT the rotation transformation quaternion
+	METHOD popPose pop ()V
+		COMMENT Pops the current entry from this stack.
+	METHOD pushPose push ()V
+		COMMENT Pushes a new model and normal matrix onto this stack.
+	METHOD rotateAround rotateAround (Lorg/joml/Quaternionf;FFF)V
+		COMMENT Applies the rotation transformation of the given {@link Quaternionf} to the current matrix
+		COMMENT while using {@code (oX, oY, oZ)} as the rotation origin.
+		COMMENT
+		COMMENT @see #rotate(Quaternionf)
+		ARG 1 quaternion
+			COMMENT the rotation transformation quaternion
+		ARG 2 oX
+			COMMENT the X-coordinate of the rotation origin
+		ARG 3 oY
+			COMMENT the Y-coordinate of the rotation origin
+		ARG 4 oZ
+			COMMENT the Z-coordinate of the rotation origin
+	METHOD scale scale (FFF)V
+		COMMENT Scales the current model and normal matrices.
+		ARG 1 x
+			COMMENT the scaling factor on the X axis
+		ARG 2 y
+			COMMENT the scaling factor on the Y axis
+		ARG 3 z
+			COMMENT the scaling factor on the Z axis
+	METHOD setIdentity useIdentity ()V
+		COMMENT Sets the identity matrix for the current model and normal matrices.
+	METHOD translate translate (DDD)V
+		COMMENT Translates the model.
+		COMMENT
+		COMMENT @see #translate(float, float, float)
+		ARG 1 x
+			COMMENT the translation amount on the X axis
+		ARG 3 y
+			COMMENT the translation amount on the Y axis
+		ARG 5 z
+			COMMENT the translation amount on the Z axis
+	METHOD translate translate (FFF)V
+		COMMENT Translates the model.
+		COMMENT
+		COMMENT @see #translate(double, double, double)
+		ARG 1 x
+			COMMENT the translation amount on the X axis
+		ARG 2 y
+			COMMENT the translation amount on the Y axis
+		ARG 3 z
+			COMMENT the translation amount on the Z axis
+	CLASS Pose Entry
+		FIELD normal normalMatrix Lorg/joml/Matrix3f;
+		FIELD pose modelMatrix Lorg/joml/Matrix4f;
+		METHOD copy copy ()Lcom/mojang/blaze3d/vertex/PoseStack$Pose;
+		METHOD normal normal ()Lorg/joml/Matrix3f;
+			COMMENT {@return the normal matrix}
+			COMMENT <p>
+			COMMENT The normal matrix is used to transform normal vectors of a model to render.
+		METHOD pose model ()Lorg/joml/Matrix4f;
+			COMMENT {@return the model matrix}
+			COMMENT <p>
+			COMMENT The model matrix contains the position and rotation data needed for a model to render.

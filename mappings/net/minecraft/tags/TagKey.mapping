@@ -1,0 +1,27 @@
+CLASS net/minecraft/tags/TagKey
+	COMMENT Represents the key to a tag.
+	COMMENT <p>
+	COMMENT To create a tag key {@link #of} should be used instead of the constructor.
+	FIELD location id Lnet/minecraft/resources/ResourceLocation;
+		COMMENT the identifier of the tag
+	FIELD registry registry Lnet/minecraft/resources/ResourceKey;
+		COMMENT the registry of the tag
+	METHOD <init> (Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/resources/ResourceLocation;)V
+		ARG 1 registry
+		ARG 2 id
+	METHOD create of (Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/tags/TagKey;
+		COMMENT Returns an instance of the tag key of the specified registry and identifier.
+		COMMENT <p>
+		COMMENT This method is backed by an interner, which means any existing instances of a matching tag key
+		COMMENT will be returned instead of instantiating a new tag key.
+		COMMENT
+		COMMENT @return an instance of the tag key
+		ARG 0 registry
+			COMMENT the registry of the tag
+		ARG 1 id
+			COMMENT the identifier of the tag
+	METHOD isFor isOfRegistry (Lnet/minecraft/resources/ResourceKey;)Z
+		COMMENT {@return {@code true} if this tag key is of the given registry, or {@code false} otherwise}
+		ARG 1 registry
+	METHOD location id ()Lnet/minecraft/resources/ResourceLocation;
+	METHOD registry registry ()Lnet/minecraft/resources/ResourceKey;

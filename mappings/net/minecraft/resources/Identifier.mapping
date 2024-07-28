@@ -1,0 +1,104 @@
+CLASS net/minecraft/resources/ResourceLocation net/minecraft/resources/Identifier
+	COMMENT Represents an immutable identifier used to identify things
+	COMMENT using a combination of a {@linkplain #namespace() namespace} and a {@linkplain #path() path}.
+	COMMENT Identifiers should always be compared using {@link #equals} method, not {@code ==}.
+	COMMENT <p>
+	COMMENT The namespace and path must contain only lowercase letters ({@code [a-z]}), digits ({@code [0-9]}),
+	COMMENT or the characters {@code '_'}, {@code '.'}, and {@code '-'}.
+	COMMENT The path can also contain the standard path separator {@code '/'}.
+	COMMENT
+	COMMENT @see net.minecraft.resources.ResourceKey
+	FIELD DEFAULT_NAMESPACE DEFAULT_NAMESPACE Ljava/lang/String;
+		COMMENT The default namespace whose value is {@value}.
+	FIELD NAMESPACE_SEPARATOR NAMESPACE_SEPARATOR C
+		COMMENT The separator between the namespace and the path whose value is {@value}.
+	FIELD namespace namespace Ljava/lang/String;
+	FIELD path path Ljava/lang/String;
+	METHOD <init> (Ljava/lang/String;Ljava/lang/String;)V
+		ARG 1 namespace
+		ARG 2 path
+	METHOD compareTo compareTo (Ljava/lang/Object;)I
+		ARG 1 o
+	METHOD createUntrusted ofValidated (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+		ARG 0 namespace
+			COMMENT the namespace of the identifier
+		ARG 1 path
+			COMMENT the path of the identifier
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 1 o
+	METHOD fromNamespaceAndPath of (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+		ARG 0 namespace
+			COMMENT the namespace of the identifier
+		ARG 1 path
+			COMMENT the path of the identifier
+	METHOD getNamespace namespace ()Ljava/lang/String;
+		COMMENT {@return the namespace of the identifier}
+		COMMENT <p>
+		COMMENT This returns {@value #DEFAULT_NAMESPACE} for identifiers created without an explicit namespace.
+	METHOD getPath path ()Ljava/lang/String;
+		COMMENT {@return the path of the identifier}
+	METHOD parse parse (Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+		ARG 0 id
+	METHOD toLanguageKey toTranslationKey ()Ljava/lang/String;
+		COMMENT {@return the full translation key of this identifier}
+		COMMENT <p>
+		COMMENT <strong>Warning</strong>: this method does not replace any slash in the path with dots.
+		COMMENT
+		COMMENT @see #toTranslationKey(String)
+		COMMENT @see #toTranslationKey(String, String)
+		COMMENT @see #toShortTranslationKey()
+	METHOD toLanguageKey toTranslationKey (Ljava/lang/String;)Ljava/lang/String;
+		COMMENT {@return the {@linkplain #toTranslationKey() full translation key of this identifier} prefixed with {@code prefix} and a dot}
+		COMMENT <p>
+		COMMENT <strong>Warning</strong>: this method does not replace any slash in the path with dots.
+		COMMENT
+		COMMENT @see #toTranslationKey()
+		COMMENT @see #toTranslationKey(String, String)
+		COMMENT @see #toShortTranslationKey()
+		ARG 1 prefix
+			COMMENT the prefix of the translation key
+	METHOD toLanguageKey toTranslationKey (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+		COMMENT {@return the {@linkplain #toTranslationKey() full translation key of this identifier} prefixed with {@code prefix} and a dot,
+		COMMENT and suffixed with a dot and {@code suffix}}
+		COMMENT <p>
+		COMMENT <strong>Warning</strong>: this method does not replace any slash in the path with dots.
+		COMMENT
+		COMMENT @see #toTranslationKey()
+		COMMENT @see #toTranslationKey(String)
+		COMMENT @see #toShortTranslationKey()
+		ARG 1 prefix
+			COMMENT the prefix of the translation key
+		ARG 2 suffix
+			COMMENT the suffix of the translation key
+	METHOD toShortLanguageKey toShortTranslationKey ()Ljava/lang/String;
+		COMMENT {@return the short translation key, with the default namespace omitted if present}
+		COMMENT
+		COMMENT @see #toTranslationKey()
+		COMMENT @see #toTranslationKey(String)
+		COMMENT @see #toTranslationKey(String, String)
+	METHOD tryBuild tryParse (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+		COMMENT {@return an identifier from the provided {@code namespace} and {@code path}, or {@code null} if either argument is invalid}
+		COMMENT
+		COMMENT @see #tryParse(String)
+		ARG 0 namespace
+			COMMENT the namespace of the identifier to parse
+		ARG 1 path
+			COMMENT the path of the identifier to parse
+	METHOD tryParse tryParse (Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+		COMMENT {@return {@code id} parsed as an identifier, or {@code null} if it cannot be parsed}
+		COMMENT
+		COMMENT @see #tryParse(String, String)
+		ARG 0 id
+			COMMENT the identifier to parse
+	METHOD validNamespaceChar isNamespaceCharValid (C)Z
+		ARG 0 c
+	METHOD validPathChar isCharValid (C)Z
+		ARG 0 c
+	METHOD withDefaultNamespace ofDefault (Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+		COMMENT Creates a new identifier within the default namespace (whose value is {@value #DEFAULT_NAMESPACE})
+		COMMENT with the given path.
+		COMMENT
+		COMMENT @return a new identifier within the default namespace with the given path
+		ARG 0 path
+			COMMENT the path of the identifier
+	CLASS Serializer

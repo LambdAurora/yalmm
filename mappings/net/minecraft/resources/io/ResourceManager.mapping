@@ -1,0 +1,41 @@
+CLASS net/minecraft/server/packs/resources/ResourceManager net/minecraft/resources/io/ResourceManager
+	COMMENT Provides resource loading capabilities to Minecraft.
+	METHOD getNamespaces getNamespaces ()Ljava/util/Set;
+		COMMENT {@return a set of all the namespaces offered by the resource packs loaded by this manager}
+	METHOD getResourceStack getAllResources (Lnet/minecraft/resources/ResourceLocation;)Ljava/util/List;
+		COMMENT Gets all of the available resources to the corresponding resource identifier.
+		COMMENT <p>
+		COMMENT Resources are returned in load order, or ascending order of priority, so the last element in the returned
+		COMMENT list is what would be returned normally by {@link #getResource}
+		COMMENT <p>
+		COMMENT Each resource entry in this returned list contains the name of the resource pack its from and a way to open the resource.
+		COMMENT
+		COMMENT @return a list of the available resources to the corresponding resource identifier
+		ARG 1 id
+			COMMENT the resource identifier to search for
+	METHOD listPacks streamPacks ()Ljava/util/stream/Stream;
+		COMMENT {@return a stream of the loaded resource pack layers in increasing order of priority}
+	METHOD listResourceStacks findAllResources (Ljava/lang/String;Ljava/util/function/Predicate;)Ljava/util/Map;
+		COMMENT Returns a map of identifiers and all sourced resources matching a path predicate.
+		COMMENT <p>
+		COMMENT Scanning begins in {@code startingPath} and each candidate file present under that directory
+		COMMENT will be offered up to the predicate to decide whether it should be included or not.
+		COMMENT
+		COMMENT @return the map matching identifiers and sourced resources
+		ARG 1 startingPath
+			COMMENT the starting path to begin scanning from
+		ARG 2 pathFilter
+			COMMENT a predicate to determine whether a path should be included or not
+	METHOD listResources findResources (Ljava/lang/String;Ljava/util/function/Predicate;)Ljava/util/Map;
+		COMMENT Returns a map of identifiers and sourced resources matching a path predicate.
+		COMMENT <p>
+		COMMENT Scanning begins in {@code startingPath} and each candidate file present under that directory
+		COMMENT will be offered up to the predicate to decide whether it should be included or not.
+		COMMENT
+		COMMENT @return the map matching identifiers and sourced resources
+		ARG 1 startingPath
+			COMMENT the starting path to begin scanning from
+		ARG 2 pathFilter
+			COMMENT a predicate to determine whether a path should be included or not
+	CLASS Empty
+		COMMENT Represents a resource manager that does not hold any resources.

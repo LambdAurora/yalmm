@@ -1,0 +1,8 @@
+CLASS net/minecraft/util/Mth net/minecraft/util/math/MathHelper
+	COMMENT Contains math-related helper methods. This includes {@code float}-specific extensions
+	COMMENT to {@link Math}, linear interpolation (lerp), and color-related methods.
+	COMMENT <p>
+	COMMENT Trigonometric functions defined in this class use the \\"sine table\\", a pre-calculated
+	COMMENT table of {@code sin(N)} ({@code 0 <= N < pi * 2}).
+	FIELD TWO_PI TAU F
+		COMMENT Tau is equal to {@code 2 * PI}.

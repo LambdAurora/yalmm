@@ -6,6 +6,7 @@ gson = "2.11.0"
 mappingio = "0.6.1"
 stitch = "0.6.2"
 tinyremapper = "0.9.0"
+enigma = "2.5.0"
 vineflower = "1.10.1"
 
 [libraries]
@@ -16,4 +17,6 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 mappingio = { module = "net.fabricmc:mapping-io", version.ref = "mappingio" }
 stitch = { module = "net.fabricmc:stitch", version.ref = "stitch" }
 tinyremapper = { module = "net.fabricmc:tiny-remapper", version.ref = "tinyremapper" }
+enigma-cli = { module = "cuchaz:enigma-cli", version.ref = "enigma" }
+enigma-gui = { module = "cuchaz:enigma-swing", version.ref = "enigma" }
 vineflower = { module = "org.vineflower:vineflower", version.ref = "vineflower" }

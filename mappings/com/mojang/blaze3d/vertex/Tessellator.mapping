@@ -1,0 +1,5 @@
+CLASS com/mojang/blaze3d/vertex/Tesselator com/mojang/blaze3d/vertex/Tessellator
+	COMMENT Holding a single instance of {@link BufferBuilder}.
+	COMMENT <p>
+	COMMENT This class reuses the buffer builder so a buffer doesn't have to be
+	COMMENT allocated every time.

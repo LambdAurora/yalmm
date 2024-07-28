@@ -10,6 +10,7 @@ version = "${Constants.MINECRAFT_VERSION}+build.${System.getenv().getOrDefault("
 base.archivesName.set("yalmm")
 
 repositories {
+	mavenCentral()
 	maven {
 		name = "Fabric Maven"
 		url = uri("https://maven.fabricmc.net/")
@@ -18,6 +19,8 @@ repositories {
 
 dependencies {
 	intermediaryMappings("net.fabricmc:intermediary:${Constants.MINECRAFT_VERSION}")
+
+	enigmaRuntime(libs.enigma.gui)
 }
 
 publishing {

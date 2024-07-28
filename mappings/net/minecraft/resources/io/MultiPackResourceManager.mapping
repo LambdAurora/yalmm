@@ -1,0 +1,12 @@
+CLASS net/minecraft/server/packs/resources/MultiPackResourceManager net/minecraft/resources/io/MultiPackResourceManager
+	COMMENT Represents a {@link ResourceManager} which acts on multiple resource packs.
+	COMMENT <p>
+	COMMENT The resource manager can be closed, in turn closing every resource packs it has,
+	COMMENT which may close the file descriptors if they're file-based resource packs.
+	FIELD namespacedManagers namespacedManagers Ljava/util/Map;
+	FIELD packs packs Ljava/util/List;
+	METHOD <init> (Lnet/minecraft/server/packs/PackType;Ljava/util/List;)V
+		ARG 1 type
+		ARG 2 packs
+	METHOD checkTrailingDirectoryPath (Ljava/lang/String;)V
+		ARG 0 path

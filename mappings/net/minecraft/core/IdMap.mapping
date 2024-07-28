@@ -1,0 +1,26 @@
+CLASS net/minecraft/core/IdMap
+	METHOD byId get (I)Ljava/lang/Object;
+		COMMENT {@return the value at the given {@code index}, or {@code null} if not found}
+		COMMENT
+		COMMENT @see #getOrThrow(int)
+		ARG 1 index
+			COMMENT the numerical identifier of the value to get
+	METHOD byIdOrThrow getOrThrow (I)Ljava/lang/Object;
+		COMMENT {@return the value at the given {@code index}}
+		COMMENT
+		COMMENT @throws IllegalArgumentException if the value does not exist
+		COMMENT @see #get(int)
+		ARG 1 index
+	METHOD getId getRawId (Ljava/lang/Object;)I
+		COMMENT {@return the raw identifier of the given {@code value}, or {@value #DEFAULT} if the value is not known}
+		COMMENT
+		COMMENT @see #getRawIdOrThrow(Object)
+		ARG 1 value
+			COMMENT the value for which to get its raw identifier
+	METHOD getIdOrThrow getRawIdOrThrow (Ljava/lang/Object;)I
+		COMMENT {@return the raw identifier of the given {@code value}}
+		COMMENT
+		COMMENT @throws IllegalArgumentException if the value is not known
+		COMMENT @see #getRawId(Object)
+		ARG 1 value
+	METHOD size size ()I

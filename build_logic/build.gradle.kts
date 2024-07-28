@@ -23,6 +23,7 @@ dependencies {
 	implementation(libs.mappingio)
 	implementation(libs.stitch)
 	implementation(libs.tinyremapper)
+	implementation(libs.enigma.cli)
 	implementation(libs.vineflower)
 }
 

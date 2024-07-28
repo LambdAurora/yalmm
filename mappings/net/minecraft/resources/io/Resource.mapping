@@ -1,0 +1,19 @@
+CLASS net/minecraft/server/packs/resources/Resource net/minecraft/resources/io/Resource
+	COMMENT A resource of binary data.
+	COMMENT <p>
+	COMMENT The resource must be closed before disposal to avoid resource leaks.
+	COMMENT
+	COMMENT @see net.minecraft.resources.io.ResourceProvider#getResource(net.minecraft.resources.Identifier)
+	COMMENT @see net.minecraft.resources.io.ResourceManager#getAllResources(net.minecraft.resources.Identifier)
+	METHOD open open ()Ljava/io/InputStream;
+		COMMENT Opens a new input stream to read this resource.
+		COMMENT
+		COMMENT @return an input stream of this resource
+		COMMENT @throws IOException if opening this resource failed
+		COMMENT @see #openAsReader()
+	METHOD openAsReader openAsReader ()Ljava/io/BufferedReader;
+		COMMENT Opens a new buffered reader to read this resource.
+		COMMENT
+		COMMENT @return a buffered reader of this resource
+		COMMENT @throws IOException if opening this resource failed
+		COMMENT @see #open()

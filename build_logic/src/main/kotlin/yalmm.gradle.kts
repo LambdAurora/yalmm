@@ -1,9 +1,12 @@
 import yalmm.Constants
 import yalmm.MappingsExtension
-import yalmm.task.BuildTinyTask
-import yalmm.task.setup.*
+import yalmm.task.EnigmaMappingsTask
+import yalmm.task.compile.BuildBaseMappingsTinyTask
+import yalmm.task.compile.BuildIntermediaryMappingsTinyTask
+import yalmm.task.setup.ExtractServerJarTask
+import yalmm.task.setup.MergeGameJarsTask
 import yalmm.task.setup.download.*
-import yalmm.task.setup.mapping.BuildMojangTiny
+import yalmm.task.setup.mapping.BuildMojangTinyTask
 import yalmm.task.setup.mapping.MapGameJarTask
 
 plugins {
@@ -23,6 +26,7 @@ sourceSets {
 }
 
 val intermediaryMappingsConfig: Configuration = configurations.create("intermediaryMappings")
+configurations.create("enigmaRuntime")
 
 tasks.register(DownloadVersionsManifestTask.TASK_NAME, DownloadVersionsManifestTask::class)
 tasks.register(DownloadVersionManifestTask.TASK_NAME, DownloadVersionManifestTask::class)
@@ -48,10 +52,14 @@ tasks.register(GatherMinecraftLibrariesTask.TASK_NAME, GatherMinecraftLibrariesT
 tasks.register("downloadIntermediary", DownloadMappingsTask::class) {
 	this.mappingsName.set(intermediaryMappingsConfig.name)
 }
-tasks.register(BuildMojangTiny.TASK_NAME, BuildMojangTiny::class)
-tasks.register(MapGameJarTask.TASK_NAME, MapGameJarTask::class)
-val buildTinyTask = tasks.register("buildTiny", BuildTinyTask::class) {
+tasks.register(BuildMojangTinyTask.TASK_NAME, BuildMojangTinyTask::class)
+val mapGameJarTask = tasks.register(MapGameJarTask.TASK_NAME, MapGameJarTask::class)
+tasks.register(EnigmaMappingsTask.TASK_NAME, EnigmaMappingsTask::class) {
+	this.dependsOn(MapGameJarTask.TASK_NAME)
+	this.jarToMap.set(mapGameJarTask.get().outputJar.get().asFile)
 }
+tasks.register(BuildBaseMappingsTinyTask.TASK_NAME, BuildBaseMappingsTinyTask::class)
+val buildTinyTask = tasks.register(BuildIntermediaryMappingsTinyTask.TASK_NAME, BuildIntermediaryMappingsTinyTask::class)
 
 tasks.processResources.configure {
 	dependsOn(buildTinyTask)

@@ -1,0 +1,5 @@
+CLASS net/minecraft/server/packs/resources/CloseableResourceManager net/minecraft/resources/io/LifecycledResourceManager
+	COMMENT Represents a lifecycled resource manager that is available until it is {@linkplain #close() closed}.
+	COMMENT <p>
+	COMMENT In principle, it should not be accessed any more after closing; use another resource manager instead.
+	METHOD close close ()V

@@ -2,9 +2,6 @@ package yalmm.util;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import yalmm.model.MappingClass;
-import yalmm.model.MappingField;
-import yalmm.model.MappingMethod;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -29,8 +26,5 @@ public final class JsonUtils {
 						}
 					}
 			)
-			.registerTypeAdapter(MappingField.class, new MappingField.Serializer())
-			.registerTypeAdapter(MappingMethod.class, new MappingMethod.Serializer())
-			.registerTypeAdapter(MappingClass.class, new MappingClass.Serializer())
 			.create();
 }
