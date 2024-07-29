@@ -1,0 +1,31 @@
+CLASS net/minecraft/nbt/CollectionTag net/minecraft/nbt/NbtCollection
+	METHOD add add (ILjava/lang/Object;)V
+		ARG 1 index
+		ARG 2 value
+	METHOD addTag addElement (ILnet/minecraft/nbt/Tag;)Z
+		COMMENT Inserts NBT {@code element} at {@code index}.
+		COMMENT Does nothing if the types were incompatible.
+		COMMENT
+		COMMENT @return {@code true} if the element was actually added, or {@code false} otherwise
+		ARG 1 index
+			COMMENT the index at which the NBT element should be inserted at
+		ARG 2 element
+			COMMENT the NBT element to insert
+	METHOD getElementType getElementType ()B
+		COMMENT Gets the {@linkplain NbtElement#getType type} of element that this list holds.
+		COMMENT
+		COMMENT @return the type of element that this list holds
+	METHOD remove remove (I)Ljava/lang/Object;
+		ARG 1 index
+	METHOD set set (ILjava/lang/Object;)Ljava/lang/Object;
+		ARG 1 index
+		ARG 2 value
+	METHOD setTag setElement (ILnet/minecraft/nbt/Tag;)Z
+		COMMENT Sets the NBT element at {@code index} to {@code element}.
+		COMMENT Does nothing if the types were incompatible.
+		COMMENT
+		COMMENT @return {@code true} if the element was actually set, or {@code false} otherwise
+		ARG 1 index
+			COMMENT the index at which the NBT element should be set at
+		ARG 2 element
+			COMMENT the NBT element to set

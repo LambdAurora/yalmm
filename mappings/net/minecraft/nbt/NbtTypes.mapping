@@ -1,0 +1,10 @@
+CLASS net/minecraft/nbt/TagTypes net/minecraft/nbt/NbtTypes
+	COMMENT Represents a class holding known NBT types.
+	METHOD getType byId (I)Lnet/minecraft/nbt/TagType;
+		COMMENT Gets the associated {@linkplain NbtType NBT type} for a given identifier.
+		COMMENT <p>
+		COMMENT This method does not support id aliases.
+		COMMENT
+		COMMENT @return the NBT type, or {@linkplain NbtType#createInvalid an invalid type} if there is no type with the given {@code id}
+		ARG 0 id
+			COMMENT the identifier of the NBT type

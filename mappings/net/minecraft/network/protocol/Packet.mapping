@@ -1,0 +1,2 @@
+CLASS net/minecraft/network/protocol/Packet
+	METHOD type packetType ()Lnet/minecraft/network/protocol/PacketType;

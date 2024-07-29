@@ -1,0 +1,33 @@
+CLASS net/minecraft/ChatFormatting net/minecraft/Formatting
+	FIELD id colorIndex I
+	FIELD isFormat modifier Z
+	METHOD <init> (Ljava/lang/String;ILjava/lang/String;CILjava/lang/Integer;)V
+		ARG 3 name
+		ARG 4 code
+		ARG 5 colorIndex
+		ARG 6 color
+	METHOD <init> (Ljava/lang/String;ILjava/lang/String;CZ)V
+		ARG 3 name
+		ARG 4 code
+		ARG 5 modifier
+	METHOD <init> (Ljava/lang/String;ILjava/lang/String;CZILjava/lang/Integer;)V
+		ARG 3 name
+		ARG 4 code
+		ARG 5 modifier
+		ARG 6 colorIndex
+		ARG 7 color
+	METHOD getByCode byCode (C)Lnet/minecraft/ChatFormatting;
+		ARG 0 code
+	METHOD getById byColorIndex (I)Lnet/minecraft/ChatFormatting;
+		ARG 0 colorIndex
+	METHOD getByName byName (Ljava/lang/String;)Lnet/minecraft/ChatFormatting;
+		ARG 0 name
+	METHOD getChar code ()C
+	METHOD getColor color ()Ljava/lang/Integer;
+	METHOD getId colorIndex ()I
+	METHOD getNames (ZZ)Ljava/util/Collection;
+		ARG 0 colors
+		ARG 1 modifiers
+	METHOD isFormat isModifier ()Z
+	METHOD stripFormatting strip (Ljava/lang/String;)Ljava/lang/String;
+		ARG 0 string

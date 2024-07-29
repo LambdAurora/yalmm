@@ -1,0 +1,45 @@
+CLASS net/minecraft/world/entity/Entity
+	FIELD ID_TAG ID_KEY Ljava/lang/String;
+	FIELD PASSENGERS_TAG PASSENGERS_KEY Ljava/lang/String;
+	FIELD position pos Lnet/minecraft/world/phys/Vec3;
+	FIELD xRot pitch F
+	FIELD xRotO prevPitch F
+	FIELD xo prevX D
+	FIELD yRot yaw F
+	FIELD yRotO prevYaw F
+	FIELD yo prevY D
+	FIELD zo prevZ D
+	METHOD addAdditionalSaveData writeCustomDataFromNbt (Lnet/minecraft/nbt/CompoundTag;)V
+		ARG 1 nbt
+	METHOD closerThan isInRange (Lnet/minecraft/world/entity/Entity;D)Z
+		ARG 1 other
+		ARG 2 range
+	METHOD closerThan isInRange (Lnet/minecraft/world/entity/Entity;DD)Z
+		ARG 1 other
+		ARG 2 horizontalRange
+		ARG 4 verticalRange
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 1 o
+	METHOD gameEvent emitGameEvent (Lnet/minecraft/core/Holder;)V
+	METHOD load readNbt (Lnet/minecraft/nbt/CompoundTag;)V
+		ARG 1 nbt
+	METHOD position getPos ()Lnet/minecraft/world/phys/Vec3;
+	METHOD readAdditionalSaveData readCustomDataFromNbt (Lnet/minecraft/nbt/CompoundTag;)V
+		ARG 1 nbt
+	METHOD save saveNbt (Lnet/minecraft/nbt/CompoundTag;)Z
+		ARG 1 nbt
+	METHOD saveAsPassenger saveSelfNbt (Lnet/minecraft/nbt/CompoundTag;)Z
+		ARG 1 nbt
+	METHOD saveWithoutId writeNbt (Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 1 nbt
+	METHOD setId (I)V
+		ARG 1 id
+	METHOD setPos (DDD)V
+		ARG 1 x
+		ARG 3 y
+		ARG 5 z
+	METHOD setRot setRotation (FF)V
+		ARG 1 yaw
+		ARG 2 pitch
+	METHOD setXRot setPitch (F)V
+	METHOD setYRot setYaw (F)V

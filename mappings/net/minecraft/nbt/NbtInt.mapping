@@ -1,0 +1,14 @@
+CLASS net/minecraft/nbt/IntTag net/minecraft/nbt/NbtInt
+	COMMENT Represents an NBT 32-bit integer. Its type is {@value NbtElement#INT_TYPE}.
+	COMMENT Instances are immutable.
+	FIELD data value I
+	METHOD <init> (I)V
+		ARG 1 value
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 1 o
+	METHOD valueOf of (I)Lnet/minecraft/nbt/IntTag;
+		COMMENT {@return the NBT integer from {@code value}}
+		ARG 0 value
+			COMMENT the value
+	CLASS Cache
+		FIELD cache VALUES [Lnet/minecraft/nbt/IntTag;

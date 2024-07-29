@@ -1,0 +1,12 @@
+CLASS net/minecraft/nbt/TagParser net/minecraft/nbt/StringNbtReader
+	METHOD <init> (Lcom/mojang/brigadier/StringReader;)V
+		ARG 1 reader
+	METHOD parseTag parse (Ljava/lang/String;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 0 string
+	METHOD readArrayTag readArray ()Lnet/minecraft/nbt/Tag;
+	METHOD readList readCollection ()Lnet/minecraft/nbt/Tag;
+	METHOD readListTag readList ()Lnet/minecraft/nbt/Tag;
+	METHOD readSingleStruct readSingleCompound ()Lnet/minecraft/nbt/CompoundTag;
+	METHOD readStruct readCompound ()Lnet/minecraft/nbt/CompoundTag;
+	METHOD type typeOf (Ljava/lang/String;)Lnet/minecraft/nbt/Tag;
+		ARG 1 value

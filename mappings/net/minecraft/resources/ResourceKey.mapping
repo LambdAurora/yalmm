@@ -1,2 +1,39 @@
 CLASS net/minecraft/resources/ResourceKey
-	METHOD location id ()Lnet/minecraft/resources/ResourceLocation;
+	COMMENT Represents a key for a value in a registry.
+	COMMENT
+	COMMENT @param <T> the type of the value
+	FIELD VALUES Ljava/util/concurrent/ConcurrentMap;
+		COMMENT A weak cache of all resource keys ever created.
+	FIELD location value Lnet/minecraft/resources/ResourceLocation;
+		COMMENT The identifier of the value in the registry specified by {@link #registry}.
+	FIELD registryName registry Lnet/minecraft/resources/ResourceLocation;
+		COMMENT The identifier of the registry in the root registry.
+	METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;)V
+		ARG 1 registry
+		ARG 2 value
+	METHOD cast (Lnet/minecraft/resources/ResourceKey;)Ljava/util/Optional;
+		ARG 1 registry
+	METHOD codec (Lnet/minecraft/resources/ResourceKey;)Lcom/mojang/serialization/Codec;
+		ARG 0 registryKey
+	METHOD create of (Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/resources/ResourceKey;
+		ARG 0 registry
+		ARG 1 value
+	METHOD create of (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/resources/ResourceKey;
+		ARG 0 registry
+		ARG 1 value
+	METHOD createRegistryKey ofRegistry (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/resources/ResourceKey;
+		ARG 0 registry
+	METHOD isFor isOf (Lnet/minecraft/resources/ResourceKey;)Z
+		ARG 1 registry
+	METHOD lambda$codec$0 (Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/resources/ResourceKey;
+		ARG 1 value
+	METHOD lambda$streamCodec$1 (Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/resources/ResourceKey;
+		ARG 1 value
+	METHOD location value ()Lnet/minecraft/resources/ResourceLocation;
+	METHOD registry registry ()Lnet/minecraft/resources/ResourceLocation;
+	METHOD registryKey registryKey ()Lnet/minecraft/resources/ResourceKey;
+	METHOD streamCodec (Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/network/codec/StreamCodec;
+		ARG 0 registryKey
+	CLASS InternKey
+		FIELD location value Lnet/minecraft/resources/ResourceLocation;
+		METHOD location value ()Lnet/minecraft/resources/ResourceLocation;

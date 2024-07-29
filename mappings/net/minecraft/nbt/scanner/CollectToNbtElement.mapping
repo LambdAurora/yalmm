@@ -1,0 +1,2 @@
+CLASS net/minecraft/nbt/visitors/CollectToTag net/minecraft/nbt/scanner/CollectToNbtElement
+	FIELD rootTag rootNbt Lnet/minecraft/nbt/Tag;

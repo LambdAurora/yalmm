@@ -1,0 +1,12 @@
+CLASS net/minecraft/nbt/FloatTag net/minecraft/nbt/NbtFloat
+	COMMENT Represents an NBT 32-bit floating-point number. Its type is {@value NbtElement#FLOAT_TYPE}.
+	COMMENT Instances are immutable.
+	FIELD ZERO ZERO Lnet/minecraft/nbt/FloatTag;
+		COMMENT The NBT float representing {@code 0.0f}.
+	FIELD data value F
+	METHOD <init> (F)V
+		ARG 1 value
+	METHOD valueOf of (F)Lnet/minecraft/nbt/FloatTag;
+		COMMENT {@return the NBT float from {@code value}}
+		ARG 0 value
+			COMMENT the value

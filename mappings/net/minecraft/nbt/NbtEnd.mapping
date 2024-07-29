@@ -1,0 +1,8 @@
+CLASS net/minecraft/nbt/EndTag net/minecraft/nbt/NbtEnd
+	COMMENT Represents the NBT end value.
+	COMMENT <p>
+	COMMENT Defines the end of an {@link NbtCompound} object during serialization,
+	COMMENT and is the type of an empty {@link NbtList}.
+	FIELD INSTANCE INSTANCE Lnet/minecraft/nbt/EndTag;
+		COMMENT A dummy instance of the NBT end.
+		COMMENT It will never appear nested in any parsed NBT structure and should never be used as NBT compound values or list elements.

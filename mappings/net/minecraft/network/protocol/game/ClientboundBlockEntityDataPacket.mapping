@@ -1,0 +1,11 @@
+CLASS net/minecraft/network/protocol/game/ClientboundBlockEntityDataPacket
+	FIELD tag nbt Lnet/minecraft/nbt/CompoundTag;
+	METHOD <init> (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/nbt/CompoundTag;)V
+		ARG 1 pos
+		ARG 2 type
+		ARG 3 nbt
+	METHOD create (Lnet/minecraft/world/level/block/entity/BlockEntity;)Lnet/minecraft/network/protocol/game/ClientboundBlockEntityDataPacket;
+		ARG 0 blockEntity
+	METHOD getPos pos ()Lnet/minecraft/core/BlockPos;
+	METHOD getTag nbt ()Lnet/minecraft/nbt/CompoundTag;
+	METHOD getType type ()Lnet/minecraft/world/level/block/entity/BlockEntityType;

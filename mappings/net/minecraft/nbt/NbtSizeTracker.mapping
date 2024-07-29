@@ -1,0 +1,23 @@
+CLASS net/minecraft/nbt/NbtAccounter net/minecraft/nbt/NbtSizeTracker
+	COMMENT Tracks the size of NBT elements in bytes and in depth.
+	COMMENT Throws {@link NbtSizeValidationException} if the tracked element becomes larger
+	COMMENT than {@link #maxBytes} or if the depth exceeds {@link #maxDepth} during addition.
+	FIELD depth depth I
+	FIELD maxDepth maxDepth I
+	FIELD quota maxBytes J
+	FIELD usage usage J
+	METHOD <init> (JI)V
+		ARG 1 maxBytes
+		ARG 3 maxDepth
+	METHOD accountBytes add (J)V
+		ARG 1 bytes
+	METHOD accountBytes add (JJ)V
+		ARG 1 bytes
+		ARG 3 count
+	METHOD create of (J)Lnet/minecraft/nbt/NbtAccounter;
+		ARG 0 maxBytes
+	METHOD getDepth getDepth ()I
+	METHOD getUsage getUsage ()J
+	METHOD popDepth popStack ()V
+	METHOD pushDepth pushStack ()V
+	METHOD unlimitedHeap ofUnlimitedBytes ()Lnet/minecraft/nbt/NbtAccounter;

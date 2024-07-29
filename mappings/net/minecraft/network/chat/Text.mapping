@@ -1,0 +1,94 @@
+CLASS net/minecraft/network/chat/Component net/minecraft/network/chat/Text
+	COMMENT A text. Can be converted to and from JSON format.
+	COMMENT <p>
+	COMMENT Each text has a tree structure, embodying all its {@link
+	COMMENT #getSiblings() siblings}. To iterate contents in the text and all
+	COMMENT its siblings, call {@code visit} methods.
+	COMMENT <p>
+	COMMENT This interface does not expose mutation operations. For mutation,
+	COMMENT refer to {@link MutableText}.
+	COMMENT
+	COMMENT @see MutableText
+	COMMENT @see Text#literal(String)
+	COMMENT @see Text#empty()
+	COMMENT @see Text#of(String)
+	COMMENT @see Text#translatable(String)
+	COMMENT @see Text#translatable(String, Object...)
+	COMMENT @see Text#keyBind(String)
+	COMMENT @see Text#nbt(String, boolean, Optional, TextData)
+	COMMENT @see Text#score(String, String)
+	COMMENT @see Text#selector(String, Optional)
+	METHOD empty empty ()Lnet/minecraft/network/chat/MutableComponent;
+	METHOD keybind keybind (Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+	METHOD literal literal (Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+		COMMENT Creates a new mutable literal text.
+		COMMENT
+		COMMENT @return the new mutable literal text
+		ARG 0 text
+			COMMENT the content of the text
+	METHOD nbt nbt (Ljava/lang/String;ZLjava/util/Optional;Lnet/minecraft/network/chat/contents/DataSource;)Lnet/minecraft/network/chat/MutableComponent;
+	METHOD score score (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+	METHOD selector selector (Ljava/lang/String;Ljava/util/Optional;)Lnet/minecraft/network/chat/MutableComponent;
+	METHOD translatable translatable (Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+		COMMENT Creates a new mutable translatable text.
+		COMMENT
+		COMMENT @return the new mutable translatable text
+		COMMENT @see #translatable(String, Object...)
+		COMMENT @see #stringifiedTranslatable(String, Object...)
+		ARG 0 translationKey
+			COMMENT the translation key
+	METHOD translatable translatable (Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+		COMMENT Creates a new mutable translatable text.
+		COMMENT
+		COMMENT @return the new mutable translatable text
+		COMMENT @see #translatable(String)
+		COMMENT @see #stringifiedTranslatable(String, Object...)
+		ARG 0 translationKey
+			COMMENT the translation key
+		ARG 1 args
+			COMMENT the arguments the translation may take
+	METHOD translatableEscape stringifiedTranslatable (Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+		COMMENT Creates a new mutable translatable text, with the non-primitive args represented as
+		COMMENT strings.
+		COMMENT
+		COMMENT @return the new mutable translatable text
+		COMMENT @see #translatable(String)
+		COMMENT @see #translatable(String, Object...)
+		ARG 0 translationKey
+			COMMENT the translation key
+		ARG 1 args
+			COMMENT the arguments the translation may take
+	METHOD translatableWithFallback translatableWithFallback (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+		COMMENT Creates a new mutable translatable text with a given {@code fallback}
+		COMMENT if the translation cannot be found.
+		COMMENT
+		COMMENT @return the new mutable translatable text
+		COMMENT @see #translatableWithFallback(String, String, Object...)
+		ARG 0 translationKey
+			COMMENT the translation key
+		ARG 1 fallback
+			COMMENT the fallback text
+	METHOD translatableWithFallback translatableWithFallback (Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+		COMMENT Creates a new mutable translatable text with a given {@code fallback}
+		COMMENT if the translation cannot be found.
+		COMMENT
+		COMMENT @return the new mutable translatable text
+		COMMENT @see #translatableWithFallback(String, String)
+		ARG 0 translationKey
+			COMMENT the translation key
+		ARG 1 fallback
+			COMMENT the fallback text
+		ARG 2 args
+			COMMENT the arguments the translation may take
+	METHOD translationArg of (Lcom/mojang/brigadier/Message;)Lnet/minecraft/network/chat/Component;
+		ARG 0 message
+	METHOD translationArg of (Ljava/net/URI;)Lnet/minecraft/network/chat/Component;
+		ARG 0 uri
+	METHOD translationArg of (Ljava/util/Date;)Lnet/minecraft/network/chat/Component;
+		ARG 0 date
+	METHOD translationArg of (Ljava/util/UUID;)Lnet/minecraft/network/chat/Component;
+		ARG 0 uuid
+	METHOD translationArg of (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/network/chat/Component;
+		ARG 0 id
+	METHOD translationArg of (Lnet/minecraft/world/level/ChunkPos;)Lnet/minecraft/network/chat/Component;
+		ARG 0 pos

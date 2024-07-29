@@ -1,0 +1,19 @@
+CLASS net/minecraft/core/HolderLookup
+	METHOD listElementIds streamElementKeys ()Ljava/util/stream/Stream;
+	METHOD listElements streamElements ()Ljava/util/stream/Stream;
+	METHOD listTagIds streamTagKeys ()Ljava/util/stream/Stream;
+	METHOD listTags streamTags ()Ljava/util/stream/Stream;
+	CLASS Provider
+		METHOD asGetterLookup createLookupProvider ()Lnet/minecraft/core/HolderGetter$Provider;
+		METHOD create (Ljava/util/stream/Stream;)Lnet/minecraft/core/HolderLookup$Provider;
+			ARG 0 lookups
+		METHOD createSerializationContext (Lcom/mojang/serialization/DynamicOps;)Lnet/minecraft/resources/RegistryOps;
+			ARG 1 ops
+		METHOD listRegistries streamRegistryKeys ()Ljava/util/stream/Stream;
+		METHOD lookup (Lnet/minecraft/resources/ResourceKey;)Ljava/util/Optional;
+			ARG 1 registryKey
+		METHOD lookupOrThrow (Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/core/HolderLookup$RegistryLookup;
+			ARG 1 registryKey
+		CLASS 1
+			METHOD lambda$lookup$0 (Lnet/minecraft/core/HolderLookup$RegistryLookup;)Lnet/minecraft/core/HolderGetter;
+				ARG 0 lookup

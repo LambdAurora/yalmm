@@ -1,0 +1,78 @@
+CLASS net/minecraft/nbt/StreamTagVisitor net/minecraft/nbt/scanner/NbtScanner
+	COMMENT An NBT scanner may reduce unnecessary data parsing to allow finding
+	COMMENT desired information in an NBT structure as fast as possible.
+	COMMENT <p>
+	COMMENT Call format: <pre><code>start -> VisitBody
+	COMMENT
+	COMMENT VisitBody:
+	COMMENT { visitEnd | visitString | visitByte | visitShort | visitInt
+	COMMENT | visitLong | visitFloat | visitDouble | visitByteArray
+	COMMENT | visitIntArray | visitLongArray
+	COMMENT | visitList -> [visitListItem -> VisitBody]* -> visitContainerEnd
+	COMMENT | [visitEntry -> visitEntry -> VisitBody]* -> visitContainerEnd
+	COMMENT }</code></pre>
+	COMMENT <p>
+	COMMENT The visit order is depth-first.
+	METHOD visit visitByte (B)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 value
+	METHOD visit visitDouble (D)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 value
+	METHOD visit visitFloat (F)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 value
+	METHOD visit visitInt (I)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 value
+	METHOD visit visitLong (J)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 value
+	METHOD visit visitString (Ljava/lang/String;)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 value
+	METHOD visit visitShort (S)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 value
+	METHOD visit visitByteArray ([B)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 value
+	METHOD visit visitIntArray ([I)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 value
+	METHOD visit visitLongArray ([J)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 value
+	METHOD visitContainerEnd visitContainerEnd ()Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		COMMENT Ends a container visit like {@link net.minecraft.nbt.NbtCompound}
+		COMMENT or {@link net.minecraft.nbt.NbtList}.
+		COMMENT <p>
+		COMMENT This is guaranteed to be called once for each call to {@link #visitContainerStart},
+		COMMENT {@link #visitEntryType}, and {@link #visitList} where the list or
+		COMMENT the compound NBT type is passed, unless the visit is halted.
+	METHOD visitElement visitListItem (Lnet/minecraft/nbt/TagType;I)Lnet/minecraft/nbt/StreamTagVisitor$EntryResult;
+		ARG 1 type
+		ARG 2 index
+	METHOD visitEnd visitEnd ()Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+	METHOD visitEntry visitEntryType (Lnet/minecraft/nbt/TagType;)Lnet/minecraft/nbt/StreamTagVisitor$EntryResult;
+		ARG 1 type
+	METHOD visitEntry visitEntry (Lnet/minecraft/nbt/TagType;Ljava/lang/String;)Lnet/minecraft/nbt/StreamTagVisitor$EntryResult;
+		ARG 1 type
+		ARG 2 key
+	METHOD visitList visitList (Lnet/minecraft/nbt/TagType;I)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 elementType
+		ARG 2 length
+	METHOD visitRootEntry visitContainerStart (Lnet/minecraft/nbt/TagType;)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		COMMENT Starts a visit to an NBT structure.
+		COMMENT
+		COMMENT @see #visitEntry(NbtType, String)
+		COMMENT @see #visitList
+		ARG 1 rootType
+	CLASS EntryResult
+		FIELD BREAK Lnet/minecraft/nbt/StreamTagVisitor$EntryResult;
+			COMMENT Skips the whole list or compound NBT currently under scan.
+			COMMENT Will make a call to {@link NbtScanner#visitContainerEnd()}.
+		FIELD ENTER Lnet/minecraft/nbt/StreamTagVisitor$EntryResult;
+			COMMENT Proceeds to visit more data of this element, or to enter this element.
+			COMMENT (this element is a list element or a sub NBT)
+		FIELD HALT Lnet/minecraft/nbt/StreamTagVisitor$EntryResult;
+			COMMENT Halts the whole scanning completely.
+		FIELD SKIP Lnet/minecraft/nbt/StreamTagVisitor$EntryResult;
+			COMMENT Skips this element and visit the next list element or sub NBT.
+	CLASS ValueResult
+		FIELD BREAK Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+			COMMENT Skips the current element under scan.
+		FIELD CONTINUE Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+			COMMENT Proceed to visit more data of this element.
+		FIELD HALT Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+			COMMENT Halts the whole scanning completely.

@@ -1,0 +1,181 @@
+CLASS net/minecraft/world/level/block/entity/BlockEntity
+	COMMENT Represents a block entity which is an object holding extra data about a block in a world.
+	COMMENT Blocks hold their data using pre-defined, finite sets of {@link BlockState};
+	COMMENT however, some blocks need to hold data that cannot be pre-defined, such as
+	COMMENT inventories of chests, texts of signs, or pattern combinations of banners.
+	COMMENT Block entities can hold these data.
+	COMMENT <p>
+	COMMENT Block entities have two other important additions to normal blocks: they
+	COMMENT can define custom rendering behaviors, and they can tick on every server tick
+	COMMENT instead of randomly. Some block entities only use these without any extra data.
+	COMMENT <p>
+	COMMENT Block entities are bound to a world and there is one instance of {@link
+	COMMENT BlockEntity} per the block position, unlike {@link net.minecraft.world.level.block.Block}
+	COMMENT or {@link BlockState} which are reused. Block entities are created using {@link
+	COMMENT BlockEntityType}, a type of block entities. In most cases, block entities do not
+	COMMENT have to be constructed manually except in {@link
+	COMMENT net.minecraft.block.BlockEntityProvider#createBlockEntity}.
+	COMMENT <p>
+	COMMENT To get the block entity at a certain position, use {@link Level#getBlockEntity}.
+	COMMENT Note that the block entity returned can be, in rare cases, different from the
+	COMMENT one associated with the block at that position. For this reason the return value
+	COMMENT should not be cast unsafely.
+	COMMENT <p>
+	COMMENT Block entities, like entities, use NBT for the storage of data. The data is
+	COMMENT loaded to the instance's fields in {@link #readNbt} and written to NBT in
+	COMMENT {@link #writeNbt}. When a data that needs to be saved has changed, always make sure
+	COMMENT to call {@link #markDirty()}.
+	COMMENT <p>
+	COMMENT See {@link net.minecraft.world.level.block.BlockEntityProvider} and {@link BlockEntityType}
+	COMMENT for information on creating a block with block entities.
+	COMMENT <p>
+	COMMENT Block entity's data, unlike block states, are not automatically synced. Block
+	COMMENT entities declare when and which data to sync. In general, block entities need to
+	COMMENT sync states observable from the clients without specific interaction (such as opening
+	COMMENT a container). {@link #toUpdatePacket} and {@link #toSyncedNbt} control
+	COMMENT which data is sent to the client. To sync the block entity to the client, call
+	COMMENT {@code serverLevel.getChunkSource().markForUpdate(this.getPos());}.
+	FIELD blockState cachedState Lnet/minecraft/world/level/block/state/BlockState;
+	FIELD remove removed Z
+	FIELD worldPosition pos Lnet/minecraft/core/BlockPos;
+	METHOD <init> (Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V
+		ARG 1 type
+		ARG 2 pos
+		ARG 3 state
+	METHOD addEntityType writeIdentifyingData (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/world/level/block/entity/BlockEntityType;)V
+		ARG 0 nbt
+		ARG 1 type
+	METHOD clearRemoved cancelRemoval ()V
+	METHOD getBlockPos getPos ()Lnet/minecraft/core/BlockPos;
+		COMMENT {@return this block entity's position}
+	METHOD getBlockState getCachedState ()Lnet/minecraft/world/level/block/state/BlockState;
+		COMMENT {@return the cached block state at this block entity's position}
+		COMMENT <p>
+		COMMENT This is faster than calling {@link Level#getBlockState}.
+	METHOD getLevel ()Lnet/minecraft/world/level/Level;
+		COMMENT {@return the level this block entity belongs to}
+		COMMENT <p>
+		COMMENT This can return {@code null} during world generation.
+	METHOD getPosFromTag readBlockPosFromNbt (Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/core/BlockPos;
+		ARG 0 nbt
+	METHOD getUpdatePacket toUpdatePacket ()Lnet/minecraft/network/protocol/Packet;
+		COMMENT {@return the packet to send to nearby players when the block entity's observable
+		COMMENT state changes, or {@code null} to not send the packet}
+		COMMENT <p>
+		COMMENT If the data returned by {@link #toSyncedNbt} is suitable for updates,
+		COMMENT the following shortcut can be used to create an update packet:
+		COMMENT {@code ClientboundBlockUpdatePacket.create(this)}.
+		COMMENT The NBT will be passed to {@link #readNbt} on the client.
+		COMMENT <p>
+		COMMENT "Observable state" is a state that clients can observe without specific interaction.
+		COMMENT For example, {@link CampfireBlockEntity}'s cooked items are observable states,
+		COMMENT but chests' inventories are not observable states, since the player must first open
+		COMMENT that chest before they can see the contents.
+		COMMENT <p>
+		COMMENT To sync block entity data using this method, use
+		COMMENT {@code serverLevel.getChunkSource().markForUpdate(this.getPos());}.
+		COMMENT
+		COMMENT @see #toSyncedNbt
+	METHOD getUpdateTag toSyncedNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
+		COMMENT {@return the serialized state of this block entity that is observable by clients}
+		COMMENT <p>
+		COMMENT This is sent alongside the initial chunk data, as well as when the block
+		COMMENT entity implements {@link #toUpdatePacket} and decides to use the default
+		COMMENT {@link net.minecraft.network.protocol.game.ClientBoundBlockEntityDataPacket}.
+		COMMENT <p>
+		COMMENT "Observable state" is a state that clients can observe without specific interaction.
+		COMMENT For example, {@link CampfireBlockEntity}'s cooked items are observable states,
+		COMMENT but chests' inventories are not observable states, since the player must first open
+		COMMENT that chest before they can see the contents.
+		COMMENT <p>
+		COMMENT To send all NBT data of this block entity saved to disk, return {@link #createNbt}.
+		COMMENT
+		COMMENT @see #toUpdatePacket
+		ARG 1 lookupProvider
+			COMMENT the lookup provider
+	METHOD loadAdditional readNbt (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
+		COMMENT Reads data from {@code nbt}. Subclasses should override this if they
+		COMMENT store a persistent data.
+		COMMENT <p>
+		COMMENT NBT is a storage format; therefore, a data from NBT is loaded to a
+		COMMENT block entity instance's fields, which are used for other operations instead
+		COMMENT of the NBT. The data is written back to NBT when saving the block entity.
+		COMMENT <p>
+		COMMENT {@code nbt} might not have all expected keys, or might have a key whose
+		COMMENT value does not meet the requirement (such as the type or the range). This
+		COMMENT method should fall back to a reasonable default value instead of throwing an
+		COMMENT exception.
+		COMMENT
+		COMMENT @see #writeNbt
+		ARG 1 nbt
+			COMMENT the NBT to read from
+		ARG 2 lookupProvider
+			COMMENT the lookup provider
+	METHOD loadCustomOnly readDataNbt (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
+		ARG 1 nbt
+		ARG 2 lookupProvider
+	METHOD loadStatic createFromNbt (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/world/level/block/entity/BlockEntity;
+		COMMENT {@return the new block entity loaded from {@code nbt}, or {@code null} if it fails}
+		COMMENT <p>
+		COMMENT This is used during chunk loading. This can fail if {@code nbt} has an improper or
+		COMMENT unregistered {@code id}, or if {@link #readNbt} throws an exception; in these cases,
+		COMMENT this logs an error and returns {@code null}.
+		ARG 0 pos
+			COMMENT the position of the block entity
+		ARG 1 state
+			COMMENT the block state at the block entity's position
+		ARG 2 nbt
+			COMMENT the NBT data of the block entity
+		ARG 3 lookupProvider
+			COMMENT the lookup provider
+	METHOD loadWithComponents readWithComponents (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
+		ARG 1 nbt
+		ARG 2 lookupProvider
+	METHOD removeComponentsFromTag removeComponentsFromNbt (Lnet/minecraft/nbt/CompoundTag;)V
+		ARG 1 nbt
+	METHOD saveAdditional writeNbt (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
+		ARG 1 nbt
+		ARG 2 lookupProvider
+	METHOD saveCustomAndMetadata toDataAndMetadataNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 1 lookupProvider
+	METHOD saveCustomOnly toDataOnlyNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 1 lookupProvider
+	METHOD saveId writeIdentifyingData (Lnet/minecraft/nbt/CompoundTag;)V
+		COMMENT Writes to {@code nbt} the block entity type identifier under the {@code id} key,
+		COMMENT and the block's position under {@code x}, {@code y}, and {@code z} keys.
+		COMMENT
+		COMMENT @throws RuntimeException if the block entity type is not registered in the registry
+		ARG 1 nbt
+			COMMENT the NBT to write to
+	METHOD saveMetadata writeMetadata (Lnet/minecraft/nbt/CompoundTag;)V
+		ARG 1 nbt
+	METHOD saveToItem (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/core/HolderLookup$Provider;)V
+		ARG 1 stack
+		ARG 2 lookupProvider
+	METHOD saveWithFullMetadata toFullNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 1 lookupProvider
+	METHOD saveWithId toIdentifiedNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 1 lookupProvider
+	METHOD saveWithoutMetadata toNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 1 lookupProvider
+	METHOD setBlockState (Lnet/minecraft/world/level/block/state/BlockState;)V
+		ARG 1 state
+	METHOD setChanged markDirty ()V
+	METHOD setChanged markDirty (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V
+		ARG 0 level
+		ARG 1 pos
+		ARG 2 state
+	METHOD setLevel (Lnet/minecraft/world/level/Level;)V
+		COMMENT Sets the level this block entity belongs to.
+		COMMENT <p>
+		COMMENT This should not be called manually; however, this can be overridden
+		COMMENT to initialize fields dependent on the level.
+	METHOD setRemoved markRemoved ()V
+	METHOD triggerEvent onSyncedBlockEvent (II)Z
+		COMMENT If this block entity's block extends {@link net.minecraft.world.level.block.BlockWithEntity},
+		COMMENT this is called inside
+		COMMENT {@link net.minecraft.world.level.block.state.BlockBehaviour#onSyncedBlockEvent}.
+		COMMENT
+		COMMENT @see net.minecraft.world.level.block.state.BlockBehaviour#onSyncedBlockEvent
+		ARG 1 type
+		ARG 2 data

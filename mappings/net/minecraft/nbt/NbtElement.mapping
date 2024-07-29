@@ -1,0 +1,87 @@
+CLASS net/minecraft/nbt/Tag net/minecraft/nbt/NbtElement
+	COMMENT Represents an NBT element.
+	FIELD MAX_DEPTH MAX_DEPTH I
+	FIELD TAG_ANY_NUMERIC NUMBER_TYPE B
+		COMMENT A wildcard NBT numeric identifier, whose value is {@value},
+		COMMENT that can be used for <i>checking</i> whether an NBT element is an {@link NbtNumber}.
+		COMMENT
+		COMMENT @see NbtCompound#getTypeOf(String)
+		COMMENT @see NbtCompound#contains(String, int)
+	FIELD TAG_BYTE BYTE_TYPE B
+		COMMENT The numeric identifier of an NBT byte value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtByte
+	FIELD TAG_BYTE_ARRAY BYTE_ARRAY_TYPE B
+		COMMENT The numeric identifier of an NBT byte array value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtByteArray
+	FIELD TAG_COMPOUND COMPOUND_TYPE B
+		COMMENT The numeric identifier of an NBT compound value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtCompound
+	FIELD TAG_DOUBLE DOUBLE_TYPE B
+		COMMENT The numeric identifier of an NBT double value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtDouble
+	FIELD TAG_END END_TYPE B
+		COMMENT The numeric identifier of an NBT end value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtEnd
+	FIELD TAG_FLOAT FLOAT_TYPE B
+		COMMENT The numeric identifier of an NBT float value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtFloat
+	FIELD TAG_INT INT_TYPE B
+		COMMENT The numeric identifier of an NBT integer value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtInt
+	FIELD TAG_INT_ARRAY INT_ARRAY_TYPE B
+		COMMENT The numeric identifier of an NBT integer array value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtIntArray
+	FIELD TAG_LIST LIST_TYPE B
+		COMMENT The numeric identifier of an NBT list value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtList
+	FIELD TAG_LONG LONG_TYPE B
+		COMMENT The numeric identifier of an NBT long value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtLong
+	FIELD TAG_LONG_ARRAY LONG_ARRAY_TYPE B
+		COMMENT The numeric identifier of an NBT long array value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtLongArray
+	FIELD TAG_SHORT SHORT_TYPE B
+		COMMENT The numeric identifier of an NBT short value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtShort
+	FIELD TAG_STRING STRING_TYPE B
+		COMMENT The numeric identifier of an NBT string value, whose value is {@value}.
+		COMMENT
+		COMMENT @see NbtString
+	METHOD accept accept (Lnet/minecraft/nbt/StreamTagVisitor;)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
+		ARG 1 visitor
+	METHOD accept accept (Lnet/minecraft/nbt/TagVisitor;)V
+		ARG 1 visitor
+	METHOD acceptAsRoot acceptAsRoot (Lnet/minecraft/nbt/StreamTagVisitor;)V
+		ARG 1 visitor
+	METHOD copy copy ()Lnet/minecraft/nbt/Tag;
+		COMMENT {@return a copy of this NBT element of equal value}
+	METHOD getAsString asString ()Ljava/lang/String;
+		COMMENT {@return the NBT's string representation}
+		COMMENT
+		COMMENT @implNote By default, this returns the same result as {@link net.minecraft.nbt.visitor.StringNbtVisitor}.
+		COMMENT {@link NbtString} will return its string value instead.
+	METHOD getId typeId ()B
+		COMMENT {@return the numerical identifier of the type of this NBT element}
+	METHOD getType type ()Lnet/minecraft/nbt/TagType;
+		COMMENT {@return the NBT type definition of this NBT element}
+	METHOD sizeInBytes getSizeInBytes ()I
+		COMMENT {@return the size in bytes of this NBT element}
+	METHOD write write (Ljava/io/DataOutput;)V
+		COMMENT Writes the NBT element to {@code output}.
+		COMMENT
+		COMMENT @apiNote This is a low-level method for serializing NBT elements;
+		COMMENT consider using {@link NbtIo}, {@link NbtOps}, or {@link net.minecraft.network.PacketByteBuf#writeNbt} instead.
+		ARG 1 output
+			COMMENT the output to which to write to

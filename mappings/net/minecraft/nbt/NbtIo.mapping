@@ -1,0 +1,49 @@
+CLASS net/minecraft/nbt/NbtIo
+	METHOD parseCompressed (Ljava/io/InputStream;Lnet/minecraft/nbt/StreamTagVisitor;Lnet/minecraft/nbt/NbtAccounter;)V
+		ARG 0 stream
+		ARG 1 visitor
+		ARG 2 tracker
+	METHOD parseCompressed (Ljava/nio/file/Path;Lnet/minecraft/nbt/StreamTagVisitor;Lnet/minecraft/nbt/NbtAccounter;)V
+		ARG 0 path
+		ARG 1 visitor
+		ARG 2 tracker
+	METHOD read read (Ljava/io/DataInput;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 0 input
+	METHOD read read (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 0 input
+		ARG 1 tracker
+	METHOD read read (Ljava/nio/file/Path;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 0 path
+	METHOD readAnyTag readNbt (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)Lnet/minecraft/nbt/Tag;
+		ARG 0 input
+		ARG 1 tracker
+	METHOD readCompressed readCompressed (Ljava/io/InputStream;Lnet/minecraft/nbt/NbtAccounter;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 0 stream
+		ARG 1 tracker
+	METHOD readCompressed readCompressed (Ljava/nio/file/Path;Lnet/minecraft/nbt/NbtAccounter;)Lnet/minecraft/nbt/CompoundTag;
+		ARG 0 path
+		ARG 1 tracker
+	METHOD readUnnamedTag (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)Lnet/minecraft/nbt/Tag;
+		ARG 0 input
+		ARG 1 tracker
+	METHOD write write (Lnet/minecraft/nbt/CompoundTag;Ljava/io/DataOutput;)V
+		ARG 0 nbt
+		ARG 1 output
+	METHOD write write (Lnet/minecraft/nbt/CompoundTag;Ljava/nio/file/Path;)V
+		ARG 0 nbt
+		ARG 1 path
+	METHOD writeAnyTag writeNbt (Lnet/minecraft/nbt/Tag;Ljava/io/DataOutput;)V
+		ARG 0 nbt
+		ARG 1 output
+	METHOD writeCompressed writeCompressed (Lnet/minecraft/nbt/CompoundTag;Ljava/io/OutputStream;)V
+		ARG 0 nbt
+		ARG 1 stream
+	METHOD writeCompressed writeCompressed (Lnet/minecraft/nbt/CompoundTag;Ljava/nio/file/Path;)V
+		ARG 0 nbt
+		ARG 1 path
+	METHOD writeUnnamedTag writeUnnamedElement (Lnet/minecraft/nbt/Tag;Ljava/io/DataOutput;)V
+		ARG 0 nbt
+		ARG 1 output
+	METHOD writeUnnamedTagWithFallback (Lnet/minecraft/nbt/Tag;Ljava/io/DataOutput;)V
+		ARG 0 nbt
+		ARG 1 output

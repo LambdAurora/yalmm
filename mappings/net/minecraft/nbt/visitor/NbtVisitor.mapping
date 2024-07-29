@@ -1,0 +1,28 @@
+CLASS net/minecraft/nbt/TagVisitor net/minecraft/nbt/visitor/NbtVisitor
+	COMMENT Represents a visitor interface for NBT elements.
+	METHOD visitByte visitByte (Lnet/minecraft/nbt/ByteTag;)V
+		ARG 1 element
+	METHOD visitByteArray visitByteArray (Lnet/minecraft/nbt/ByteArrayTag;)V
+		ARG 1 element
+	METHOD visitCompound visitCompound (Lnet/minecraft/nbt/CompoundTag;)V
+		ARG 1 element
+	METHOD visitDouble visitDouble (Lnet/minecraft/nbt/DoubleTag;)V
+		ARG 1 element
+	METHOD visitEnd visitEnd (Lnet/minecraft/nbt/EndTag;)V
+		ARG 1 element
+	METHOD visitFloat visitFloat (Lnet/minecraft/nbt/FloatTag;)V
+		ARG 1 element
+	METHOD visitInt visitInt (Lnet/minecraft/nbt/IntTag;)V
+		ARG 1 element
+	METHOD visitIntArray visitIntArray (Lnet/minecraft/nbt/IntArrayTag;)V
+		ARG 1 element
+	METHOD visitList visitList (Lnet/minecraft/nbt/ListTag;)V
+		ARG 1 element
+	METHOD visitLong visitLong (Lnet/minecraft/nbt/LongTag;)V
+		ARG 1 element
+	METHOD visitLongArray visitLongArray (Lnet/minecraft/nbt/LongArrayTag;)V
+		ARG 1 element
+	METHOD visitShort visitShort (Lnet/minecraft/nbt/ShortTag;)V
+		ARG 1 element
+	METHOD visitString visitString (Lnet/minecraft/nbt/StringTag;)V
+		ARG 1 element

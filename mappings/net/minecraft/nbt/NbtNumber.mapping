@@ -1,0 +1,33 @@
+CLASS net/minecraft/nbt/NumericTag net/minecraft/nbt/NbtNumber
+	COMMENT Represents an NBT number.
+	COMMENT <p>
+	COMMENT The type {@link NbtElement#NUMBER_TYPE NUMBER_TYPE} can be used to
+	COMMENT {@linkplain NbtCompound#contains check for the existence of any numeric element in a NBT compound object}.
+	METHOD getAsByte byteValue ()B
+		COMMENT Gets the value as an 8-bit integer.
+		COMMENT
+		COMMENT @return the value as a byte
+	METHOD getAsDouble doubleValue ()D
+		COMMENT Gets the value as a 64-bit floating-point number.
+		COMMENT
+		COMMENT @return the value as a double
+	METHOD getAsFloat floatValue ()F
+		COMMENT Gets the value as a 32-bit floating-point number.
+		COMMENT
+		COMMENT @return the value as a float
+	METHOD getAsInt intValue ()I
+		COMMENT Gets the value as a 32-bit integer.
+		COMMENT
+		COMMENT @return the value as an integer
+	METHOD getAsLong longValue ()J
+		COMMENT Gets the value as a 64-bit integer.
+		COMMENT
+		COMMENT @return the value as a long
+	METHOD getAsNumber numberValue ()Ljava/lang/Number;
+		COMMENT Gets the value as a generic number.
+		COMMENT
+		COMMENT @return the value as a {@link Number}
+	METHOD getAsShort shortValue ()S
+		COMMENT Gets the value as a 16-bit integer.
+		COMMENT
+		COMMENT @return the value as a short

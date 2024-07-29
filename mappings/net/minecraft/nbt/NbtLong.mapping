@@ -1,0 +1,14 @@
+CLASS net/minecraft/nbt/LongTag net/minecraft/nbt/NbtLong
+	COMMENT Represents an NBT 64-bit integer. Its type is {@value NbtElement#LONG_TYPE}.
+	COMMENT Instances are immutable.
+	FIELD data value J
+	METHOD <init> (J)V
+		ARG 1 value
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 1 o
+	METHOD valueOf of (J)Lnet/minecraft/nbt/LongTag;
+		COMMENT {@return the NBT long from {@code value}}
+		ARG 0 value
+			COMMENT the value
+	CLASS Cache
+		FIELD cache VALUES [Lnet/minecraft/nbt/LongTag;

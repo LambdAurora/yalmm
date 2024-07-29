@@ -1,0 +1,2 @@
+CLASS net/minecraft/world/item/ItemStack
+	METHOD is isIn (Lnet/minecraft/tags/TagKey;)Z

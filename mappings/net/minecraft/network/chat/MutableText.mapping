@@ -1,0 +1,3 @@
+CLASS net/minecraft/network/chat/MutableComponent net/minecraft/network/chat/MutableText
+	COMMENT The text implementation, with mutation operations.
+	METHOD create of (Lnet/minecraft/network/chat/ComponentContents;)Lnet/minecraft/network/chat/MutableComponent;

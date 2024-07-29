@@ -1,0 +1,23 @@
+CLASS net/minecraft/nbt/ByteArrayTag net/minecraft/nbt/NbtByteArray
+	COMMENT Represents an NBT byte array. This object is mutable and backed by {@code byte[]}.
+	COMMENT Its type is {@value NbtElement#BYTE_ARRAY_TYPE}. Like Java arrays, accessing
+	COMMENT indices that are out of bounds will throw {@link ArrayIndexOutOfBoundsException}.
+	COMMENT The backing array can be obtained via {@link #getByteArray()}.
+	FIELD data value [B
+	METHOD <init> (Ljava/util/List;)V
+		ARG 1 value
+	METHOD <init> ([B)V
+		ARG 1 value
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 1 o
+	METHOD getAsByteArray getByteArray ()[B
+		COMMENT {@return the underlying byte array}
+		COMMENT
+		COMMENT @apiNote This does not copy the array, so modifications to the returned array
+		COMMENT also apply to this NBT byte array.
+	METHOD toArray toArray (Ljava/util/List;)[B
+		ARG 0 list
+	CLASS 1
+		METHOD readAccounted readByteArray (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)[B
+			ARG 0 input
+			ARG 1 tracker

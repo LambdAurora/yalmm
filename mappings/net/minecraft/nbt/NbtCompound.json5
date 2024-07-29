@@ -1,0 +1,259 @@
+{
+	source: "net/minecraft/class_2487",
+	name: "net/minecraft/nbt/NbtCompound",
+	comments: [
+		"Represents an NBT compound object.",
+		"<p>",
+		"This mutable object holds unordered key-value pairs with distinct case-sensitive string keys.",
+		"This can effectively be used like a {@code HashMap<String, NbtElement>}.",
+		"Note that this <strong>does not</strong> implement {@link java.util.Map}.",
+		"Its type is {@value NbtElement#COMPOUND_TYPE}.",
+		"<p>",
+		"There are two ways to use this compound; one is to create NBT instances yourself and use",
+		"{@link #get(String)} or {@link #put(String, NbtElement)}. Manual casting is required in",
+		"this case. The other, easier way is to use methods with type names, such as",
+		"{@link #getInt(String)} or {@link #putInt(String, int)}. Where applicable, these methods",
+		"return and accept Java types (e.g. {@code int}, {@code long[]}) instead of {@link NbtElement}",
+		"subclasses. Note that there is no {@code putCompound} method, since you can just use the",
+		"put method. These getters also have the advantage of providing type safety, because if",
+		"type mismatch occurs or there is no such element in the compound, it returns the default",
+		"value for that type instead of throwing or returning {@code null}."
+	],
+	methods: [
+		{
+			source: "<init>",
+			descriptor: "(Ljava/util/Map;)V",
+			params: {
+				"1": {
+					name: "entries"
+				}
+			}
+		},
+		{
+			source: "method_10573",
+			name: "contains",
+			descriptor: "(Ljava/lang/String;I)Z",
+			comments: [
+				"Returns whether the NBT compound object contains an element of the specified type at the specified key.",
+				"<p>",
+				"The type restriction can also be {@link NbtElement#NUMBER_TYPE NUMBER_TYPE}, which only allows any type of number.",
+				"",
+				"@return {@code true} if the key exists and the element type is equivalent to the given {@code type}, or {@code false} otherwise"
+			],
+			params: {
+				"1": {
+					name: "key",
+					comments: "the key of the value to check for"
+				},
+				"2": {
+					name: "type",
+					comments: "the type to expect"
+				}
+			}
+		},
+		{
+			source: "method_10580",
+			name: "get",
+			descriptor: "(Ljava/lang/String;)Lnet/minecraft/class_2520;",
+			comments: [
+				"{@return the element associated with the key from this compound, or {@code null} if there is none}",
+				"",
+				"@apiNote This method does not provide type safety; if the type is known, it is",
+				"recommended to use other type-specific methods instead.",
+				"",
+				"@see #put(String, NbtElement)"
+			]
+		},
+		{
+			source: "method_10540",
+			name: "getTypeOf",
+			descriptor: "(Ljava/lang/String;)B",
+			comments: [
+				"Gets the {@linkplain NbtElement#typeId NBT type} of the element stored at the specified key.",
+				"",
+				"@return the element NBT type, or {@link NbtElement#END_TYPE} if it does not exist"
+			],
+			params: {
+				"1": {
+					name: "key",
+					comments: "the key of the value"
+				}
+			}
+		},
+		{
+			source: "method_10566",
+			name: "put",
+			descriptor: "(Ljava/lang/String;Lnet/minecraft/class_2520;)Lnet/minecraft/class_2520;",
+			comments: [
+				"Puts an element to this compound.",
+				"",
+				"@return the previous value, or {@code null} if there was none",
+				"@see #get(String)"
+			],
+			params: {
+				"1": {
+					name: "key",
+					comments: "the key of the value"
+				},
+				"2": {
+					name: "value",
+					comments: "the value to put"
+				}
+			}
+		},
+		{
+			source: "method_10551",
+			name: "remove",
+			descriptor: "(Ljava/lang/String;)V",
+			comments: "Removes the entry with the specified {@code key}. Does nothing if there is none.",
+			params: {
+				"1": {
+					name: "key",
+					comments: "the key of the entry to remove"
+				}
+			}
+		},
+		{
+			source: "method_10571",
+			name: "getByte",
+			descriptor: "(Ljava/lang/String;)B",
+			comments: [
+				"{@return the {@code byte} associated with {@code key}, or {@code 0} if there is no number stored with the key}",
+				"<p>",
+				"If a non-byte numeric value is stored, this will cast the value.",
+				"",
+				"@see #putByte(String, byte)",
+				"@see NbtNumber#byteValue()"
+			],
+			params: {
+				"1": {
+					name: "key",
+					comments: "the key"
+				}
+			}
+		},
+		{
+			source: "method_10567",
+			name: "putByte",
+			descriptor: "(Ljava/lang/String;B)V",
+			comments: [
+				"Puts a {@code byte} to this compound.",
+				"",
+				"@see #getByte(String)"
+			],
+			params: {
+				"1": {
+					name: "key",
+					comments: "the key of the value"
+				},
+				"2": {
+					name: "value",
+					comments: "the value to put"
+				}
+			}
+		},
+		{
+			source: "method_25928",
+			name: "containsUuid",
+			descriptor: "(Ljava/lang/String;)Z",
+			comments: [
+				"{@return {@code true} if this {@code NbtCompound} contains a valid UUID representation associated with the given key,",
+				"or {@code false} otherwise}",
+				"A valid UUID is represented by an int array of length 4."
+			],
+			params: {
+				"1": {
+					name: "key",
+					comments: "the key of the value to check for"
+				}
+			}
+		},
+		{
+			source: "method_25926",
+			name: "getUuid",
+			descriptor: "(Ljava/lang/String;)Ljava/util/UUID;",
+			comments: [
+				"{@return a {@link UUID} from its NBT representation in this compound}",
+				"",
+				"@apiNote Unlike other specialized getters, this method can throw unchecked exceptions.",
+				"It is therefore recommended to call {@link #containsUuid(String)} before getting the UUID.",
+				"",
+				"@throws IllegalArgumentException if there is no value with the key or the value",
+				"associated with the key is not a valid NBT representation of a UUID",
+				"@see NbtUtils#toUuid(NbtIntArray)",
+				"@see #containsUuid(String)",
+				"@see #putUuid(String, UUID)"
+			],
+			params: {
+				"1": {
+					name: "key",
+					comments: "the key"
+				}
+			}
+		},
+		{
+			source: "method_25927",
+			name: "putUuid",
+			descriptor: "(Ljava/lang/String;Ljava/util/UUID;)V",
+			comments: [
+				"Puts a {@link UUID}'s NBT representation to this compound.",
+				"",
+				"@see NbtUtils#fromUuid(UUID)",
+				"@see #containsUuid(String)",
+				"@see #getUuid(String)"
+			],
+			params: {
+				"1": {
+					name: "key",
+					comments: "the key of the value"
+				},
+				"2": {
+					name: "value",
+					comments: "the value to put"
+				}
+			}
+		},
+		{
+			source: "method_33133",
+			name: "isEmpty",
+			descriptor: "()Z",
+			comments: "{@return {@code true} if the compound has no entries, or {@code false} otherwise}"
+		},
+		{
+			source: "method_10546",
+			name: "size",
+			descriptor: "()I",
+			comments: "{@return the size of the entries of this compound}"
+		},
+		{
+			source: "method_59874",
+			name: "entrySet",
+			descriptor: "()Ljava/util/Set;"
+		},
+		{
+			source: "method_10541",
+			name: "keySet",
+			descriptor: "()Ljava/util/Set;",
+			comments: "{@return the set of keys in this compound}"
+		},
+		{
+			source: "equals",
+			descriptor: "(Ljava/lang/Object;)Z",
+			params: {
+				"1": {
+					name: "o"
+				}
+			}
+		}
+	],
+	classes: [
+		{
+			source: "1",
+			name: "1"
+		},
+		{
+			source: "2",
+			name: "2"
+		}
+	]
+}

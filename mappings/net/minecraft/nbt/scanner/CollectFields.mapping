@@ -1,0 +1,1 @@
+CLASS net/minecraft/nbt/visitors/CollectFields net/minecraft/nbt/scanner/CollectFields

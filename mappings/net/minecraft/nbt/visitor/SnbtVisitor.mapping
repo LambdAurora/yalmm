@@ -1,0 +1,9 @@
+CLASS net/minecraft/nbt/SnbtPrinterTagVisitor net/minecraft/nbt/visitor/SnbtVisitor
+	FIELD NO_INDENTATION Ljava/util/Set;
+		COMMENT Contains paths for which the indentation should not be prepended to the result.
+	METHOD <init> (Ljava/lang/String;ILjava/util/List;)V
+		ARG 1 identation
+		ARG 2 depth
+		ARG 3 path
+	METHOD visit visit (Lnet/minecraft/nbt/Tag;)Ljava/lang/String;
+		ARG 1 nbt

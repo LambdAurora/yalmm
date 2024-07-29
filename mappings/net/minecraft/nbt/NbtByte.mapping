@@ -1,0 +1,32 @@
+CLASS net/minecraft/nbt/ByteTag net/minecraft/nbt/NbtByte
+	COMMENT Represents an NBT byte. Its type is {@value NbtElement#BYTE_TYPE}.
+	COMMENT Instances are immutable.
+	FIELD ONE ONE Lnet/minecraft/nbt/ByteTag;
+		COMMENT The NBT byte representing {@code 1}.
+		COMMENT
+		COMMENT @apiNote This is often used to indicate a {@code true} boolean value.
+	FIELD ZERO ZERO Lnet/minecraft/nbt/ByteTag;
+		COMMENT The NBT byte representing {@code 0}.
+		COMMENT
+		COMMENT @apiNote This is often used to indicate a {@code false} boolean value.
+	FIELD data value B
+	METHOD <init> (B)V
+		ARG 1 value
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 1 o
+	METHOD valueOf of (B)Lnet/minecraft/nbt/ByteTag;
+		COMMENT {@return the NBT byte from {@code value}}
+		COMMENT
+		COMMENT @implNote This returns the value from the cache.
+		ARG 0 value
+			COMMENT the value
+	METHOD valueOf of (Z)Lnet/minecraft/nbt/ByteTag;
+		COMMENT {@return the NBT byte representing the boolean {@code value}}
+		COMMENT
+		COMMENT @see #of(byte)
+		COMMENT @see #ZERO
+		COMMENT @see #ONE
+		ARG 0 value
+			COMMENT the value
+	CLASS Cache
+		FIELD cache VALUES [Lnet/minecraft/nbt/ByteTag;

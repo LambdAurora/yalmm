@@ -1,0 +1,5 @@
+CLASS net/minecraft/nbt/StringTagVisitor net/minecraft/nbt/visitor/StringNbtVisitor
+	COMMENT Represents a simple converter to turn NBT into single-line SNBT.
+	COMMENT The output may be parsed back into binary NBT.
+	METHOD visit visit (Lnet/minecraft/nbt/Tag;)Ljava/lang/String;
+		ARG 1 nbt
