@@ -1,0 +1,2 @@
+CLASS net/minecraft/world/item/Item
+	METHOD getTooltipImage getTooltipData (Lnet/minecraft/world/item/ItemStack;)Ljava/util/Optional;

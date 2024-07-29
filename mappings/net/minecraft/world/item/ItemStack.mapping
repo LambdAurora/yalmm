@@ -1,2 +1,3 @@
 CLASS net/minecraft/world/item/ItemStack
+	METHOD getTooltipImage getTooltipData ()Ljava/util/Optional;
 	METHOD is isIn (Lnet/minecraft/tags/TagKey;)Z
