@@ -1,0 +1,15 @@
+CLASS net/minecraft/world/level/block/state/StateHolder
+	METHOD <init> (Ljava/lang/Object;Lit/unimi/dsi/fastutil/objects/Reference2ObjectArrayMap;Lcom/mojang/serialization/MapCodec;)V
+		ARG 1 owner
+		ARG 2 values
+		ARG 3 propertiesCodec
+	METHOD getOptionalValue getOptional (Lnet/minecraft/world/level/block/state/properties/Property;)Ljava/util/Optional;
+		ARG 1 property
+	METHOD getValue get (Lnet/minecraft/world/level/block/state/properties/Property;)Ljava/lang/Comparable;
+		ARG 1 property
+	METHOD setValue with (Lnet/minecraft/world/level/block/state/properties/Property;Ljava/lang/Comparable;)Ljava/lang/Object;
+		ARG 1 property
+		ARG 2 value
+	METHOD trySetValue withIfExists (Lnet/minecraft/world/level/block/state/properties/Property;Ljava/lang/Comparable;)Ljava/lang/Object;
+		ARG 1 property
+		ARG 2 value

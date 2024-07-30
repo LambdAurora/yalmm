@@ -1,1 +1,5 @@
 CLASS net/minecraft/util/profiling/ProfilerFiller net/minecraft/util/profiling/Profiler
+	METHOD popPush swap (Ljava/lang/String;)V
+		ARG 1 location
+	METHOD popPush swap (Ljava/util/function/Supplier;)V
+		ARG 1 locationSupplier

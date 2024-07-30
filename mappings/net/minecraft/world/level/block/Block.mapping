@@ -1,0 +1,33 @@
+CLASS net/minecraft/world/level/block/Block
+	FIELD BLOCK_STATE_REGISTRY STATE_REGISTRY Lnet/minecraft/core/IdMapper;
+	FIELD UPDATE_ALL I
+		COMMENT The default {@code setBlockState} behavior. Same as {@code UPDATE_NEIGHBORS | UPDATE_CLIENTS}.
+	FIELD UPDATE_CLIENTS I
+		COMMENT Notifies listeners and clients who need to react when the block changes.
+	FIELD UPDATE_IMMEDIATE I
+		COMMENT Forces a synchronous redraw on clients.
+	FIELD UPDATE_INVISIBLE I
+		COMMENT Used in conjunction with {@link #UPDATE_CLIENTS} to suppress the render pass on clients.
+	FIELD UPDATE_KNOWN_SHAPE I
+		COMMENT Bypasses virtual block state changes and forces the passed state to be stored as-is.
+	FIELD UPDATE_MOVE_BY_PISTON I
+		COMMENT Signals that the current block is being moved to a different location, usually because of a piston.
+	FIELD UPDATE_NEIGHBORS I
+		COMMENT Sends a neighbor update event to surrounding blocks.
+	FIELD UPDATE_SUPPRESS_DROPS I
+		COMMENT Prevents the previous block (container) from dropping items when destroyed.
+	FIELD defaultBlockState defaultState Lnet/minecraft/world/level/block/state/BlockState;
+	METHOD createBlockStateDefinition createStateDefinition (Lnet/minecraft/world/level/block/state/StateDefinition$Builder;)V
+		ARG 1 builder
+	METHOD defaultBlockState defaultState ()Lnet/minecraft/world/level/block/state/BlockState;
+	METHOD getId getRawIdFromState (Lnet/minecraft/world/level/block/state/BlockState;)I
+		ARG 0 state
+	METHOD registerDefaultState setDefaultState (Lnet/minecraft/world/level/block/state/BlockState;)V
+		ARG 1 state
+	METHOD stateById getStateFromRawId (I)Lnet/minecraft/world/level/block/state/BlockState;
+		ARG 0 stateId
+	METHOD withPropertiesOf (Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/state/BlockState;
+		ARG 1 state
+	CLASS BlockStatePairKey
+		METHOD equals (Ljava/lang/Object;)Z
+			ARG 1 o

@@ -1,0 +1,75 @@
+CLASS com/mojang/blaze3d/vertex/VertexConsumer
+	METHOD addVertex (FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD addVertex (FFFIFFIIFFF)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+		ARG 4 color
+		ARG 5 u
+		ARG 6 v
+		ARG 7 overlay
+		ARG 8 light
+	METHOD addVertex (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 matrix
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+	METHOD addVertex (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lorg/joml/Vector3f;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 matrix
+		ARG 2 pos
+	METHOD addVertex (Lorg/joml/Matrix4f;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 matrix
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+	METHOD addVertex (Lorg/joml/Vector3f;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 pos
+	METHOD putBulkData quad (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lnet/minecraft/client/renderer/block/model/BakedQuad;FFFFII)V
+		ARG 1 matrix
+		ARG 2 quad
+		ARG 3 r
+		ARG 4 g
+		ARG 5 b
+		ARG 6 alpha
+	METHOD putBulkData quad (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lnet/minecraft/client/renderer/block/model/BakedQuad;[FFFFF[IIZ)V
+		ARG 1 matrix
+		ARG 2 quad
+	METHOD setColor color (FFFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 red
+		ARG 2 green
+		ARG 3 blue
+		ARG 4 alpha
+	METHOD setColor color (I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 color
+	METHOD setColor color (IIII)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 red
+		ARG 2 green
+		ARG 3 blue
+		ARG 4 alpha
+	METHOD setLight light (I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 light
+	METHOD setNormal normal (FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD setNormal normal (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 matrix
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+	METHOD setOverlay overlay (I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 overlay
+	METHOD setUv uv (FF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 u
+		ARG 2 v
+	METHOD setUv1 overlay (II)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 u
+		ARG 2 v
+	METHOD setUv2 light (II)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 u
+		ARG 2 v
+	METHOD setWhiteAlpha rgb (I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 rgb

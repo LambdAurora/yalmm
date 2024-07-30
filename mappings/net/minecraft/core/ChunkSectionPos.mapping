@@ -1,0 +1,14 @@
+CLASS net/minecraft/core/SectionPos net/minecraft/core/ChunkSectionPos
+	METHOD of (III)Lnet/minecraft/core/SectionPos;
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+	METHOD of (J)Lnet/minecraft/core/SectionPos;
+		ARG 0 packed
+	METHOD of (Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/SectionPos;
+		ARG 0 pos
+	METHOD of (Lnet/minecraft/world/level/ChunkPos;I)Lnet/minecraft/core/SectionPos;
+		ARG 0 pos
+		ARG 1 y
+	METHOD of (Lnet/minecraft/world/level/entity/EntityAccess;)Lnet/minecraft/core/SectionPos;
+		ARG 0 entity

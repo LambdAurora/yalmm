@@ -1,0 +1,28 @@
+CLASS net/minecraft/core/Vec3i
+	METHOD <init> (III)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD above above ()Lnet/minecraft/core/Vec3i;
+	METHOD above above (I)Lnet/minecraft/core/Vec3i;
+		ARG 1 distance
+	METHOD below (I)Lnet/minecraft/core/Vec3i;
+		ARG 1 distance
+	METHOD east (I)Lnet/minecraft/core/Vec3i;
+		ARG 1 distance
+	METHOD multiply (I)Lnet/minecraft/core/Vec3i;
+		ARG 1 scale
+	METHOD north (I)Lnet/minecraft/core/Vec3i;
+		ARG 1 distance
+	METHOD offset (III)Lnet/minecraft/core/Vec3i;
+		ARG 1 x
+		ARG 2 y
+		ARG 3 z
+	METHOD relative offset (Lnet/minecraft/core/Direction$Axis;I)Lnet/minecraft/core/Vec3i;
+		ARG 1 axis
+		ARG 2 distance
+	METHOD relative offset (Lnet/minecraft/core/Direction;I)Lnet/minecraft/core/Vec3i;
+		ARG 1 direction
+		ARG 2 distance
+	METHOD west (I)Lnet/minecraft/core/Vec3i;
+		ARG 1 distance

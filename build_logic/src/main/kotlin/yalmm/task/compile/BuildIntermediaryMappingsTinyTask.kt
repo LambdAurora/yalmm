@@ -2,6 +2,7 @@ package yalmm.task.compile
 
 import net.fabricmc.mappingio.MappingReader
 import net.fabricmc.mappingio.MappingWriter
+import net.fabricmc.mappingio.adapter.MappingDstNsReorder
 import net.fabricmc.mappingio.adapter.MappingNsCompleter
 import net.fabricmc.mappingio.adapter.MappingNsRenamer
 import net.fabricmc.mappingio.adapter.MappingSourceNsSwitch
@@ -12,7 +13,6 @@ import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 import yalmm.Constants
-import yalmm.mapping.NamespaceFilterMappingVisitor
 import yalmm.mapping.YalmmMappingVisitor
 import yalmm.task.DefaultYalmmTask
 import yalmm.task.setup.download.DownloadMappingsTask
@@ -63,8 +63,9 @@ open class BuildIntermediaryMappingsTinyTask : DefaultYalmmTask(Constants.Groups
 		MappingWriter.create(this.outputMappings.toPath(), MappingFormat.TINY_2_FILE).use {
 			yalmmMapping.accept(
 				MappingSourceNsSwitch(
-					NamespaceFilterMappingVisitor(
-						MappingNsCompleter(it, mapOf("named" to "intermediary"))
+					MappingDstNsReorder(
+						it,
+						"named"
 					),
 					"intermediary"
 				)

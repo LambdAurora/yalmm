@@ -26,12 +26,13 @@ but it was rejected at the time as they believed in the strength
 of Quilt Mappings.
 
 Lately when doing my rounds of mod porting, I really became
-tired of dealing with the mappings and decided to downgrade
-my ideals of having a new mapping set using a good Enigma setup.
-This led to this, a very simple and lightweight setup to create
-this light mapping set with the main goal of making the
-Mojang mappings more bearable, so I can finally mod in peace
-without having to deal with holes in mappings.
+tired of dealing with the mappings and finally have decided to
+take matters into my own hands.
+This led to this, a setup heavily inspired by other mappings but
+lightened as much as possible, to create a light mapping set
+with the main goal of making the Mojang mappings more bearable,
+so I can finally mod in peace without having to deal
+with holes in mappings.
 
 ## How to Use?
 

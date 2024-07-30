@@ -2,6 +2,8 @@ CLASS net/minecraft/world/entity/Entity
 	FIELD ID_TAG ID_KEY Ljava/lang/String;
 	FIELD PASSENGERS_TAG PASSENGERS_KEY Ljava/lang/String;
 	FIELD position pos Lnet/minecraft/world/phys/Vec3;
+	FIELD wasEyeInWater submergedInWater Z
+	FIELD wasTouchingWater touchingWater Z
 	FIELD xRot pitch F
 	FIELD xRotO prevPitch F
 	FIELD xo prevX D
@@ -21,8 +23,39 @@ CLASS net/minecraft/world/entity/Entity
 	METHOD equals (Ljava/lang/Object;)Z
 		ARG 1 o
 	METHOD gameEvent emitGameEvent (Lnet/minecraft/core/Holder;)V
+	METHOD isInLiquid isInFluid ()Z
+	METHOD isInWater isTouchingWater ()Z
+		COMMENT {@return {@code true} if this entity's bounding box is touching water,
+		COMMENT or {@code false} otherwise}
+		COMMENT
+		COMMENT @see #isInFluid()
+		COMMENT @see #isSubmergedInWater()
+	METHOD isUnderWater isSubmergedInWater ()Z
+		COMMENT {@return {@code true} if this entity's bounding box is fully submerged in water,
+		COMMENT or {@code false} otherwise}
+		COMMENT
+		COMMENT @see #isTouchingWater()
+		COMMENT @see #isInFluid()
 	METHOD load readNbt (Lnet/minecraft/nbt/CompoundTag;)V
 		ARG 1 nbt
+	METHOD playSound (Lnet/minecraft/sounds/SoundEvent;)V
+		COMMENT Plays a given sound coming from this entity, if this entity is not silent
+		COMMENT
+		COMMENT @see #isSilent()
+		COMMENT @see #playSound(SoundEvent, float, float)
+		ARG 1 sound
+			COMMENT the sound to play
+	METHOD playSound (Lnet/minecraft/sounds/SoundEvent;FF)V
+		COMMENT Plays a given sound coming from this entity, if this entity is not silent.
+		COMMENT
+		COMMENT @see #isSilent()
+		COMMENT @see #playSound(SoundEvent)
+		ARG 1 sound
+			COMMENT the sound to play
+		ARG 2 volume
+			COMMENT the volume to play the sound at
+		ARG 3 pitch
+			COMMENT the pitch to play the sound at
 	METHOD position getPos ()Lnet/minecraft/world/phys/Vec3;
 	METHOD readAdditionalSaveData readCustomDataFromNbt (Lnet/minecraft/nbt/CompoundTag;)V
 		ARG 1 nbt
@@ -34,6 +67,8 @@ CLASS net/minecraft/world/entity/Entity
 		ARG 1 nbt
 	METHOD setId (I)V
 		ARG 1 id
+	METHOD setNoGravity (Z)V
+		ARG 1 noGravity
 	METHOD setPos (DDD)V
 		ARG 1 x
 		ARG 3 y
@@ -41,5 +76,7 @@ CLASS net/minecraft/world/entity/Entity
 	METHOD setRot setRotation (FF)V
 		ARG 1 yaw
 		ARG 2 pitch
+	METHOD setSilent (Z)V
+		ARG 1 silent
 	METHOD setXRot setPitch (F)V
 	METHOD setYRot setYaw (F)V

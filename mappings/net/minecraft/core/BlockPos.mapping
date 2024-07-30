@@ -1,0 +1,35 @@
+CLASS net/minecraft/core/BlockPos
+	METHOD asLong (III)J
+		ARG 0 x
+		ARG 1 y
+		ARG 2 z
+	METHOD containing ofFloored (DDD)Lnet/minecraft/core/BlockPos;
+		ARG 0 x
+		ARG 2 y
+		ARG 4 z
+	METHOD containing of (Lnet/minecraft/core/Position;)Lnet/minecraft/core/BlockPos;
+	METHOD getCenter atCenter ()Lnet/minecraft/world/phys/Vec3;
+	METHOD getX unpackLongX (J)I
+		ARG 0 packedPos
+	METHOD getY unpackLongY (J)I
+		ARG 0 packedPos
+	METHOD getZ unpackLongZ (J)I
+		ARG 0 packedPos
+	METHOD immutable ()Lnet/minecraft/core/BlockPos;
+		COMMENT {@return an immutable block position with the same X, Y, and Z
+		COMMENT coordinates as this position}
+		COMMENT <p>
+		COMMENT This method should be called when a block position is used as map
+		COMMENT keys as to prevent side effects of mutations of mutable block positions.
+	METHOD mutable ()Lnet/minecraft/core/BlockPos$MutableBlockPos;
+		COMMENT {@return Returns a mutable copy of this block position}
+		COMMENT <p>
+		COMMENT If this block position is a mutable one, mutation to this block
+		COMMENT position won't affect the returned position.
+	METHOD of of (J)Lnet/minecraft/core/BlockPos;
+		ARG 0 packedPos
+	METHOD relative offset (Lnet/minecraft/core/Direction;)Lnet/minecraft/core/BlockPos;
+		ARG 1 direction
+	METHOD south (I)Lnet/minecraft/core/BlockPos;
+		ARG 1 distance
+	CLASS MutableBlockPos Mutable
