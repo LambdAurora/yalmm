@@ -1,0 +1,4 @@
+CLASS net/minecraft/core/MappedRegistry
+	FIELD byId byRawId Lit/unimi/dsi/fastutil/objects/ObjectList;
+	FIELD byLocation byId Ljava/util/Map;
+	FIELD toId toRawId Lit/unimi/dsi/fastutil/objects/Reference2IntMap;
