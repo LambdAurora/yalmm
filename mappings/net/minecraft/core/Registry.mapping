@@ -37,10 +37,14 @@ CLASS net/minecraft/core/Registry
 	COMMENT In most cases, the value is already registered in a registry (\\"reference entry\\"), hence the name;
 	COMMENT however, it is possible to create an holder by direct reference (\\"direct entry\\").
 	COMMENT This is useful for data packs, as they can define one-time use values directly without having to register them every time.
+	METHOD bindTags (Ljava/util/Map;)V
+		ARG 1 tags
 	METHOD containsKey containsKey (Lnet/minecraft/resources/ResourceKey;)Z
 		ARG 1 key
 	METHOD containsKey containsId (Lnet/minecraft/resources/ResourceLocation;)Z
 		ARG 1 id
+	METHOD createIntrusiveHolder (Ljava/lang/Object;)Lnet/minecraft/core/Holder$Reference;
+		ARG 1 value
 	METHOD entrySet entrySet ()Ljava/util/Set;
 	METHOD get get (Lnet/minecraft/resources/ResourceKey;)Ljava/lang/Object;
 		COMMENT {@return the value that is assigned to {@code key}, or {@code null} if there is none}
@@ -50,6 +54,12 @@ CLASS net/minecraft/core/Registry
 		COMMENT {@return the value that is assigned to {@code id}, or {@code null} if there is none}
 		ARG 1 id
 			COMMENT the identifier of the value
+	METHOD getHolder (I)Ljava/util/Optional;
+		ARG 1 rawId
+	METHOD getHolder (Lnet/minecraft/resources/ResourceKey;)Ljava/util/Optional;
+		ARG 1 key
+	METHOD getHolder (Lnet/minecraft/resources/ResourceLocation;)Ljava/util/Optional;
+		ARG 1 id
 	METHOD getKey getId (Ljava/lang/Object;)Lnet/minecraft/resources/ResourceLocation;
 		COMMENT {@return the identifier associated with {@code value}, or {@code null} if it is not registered}
 		ARG 1 value
@@ -60,11 +70,15 @@ CLASS net/minecraft/core/Registry
 		ARG 1 id
 	METHOD getOrThrow getOrThrow (Lnet/minecraft/resources/ResourceKey;)Ljava/lang/Object;
 		ARG 1 value
+	METHOD getRandom (Lnet/minecraft/util/RandomSource;)Ljava/util/Optional;
+		ARG 1 random
 	METHOD getResourceKey getKey (Ljava/lang/Object;)Ljava/util/Optional;
 		COMMENT {@return the resource key associated with {@code value},
 		COMMENT or an {@linkplain Optional#empty() empty optional} if it is not registered}
 		ARG 1 value
 			COMMENT the value
+	METHOD getTag (Lnet/minecraft/tags/TagKey;)Ljava/util/Optional;
+		ARG 1 key
 	METHOD keySet idSet ()Ljava/util/Set;
 	METHOD register register (Lnet/minecraft/core/Registry;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 		ARG 0 registry
@@ -78,5 +92,9 @@ CLASS net/minecraft/core/Registry
 		ARG 0 registry
 		ARG 1 id
 		ARG 2 value
+	METHOD registrationInfo (Lnet/minecraft/resources/ResourceKey;)Ljava/util/Optional;
+		ARG 1 key
 	METHOD registryKeySet keySet ()Ljava/util/Set;
 	METHOD registryLifecycle getLifecycle ()Lcom/mojang/serialization/Lifecycle;
+	METHOD wrapAsHolder (Ljava/lang/Object;)Lnet/minecraft/core/Holder;
+		ARG 1 value

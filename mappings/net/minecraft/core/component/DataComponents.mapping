@@ -1,0 +1,4 @@
+CLASS net/minecraft/core/component/DataComponents
+	METHOD register (Ljava/lang/String;Ljava/util/function/UnaryOperator;)Lnet/minecraft/core/component/DataComponentType;
+		ARG 0 name
+		ARG 1 factory
