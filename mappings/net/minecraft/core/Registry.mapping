@@ -37,8 +37,6 @@ CLASS net/minecraft/core/Registry
 	COMMENT In most cases, the value is already registered in a registry (\\"reference entry\\"), hence the name;
 	COMMENT however, it is possible to create an holder by direct reference (\\"direct entry\\").
 	COMMENT This is useful for data packs, as they can define one-time use values directly without having to register them every time.
-	METHOD bindTags (Ljava/util/Map;)V
-		ARG 1 tags
 	METHOD containsKey containsKey (Lnet/minecraft/resources/ResourceKey;)Z
 		ARG 1 key
 	METHOD containsKey containsId (Lnet/minecraft/resources/ResourceLocation;)Z

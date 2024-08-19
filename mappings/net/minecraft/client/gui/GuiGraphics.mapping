@@ -3,133 +3,77 @@ CLASS net/minecraft/client/gui/GuiGraphics
 	FIELD pose matrixStack Lcom/mojang/blaze3d/vertex/PoseStack;
 	METHOD applyScissor (Lnet/minecraft/client/gui/navigation/ScreenRectangle;)V
 		ARG 1 area
-	METHOD blit drawSprite (IIIIILnet/minecraft/client/renderer/texture/TextureAtlasSprite;)V
-		ARG 1 x
-		ARG 2 y
-		ARG 3 z
-		ARG 4 width
-		ARG 5 height
-		ARG 6 sprite
-	METHOD blit drawSprite (IIIIILnet/minecraft/client/renderer/texture/TextureAtlasSprite;FFFF)V
-		ARG 1 x
-		ARG 2 y
-		ARG 3 z
-		ARG 4 width
-		ARG 5 height
-		ARG 6 sprite
-		ARG 7 red
-		ARG 8 green
-		ARG 9 blue
-		ARG 10 alpha
-	METHOD blit drawTexture (Lnet/minecraft/resources/ResourceLocation;IIFFIIII)V
-		ARG 1 texture
-		ARG 2 x
-		ARG 3 y
-		ARG 4 u
-		ARG 5 v
-		ARG 6 width
-		ARG 7 height
-		ARG 8 textureWidth
-		ARG 9 textureHeight
-	METHOD blit drawTexture (Lnet/minecraft/resources/ResourceLocation;IIIFFIIII)V
-		ARG 1 texture
-		ARG 2 x
-		ARG 3 y
-		ARG 4 z
-		ARG 5 u
-		ARG 6 v
-		ARG 7 width
-		ARG 8 height
-		ARG 9 textureWidth
-		ARG 10 textureHeight
-	METHOD blit drawTexture (Lnet/minecraft/resources/ResourceLocation;IIIIFFIIII)V
-		ARG 1 texture
-		ARG 2 x
-		ARG 3 y
-		ARG 4 width
-		ARG 5 height
-		ARG 6 u
-		ARG 7 v
-		ARG 8 regionWidth
-		ARG 9 regionHeight
-		ARG 10 textureWidth
-		ARG 11 textureHeight
-	METHOD blit drawTexture (Lnet/minecraft/resources/ResourceLocation;IIIIII)V
-		ARG 1 texture
-		ARG 2 x
-		ARG 3 y
-		ARG 4 u
-		ARG 5 v
-		ARG 6 width
-		ARG 7 height
-	METHOD blit drawTexture (Lnet/minecraft/resources/ResourceLocation;IIIIIIIFFII)V
-		ARG 1 texture
-		ARG 2 startX
-		ARG 3 startY
-		ARG 4 endX
-		ARG 5 endY
-		ARG 6 z
-		ARG 7 regionWidth
-		ARG 8 regionHeight
-		ARG 9 u
-		ARG 10 v
-		ARG 11 textureWidth
-		ARG 12 textureHeight
-	METHOD blitNineSlicedSprite drawNineSlicedSprite (Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;Lnet/minecraft/client/resources/metadata/gui/GuiSpriteScaling$NineSlice;IIIII)V
-		ARG 1 sprite
-		ARG 2 nineSlice
+	METHOD blit (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIII)V
+		ARG 2 texture
 		ARG 3 x
 		ARG 4 y
-		ARG 5 z
-		ARG 6 width
-		ARG 7 height
-	METHOD blitSprite drawSprite (Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIII)V
-		ARG 1 sprite
-		ARG 2 x
-		ARG 3 y
-		ARG 4 z
+	METHOD blit (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIIII)V
+		ARG 2 texture
+		ARG 3 x
+		ARG 4 y
+	METHOD blit (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIIIII)V
+		ARG 2 texture
+		ARG 3 x
+		ARG 4 y
+	METHOD blit (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIIIIII)V
+		ARG 2 texture
+		ARG 3 x
+		ARG 4 y
+		ARG 7 width
+		ARG 8 height
+		ARG 13 color
+	METHOD blitNineSlicedSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;Lnet/minecraft/client/resources/metadata/gui/GuiSpriteScaling$NineSlice;IIIII)V
+		ARG 2 sprite
+	METHOD blitSprite drawSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIII)V
+		ARG 2 sprite
+		ARG 3 x
+		ARG 4 y
 		ARG 5 width
 		ARG 6 height
-	METHOD blitSprite drawSprite (Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIIIIIII)V
-		ARG 1 sprite
-		ARG 6 x
-		ARG 7 y
-		ARG 8 z
+	METHOD blitSprite drawSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIII)V
+		ARG 2 sprite
+		ARG 3 x
+		ARG 4 y
+		ARG 5 width
+		ARG 6 height
+		ARG 7 color
+	METHOD blitSprite drawSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIIIIIII)V
+		ARG 2 sprite
+		ARG 3 textureWidth
+		ARG 4 textureHeight
+		ARG 5 u
+		ARG 6 v
+		ARG 7 x
+		ARG 8 y
 		ARG 9 width
 		ARG 10 height
-	METHOD blitSprite drawGuiTexture (Lnet/minecraft/resources/ResourceLocation;IIII)V
-		ARG 1 texture
-		ARG 2 x
-		ARG 3 y
-		ARG 4 width
-		ARG 5 height
-	METHOD blitSprite drawGuiTexture (Lnet/minecraft/resources/ResourceLocation;IIIII)V
-		ARG 1 texture
-		ARG 2 x
-		ARG 3 y
-		ARG 4 z
+		ARG 11 color
+	METHOD blitSprite drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIII)V
+		ARG 2 texture
+		ARG 3 x
+		ARG 4 y
 		ARG 5 width
 		ARG 6 height
-	METHOD blitSprite drawGuiTexture (Lnet/minecraft/resources/ResourceLocation;IIIIIIII)V
-		ARG 1 texture
-		ARG 6 x
-		ARG 7 y
-		ARG 8 width
-		ARG 9 height
-	METHOD blitSprite drawGuiTexture (Lnet/minecraft/resources/ResourceLocation;IIIIIIIII)V
-		ARG 1 texture
-		ARG 6 x
-		ARG 7 y
-		ARG 8 z
+	METHOD blitSprite drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIIII)V
+		ARG 2 texture
+		ARG 3 x
+		ARG 4 y
+		ARG 5 width
+		ARG 6 height
+		ARG 7 color
+	METHOD blitSprite drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIIIIIII)V
+		ARG 2 texture
+		ARG 3 textureWidth
+		ARG 4 textureHeight
+		ARG 5 u
+		ARG 6 v
+		ARG 7 x
+		ARG 8 y
 		ARG 9 width
 		ARG 10 height
-	METHOD blitTiledSprite drawTiledSprite (Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIIIIIIIII)V
-		ARG 1 sprite
-		ARG 2 x
-		ARG 3 y
-		ARG 4 z
-		ARG 5 width
-		ARG 6 height
+	METHOD blitTiledSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIIIIIIIII)V
+		ARG 2 sprite
+		ARG 13 color
 	METHOD containsPointInScissor (II)Z
 		ARG 1 x
 		ARG 2 y
@@ -258,32 +202,17 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 3 endX
 		ARG 4 y
 		ARG 5 color
-	METHOD innerBlit drawTexturedQuad (Lnet/minecraft/resources/ResourceLocation;IIIIIFFFF)V
-		ARG 1 texture
-		ARG 2 startX
-		ARG 3 startY
+	METHOD innerBlit drawTexturedQuad (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIIIFFFFI)V
+		ARG 2 texture
+		ARG 3 startX
 		ARG 4 endX
-		ARG 5 endY
-		ARG 6 z
+		ARG 5 startY
+		ARG 6 endY
 		ARG 7 u1
 		ARG 8 u2
 		ARG 9 v1
 		ARG 10 v2
-	METHOD innerBlit drawTexturedQuad (Lnet/minecraft/resources/ResourceLocation;IIIIIFFFFFFFF)V
-		ARG 1 texture
-		ARG 2 startX
-		ARG 3 startY
-		ARG 4 endX
-		ARG 5 endY
-		ARG 6 z
-		ARG 7 u1
-		ARG 8 u2
-		ARG 9 v1
-		ARG 10 v2
-		ARG 11 red
-		ARG 12 green
-		ARG 13 blue
-		ARG 14 alpha
+		ARG 11 color
 	METHOD pose matrixStack ()Lcom/mojang/blaze3d/vertex/PoseStack;
 	METHOD renderComponentHoverEffect renderHoverEffect (Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Style;II)V
 		ARG 2 style
@@ -374,11 +303,6 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 3 x
 		ARG 4 y
 		ARG 5 positioner
-	METHOD setColor setColor (FFFF)V
-		ARG 1 read
-		ARG 2 green
-		ARG 3 blue
-		ARG 4 alpha
 	METHOD vLine drawVerticalLine (IIII)V
 		ARG 1 x
 		ARG 2 startY

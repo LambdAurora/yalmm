@@ -10,9 +10,4 @@ CLASS net/minecraft/client/resources/model/ModelResourceLocation net/minecraft/c
 	METHOD inventory ofInventoryVariant (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/resources/model/ModelResourceLocation;
 		ARG 0 id
 			COMMENT the identifier of the model
-	METHOD vanilla ofDefault (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/client/resources/model/ModelResourceLocation;
-		ARG 0 path
-			COMMENT the path of the model in the default namespace
-		ARG 1 variant
-			COMMENT the variant of the model
 	METHOD variant variant ()Ljava/lang/String;

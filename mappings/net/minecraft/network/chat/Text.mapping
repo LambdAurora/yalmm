@@ -28,7 +28,8 @@ CLASS net/minecraft/network/chat/Component net/minecraft/network/chat/Text
 			COMMENT the content of the text
 	METHOD nbt nbt (Ljava/lang/String;ZLjava/util/Optional;Lnet/minecraft/network/chat/contents/DataSource;)Lnet/minecraft/network/chat/MutableComponent;
 	METHOD score score (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
-	METHOD selector selector (Ljava/lang/String;Ljava/util/Optional;)Lnet/minecraft/network/chat/MutableComponent;
+	METHOD score score (Lnet/minecraft/commands/arguments/selector/SelectorPattern;Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+	METHOD selector selector (Lnet/minecraft/commands/arguments/selector/SelectorPattern;Ljava/util/Optional;)Lnet/minecraft/network/chat/MutableComponent;
 	METHOD translatable translatable (Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
 		COMMENT Creates a new mutable translatable text.
 		COMMENT
