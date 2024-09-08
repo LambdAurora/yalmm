@@ -1,0 +1,2 @@
+CLASS net/minecraft/network/chat/ComponentContents net/minecraft/network/chat/TextContents
+	CLASS Type
