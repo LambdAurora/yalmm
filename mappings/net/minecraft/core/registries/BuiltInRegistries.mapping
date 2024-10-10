@@ -4,5 +4,5 @@ CLASS net/minecraft/core/registries/BuiltInRegistries
 		COMMENT Bootstraps the built-in registries by ensuring the registries are initialized then freezing them.
 	METHOD createContents init ()V
 		COMMENT Initializes every built-in registries.
-	METHOD lambda$createContents$49 (Lnet/minecraft/resources/ResourceLocation;Ljava/util/function/Supplier;)V
+	METHOD lambda$createContents$50 (Lnet/minecraft/resources/ResourceLocation;Ljava/util/function/Supplier;)V
 		ARG 0 registryId

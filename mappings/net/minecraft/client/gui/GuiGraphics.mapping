@@ -222,6 +222,11 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 2 text
 		ARG 3 x
 		ARG 4 y
+	METHOD renderComponentTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;IILnet/minecraft/resources/ResourceLocation;)V
+		ARG 2 text
+		ARG 3 x
+		ARG 4 y
+		ARG 5 boxTexture
 	METHOD renderFakeItem drawItemWithoutEntity (Lnet/minecraft/world/item/ItemStack;II)V
 		ARG 1 stack
 		ARG 2 x
@@ -280,11 +285,22 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 2 text
 		ARG 3 x
 		ARG 4 y
+	METHOD renderTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;IILnet/minecraft/resources/ResourceLocation;)V
+		ARG 2 text
+		ARG 3 x
+		ARG 4 y
+		ARG 5 boxTexture
 	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;Ljava/util/Optional;II)V
 		ARG 2 tooltip
 		ARG 3 data
 		ARG 4 x
 		ARG 5 y
+	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;Ljava/util/Optional;IILnet/minecraft/resources/ResourceLocation;)V
+		ARG 2 tooltip
+		ARG 3 data
+		ARG 4 x
+		ARG 5 y
+		ARG 6 boxTexture
 	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;Lnet/minecraft/client/gui/screens/inventory/tooltip/ClientTooltipPositioner;II)V
 		ARG 2 text
 		ARG 3 positioner
@@ -294,15 +310,21 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 2 text
 		ARG 3 x
 		ARG 4 y
+	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;IILnet/minecraft/resources/ResourceLocation;)V
+		ARG 2 text
+		ARG 3 x
+		ARG 4 y
+		ARG 5 boxTexture
 	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Lnet/minecraft/world/item/ItemStack;II)V
 		ARG 2 stack
 		ARG 3 x
 		ARG 4 y
-	METHOD renderTooltipInternal drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;IILnet/minecraft/client/gui/screens/inventory/tooltip/ClientTooltipPositioner;)V
-		ARG 2 text
+	METHOD renderTooltipInternal drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;IILnet/minecraft/client/gui/screens/inventory/tooltip/ClientTooltipPositioner;Lnet/minecraft/resources/ResourceLocation;)V
+		ARG 2 content
 		ARG 3 x
 		ARG 4 y
 		ARG 5 positioner
+		ARG 6 boxTexture
 	METHOD vLine drawVerticalLine (IIII)V
 		ARG 1 x
 		ARG 2 startY

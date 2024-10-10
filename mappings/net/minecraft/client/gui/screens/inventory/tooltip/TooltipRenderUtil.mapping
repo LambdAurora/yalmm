@@ -1,0 +1,5 @@
+CLASS net/minecraft/client/gui/screens/inventory/tooltip/TooltipRenderUtil
+	METHOD renderTooltipBackground (Lnet/minecraft/client/gui/GuiGraphics;IIIIILnet/minecraft/resources/ResourceLocation;)V
+		ARG 0 graphics
+		ARG 5 z
+		ARG 6 texture

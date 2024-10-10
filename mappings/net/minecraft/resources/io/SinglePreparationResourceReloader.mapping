@@ -14,8 +14,8 @@ CLASS net/minecraft/server/packs/resources/SimplePreparableReloadListener net/mi
 			COMMENT the resource manager
 		ARG 3 profiler
 			COMMENT the apply profiler
-	METHOD lambda$reload$1 (Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;Ljava/lang/Object;)V
-		ARG 3 prepared
+	METHOD lambda$reload$1 (Lnet/minecraft/server/packs/resources/ResourceManager;Ljava/lang/Object;)V
+		ARG 2 prepared
 	METHOD prepare prepare (Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)Ljava/lang/Object;
 		COMMENT Prepares the intermediate object.
 		COMMENT <p>
