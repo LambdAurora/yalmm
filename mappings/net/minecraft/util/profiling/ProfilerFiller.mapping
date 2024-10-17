@@ -1,0 +1,36 @@
+CLASS net/minecraft/util/profiling/ProfilerFiller
+	METHOD addZoneText (Ljava/lang/String;)V
+		ARG 1 text
+	METHOD addZoneValue (J)V
+		ARG 1 value
+	METHOD combine (Lnet/minecraft/util/profiling/ProfilerFiller;Lnet/minecraft/util/profiling/ProfilerFiller;)Lnet/minecraft/util/profiling/ProfilerFiller;
+		ARG 0 first
+		ARG 1 second
+	METHOD incrementCounter (Ljava/lang/String;)V
+		ARG 1 counterName
+	METHOD incrementCounter (Ljava/lang/String;I)V
+		ARG 1 counterName
+		ARG 2 increment
+	METHOD incrementCounter (Ljava/util/function/Supplier;)V
+		ARG 1 counterNameSupplier
+	METHOD incrementCounter (Ljava/util/function/Supplier;I)V
+		ARG 1 counterNameSupplier
+		ARG 2 increment
+	METHOD popPush swap (Ljava/lang/String;)V
+		ARG 1 location
+	METHOD popPush swap (Ljava/util/function/Supplier;)V
+		ARG 1 locationSupplier
+	METHOD push (Ljava/lang/String;)V
+		ARG 1 name
+	METHOD push (Ljava/util/function/Supplier;)V
+		ARG 1 nameSupplier
+	METHOD setZoneColor (I)V
+		ARG 1 color
+	METHOD zone (Ljava/lang/String;)Lnet/minecraft/util/profiling/Zone;
+		ARG 1 name
+	METHOD zone (Ljava/util/function/Supplier;)Lnet/minecraft/util/profiling/Zone;
+		ARG 1 nameSupplier
+	CLASS CombinedProfileFiller Combined
+		METHOD <init> (Lnet/minecraft/util/profiling/ProfilerFiller;Lnet/minecraft/util/profiling/ProfilerFiller;)V
+			ARG 1 first
+			ARG 2 second
