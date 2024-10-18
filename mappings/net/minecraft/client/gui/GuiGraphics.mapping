@@ -3,34 +3,52 @@ CLASS net/minecraft/client/gui/GuiGraphics
 	FIELD pose matrixStack Lcom/mojang/blaze3d/vertex/PoseStack;
 	METHOD applyScissor (Lnet/minecraft/client/gui/navigation/ScreenRectangle;)V
 		ARG 1 area
-	METHOD blit (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIII)V
+	METHOD blit drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIII)V
+		ARG 1 renderTypes
 		ARG 2 texture
 		ARG 3 x
 		ARG 4 y
-	METHOD blit (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIIII)V
+		ARG 5 u
+		ARG 6 v
+	METHOD blit drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIIII)V
+		ARG 1 renderTypes
 		ARG 2 texture
 		ARG 3 x
 		ARG 4 y
-	METHOD blit (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIIIII)V
+		ARG 5 u
+		ARG 6 v
+	METHOD blit drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIIIII)V
+		ARG 1 renderTypes
 		ARG 2 texture
 		ARG 3 x
 		ARG 4 y
-	METHOD blit (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIIIIII)V
+		ARG 5 u
+		ARG 6 v
+	METHOD blit drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIIIIII)V
+		ARG 1 renderTypes
 		ARG 2 texture
 		ARG 3 x
 		ARG 4 y
+		ARG 5 u
+		ARG 6 v
 		ARG 7 width
 		ARG 8 height
 		ARG 13 color
-	METHOD blitNineSlicedSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;Lnet/minecraft/client/resources/metadata/gui/GuiSpriteScaling$NineSlice;IIIII)V
+	METHOD blitNineSliceInnerSegment drawNineSliceInnerSegment (Ljava/util/function/Function;Lnet/minecraft/client/resources/metadata/gui/GuiSpriteScaling$NineSlice;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIIIIIIIII)V
+		ARG 1 renderTypes
+		ARG 3 sprite
+	METHOD blitNineSlicedSprite drawNineSlicedSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;Lnet/minecraft/client/resources/metadata/gui/GuiSpriteScaling$NineSlice;IIIII)V
+		ARG 1 renderTypes
 		ARG 2 sprite
 	METHOD blitSprite drawSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIII)V
+		ARG 1 renderTypes
 		ARG 2 sprite
 		ARG 3 x
 		ARG 4 y
 		ARG 5 width
 		ARG 6 height
 	METHOD blitSprite drawSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIII)V
+		ARG 1 renderTypes
 		ARG 2 sprite
 		ARG 3 x
 		ARG 4 y
@@ -38,6 +56,7 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 6 height
 		ARG 7 color
 	METHOD blitSprite drawSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIIIIIII)V
+		ARG 1 renderTypes
 		ARG 2 sprite
 		ARG 3 textureWidth
 		ARG 4 textureHeight
@@ -48,20 +67,26 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 9 width
 		ARG 10 height
 		ARG 11 color
-	METHOD blitSprite drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIII)V
+	METHOD blitSprite drawSprite (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIII)V
+		COMMENT Draws a textured rectangle from a region in a GUI texture.
+		ARG 1 renderTypes
 		ARG 2 texture
 		ARG 3 x
 		ARG 4 y
 		ARG 5 width
 		ARG 6 height
-	METHOD blitSprite drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIIII)V
+	METHOD blitSprite drawSprite (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIIII)V
+		COMMENT Draws a textured rectangle from a region in a GUI texture.
+		ARG 1 renderTypes
 		ARG 2 texture
 		ARG 3 x
 		ARG 4 y
 		ARG 5 width
 		ARG 6 height
 		ARG 7 color
-	METHOD blitSprite drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIIIIIII)V
+	METHOD blitSprite drawSprite (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIIIIIII)V
+		COMMENT Draws a textured rectangle from a region in a GUI texture.
+		ARG 1 renderTypes
 		ARG 2 texture
 		ARG 3 textureWidth
 		ARG 4 textureHeight
@@ -71,7 +96,8 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 8 y
 		ARG 9 width
 		ARG 10 height
-	METHOD blitTiledSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIIIIIIIII)V
+	METHOD blitTiledSprite drawTiledSprite (Ljava/util/function/Function;Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;IIIIIIIIIII)V
+		ARG 1 renderTypes
 		ARG 2 sprite
 		ARG 13 color
 	METHOD containsPointInScissor (II)Z
@@ -203,6 +229,7 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 4 y
 		ARG 5 color
 	METHOD innerBlit drawTexturedQuad (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIIIFFFFI)V
+		ARG 1 renderTypes
 		ARG 2 texture
 		ARG 3 startX
 		ARG 4 endX
