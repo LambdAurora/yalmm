@@ -1,0 +1,27 @@
+CLASS net/minecraft/client/gui/components/WidgetSprites
+	COMMENT Represents widget sprites which depend on its state.
+	FIELD disabled disabled Lnet/minecraft/resources/ResourceLocation;
+		COMMENT the texture when the widget is disabled and not focused
+	FIELD disabledFocused disabledFocused Lnet/minecraft/resources/ResourceLocation;
+		COMMENT the texture when the widget is disabled and focused
+	FIELD enabled enabled Lnet/minecraft/resources/ResourceLocation;
+		COMMENT the texture when the widget is enabled and not focused
+	FIELD enabledFocused enabledFocused Lnet/minecraft/resources/ResourceLocation;
+		COMMENT the texture when the widget is enabled and focused
+	METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;)V
+		ARG 1 texture
+		ARG 2 focusedTexture
+	METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;)V
+		ARG 1 enabled
+		ARG 2 disabled
+		ARG 3 enabledFocused
+	METHOD disabled disabled ()Lnet/minecraft/resources/ResourceLocation;
+	METHOD disabledFocused disabledFocused ()Lnet/minecraft/resources/ResourceLocation;
+	METHOD enabled enabled ()Lnet/minecraft/resources/ResourceLocation;
+	METHOD enabledFocused enabledFocused ()Lnet/minecraft/resources/ResourceLocation;
+	METHOD get (ZZ)Lnet/minecraft/resources/ResourceLocation;
+		COMMENT {@return the relevant texture for the given state of the widget}
+		ARG 1 enabled
+			COMMENT {@code true} if the widget is enabled, or {@code false} otherwise
+		ARG 2 focused
+			COMMENT {@code true} if the widget is focused, or {@code false} otherwise
