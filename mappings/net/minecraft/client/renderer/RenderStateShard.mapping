@@ -1,0 +1,47 @@
+CLASS net/minecraft/client/renderer/RenderStateShard
+	METHOD <init> (Ljava/lang/String;Ljava/lang/Runnable;Ljava/lang/Runnable;)V
+		ARG 1 name
+		ARG 2 setupState
+		ARG 3 clearState
+	CLASS BooleanStateShard
+		METHOD <init> (Ljava/lang/String;Ljava/lang/Runnable;Ljava/lang/Runnable;Z)V
+			ARG 1 name
+			ARG 2 setupState
+			ARG 3 clearState
+			ARG 4 enabled
+	CLASS CullStateShard
+		METHOD <init> (Z)V
+			ARG 1 enabled
+	CLASS DepthTestStateShard
+		METHOD <init> (Ljava/lang/String;I)V
+			ARG 1 functionName
+	CLASS EmptyTextureStateShard
+		METHOD <init> (Ljava/lang/Runnable;Ljava/lang/Runnable;)V
+			ARG 1 setupState
+			ARG 2 clearState
+	CLASS LightmapStateShard
+		METHOD <init> (Z)V
+			ARG 1 enabled
+	CLASS MultiTextureStateShard
+		CLASS Builder
+			METHOD add (Lnet/minecraft/resources/ResourceLocation;ZZ)Lnet/minecraft/client/renderer/RenderStateShard$MultiTextureStateShard$Builder;
+				ARG 1 texure
+	CLASS OffsetTexturingStateShard
+		METHOD <init> (FF)V
+			ARG 1 u
+			ARG 2 v
+	CLASS OverlayStateShard
+		METHOD <init> (Z)V
+			ARG 1 enabled
+	CLASS ShaderStateShard
+		METHOD <init> (Lnet/minecraft/client/renderer/ShaderProgram;)V
+			ARG 1 shader
+	CLASS TextureStateShard
+		METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/util/TriState;Z)V
+			ARG 1 texture
+			ARG 2 blur
+			ARG 3 mipmap
+	CLASS WriteMaskStateShard
+		METHOD <init> (ZZ)V
+			ARG 1 writeColor
+			ARG 2 writeDepth

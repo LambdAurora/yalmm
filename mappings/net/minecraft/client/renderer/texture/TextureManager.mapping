@@ -1,0 +1,5 @@
+CLASS net/minecraft/client/renderer/texture/TextureManager
+	METHOD getTexture (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/texture/AbstractTexture;
+		ARG 1 id
+	METHOD getTexture (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/texture/AbstractTexture;)Lnet/minecraft/client/renderer/texture/AbstractTexture;
+		ARG 1 id
