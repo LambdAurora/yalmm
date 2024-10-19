@@ -1,0 +1,4 @@
+CLASS com/mojang/blaze3d/shaders/CompiledShader
+	METHOD <init> (ILnet/minecraft/resources/ResourceLocation;)V
+		ARG 1 shaderId
+		ARG 2 id
