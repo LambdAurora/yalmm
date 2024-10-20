@@ -46,7 +46,7 @@ CLASS net/minecraft/world/level/block/entity/BlockEntity
 		ARG 0 nbt
 		ARG 1 type
 	METHOD clearRemoved cancelRemoval ()V
-	METHOD getBlockPos getPos ()Lnet/minecraft/core/BlockPos;
+	METHOD getBlockPos getBlockPos ()Lnet/minecraft/core/BlockPos;
 		COMMENT {@return this block entity's position}
 	METHOD getBlockState getCachedState ()Lnet/minecraft/world/level/block/state/BlockState;
 		COMMENT {@return the cached block state at this block entity's position}
