@@ -1,0 +1,6 @@
+CLASS net/minecraft/client/Minecraft
+	METHOD addResourcePackLoadFailToast (Lnet/minecraft/network/chat/Component;)V
+		ARG 1 message
+	METHOD clearResourcePacksOnError (Ljava/lang/Throwable;Lnet/minecraft/network/chat/Component;Lnet/minecraft/client/Minecraft$GameLoadCookie;)V
+		ARG 1 error
+		ARG 2 toastText
