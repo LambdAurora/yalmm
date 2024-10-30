@@ -1,6 +1,8 @@
 CLASS net/minecraft/client/gui/GuiGraphics
 	FIELD minecraft client Lnet/minecraft/client/Minecraft;
 	FIELD pose matrixStack Lcom/mojang/blaze3d/vertex/PoseStack;
+	METHOD <init> (Lnet/minecraft/client/Minecraft;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource$BufferSource;)V
+		ARG 2 matrixStack
 	METHOD applyScissor (Lnet/minecraft/client/gui/navigation/ScreenRectangle;)V
 		ARG 1 area
 	METHOD blit drawTexture (Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIII)V
@@ -163,6 +165,13 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 4 y
 		ARG 5 width
 		ARG 6 color
+	METHOD drawWordWrap drawTextWrapped (Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/FormattedText;IIIIZ)V
+		ARG 2 text
+		ARG 3 x
+		ARG 4 y
+		ARG 5 width
+		ARG 6 color
+		ARG 7 shadowed
 	METHOD enableScissor (IIII)V
 		ARG 1 startX
 		ARG 2 startY
@@ -209,6 +218,14 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 5 z
 		ARG 6 startColor
 		ARG 7 endColor
+	METHOD fillGradient fillGradient (Lcom/mojang/blaze3d/vertex/VertexConsumer;IIIIIII)V
+		ARG 2 startX
+		ARG 3 startY
+		ARG 4 endX
+		ARG 5 endY
+		ARG 6 z
+		ARG 7 startColor
+		ARG 8 endColor
 	METHOD fillGradient fillGradient (Lnet/minecraft/client/renderer/RenderType;IIIIIII)V
 		ARG 2 startX
 		ARG 3 startY
@@ -217,6 +234,12 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 6 startColor
 		ARG 7 endColor
 		ARG 8 z
+	METHOD fillRenderType fillRenderType (Lnet/minecraft/client/renderer/RenderType;IIIII)V
+		ARG 2 startX
+		ARG 3 startY
+		ARG 4 endX
+		ARG 5 endY
+		ARG 6 z
 	METHOD flush flush ()V
 	METHOD hLine drawHorizontalLine (IIII)V
 		ARG 1 startX
