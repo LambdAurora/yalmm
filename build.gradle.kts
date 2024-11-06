@@ -21,6 +21,7 @@ dependencies {
 	intermediaryMappings("net.fabricmc:intermediary:${Constants.MINECRAFT_VERSION}")
 
 	enigmaRuntime(libs.enigma.gui)
+	enigmaRuntime(libs.asm)
 }
 
 publishing {
