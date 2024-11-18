@@ -160,7 +160,6 @@ CLASS net/minecraft/world/level/block/entity/BlockEntity
 		ARG 1 lookupProvider
 	METHOD setBlockState (Lnet/minecraft/world/level/block/state/BlockState;)V
 		ARG 1 state
-	METHOD setChanged markDirty ()V
 	METHOD setChanged markDirty (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V
 		ARG 0 level
 		ARG 1 pos
