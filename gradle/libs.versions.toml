@@ -17,6 +17,7 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 mappingio = { module = "net.fabricmc:mapping-io", version.ref = "mappingio" }
 stitch = { module = "net.fabricmc:stitch", version.ref = "stitch" }
 tinyremapper = { module = "net.fabricmc:tiny-remapper", version.ref = "tinyremapper" }
+enigma = { module = "cuchaz:enigma", version.ref = "enigma" }
 enigma-cli = { module = "cuchaz:enigma-cli", version.ref = "enigma" }
 enigma-gui = { module = "cuchaz:enigma-swing", version.ref = "enigma" }
 vineflower = { module = "org.vineflower:vineflower", version.ref = "vineflower" }

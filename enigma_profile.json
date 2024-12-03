@@ -1,0 +1,10 @@
+{
+	"services": {
+		"jar_indexer": {
+			"id": "yalmm:jar_indexer"
+		},
+		"name_proposal": {
+			"id": "yalmm:name_proposal"
+		}
+	}
+}
