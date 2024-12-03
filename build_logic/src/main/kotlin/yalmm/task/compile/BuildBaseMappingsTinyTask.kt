@@ -1,9 +1,8 @@
 package yalmm.task.compile
 
+import cuchaz.enigma.Enigma
+import cuchaz.enigma.EnigmaProfile
 import cuchaz.enigma.ProgressListener
-import cuchaz.enigma.analysis.index.JarIndex
-import cuchaz.enigma.classprovider.CachingClassProvider
-import cuchaz.enigma.classprovider.JarClassProvider
 import cuchaz.enigma.command.MappingCommandsUtil
 import cuchaz.enigma.translation.MappingTranslator
 import cuchaz.enigma.translation.Translator
@@ -11,18 +10,20 @@ import cuchaz.enigma.translation.mapping.EntryMapping
 import cuchaz.enigma.translation.mapping.serde.MappingFileNameFormat
 import cuchaz.enigma.translation.mapping.serde.MappingSaveParameters
 import cuchaz.enigma.translation.mapping.tree.EntryTree
-import cuchaz.enigma.translation.mapping.tree.HashEntryTree
 import cuchaz.enigma.translation.representation.entry.ClassEntry
-import cuchaz.enigma.translation.representation.entry.MethodEntry
 import cuchaz.enigma.utils.Utils
 import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.tasks.InputDirectory
+import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 import yalmm.Constants
+import yalmm.enigma.MappingEmitter
+import yalmm.enigma.YalmmEnigmaPlugin
 import yalmm.mapping.InnerClassSolver
 import yalmm.task.DefaultYalmmTask
 import yalmm.task.setup.mapping.MapGameJarTask
+import yalmm.util.VerboseConsoleProgressListener
 import java.io.File
 import java.util.stream.Collectors
 
@@ -34,41 +35,52 @@ open class BuildBaseMappingsTinyTask : DefaultYalmmTask(Constants.Groups.BUILD) 
 	@InputDirectory
 	val mappings: RegularFileProperty = project.objects.fileProperty()
 
+	@InputFile
+	val jarToMap: RegularFileProperty = this.project.objects.fileProperty()
+
+	@InputFile
+	val enigmaProfile: RegularFileProperty = project.objects.fileProperty()
+
 	@OutputFile
 	val outputMappings: File = this.project.layout.buildDirectory.file("yalmm_base.tiny").get().asFile
 
 	init {
 		this.dependsOn(MapGameJarTask.TASK_NAME)
 		this.mappings.convention { this.fileConstants.mappingsDir.toFile() }
+		this.enigmaProfile.convention { this.project.file("enigma_profile.json") }
 	}
 
 	@TaskAction
 	fun run() {
 		this.logger.info("Generating Tiny v2 mappings.")
 
+		val plugin = YalmmEnigmaPlugin()
+		val profile = EnigmaProfile.read(this.enigmaProfile.get().asFile.toPath())
+		val enigma = Enigma.builder()
+			.setProfile(profile)
+			.setPlugins(listOf(plugin))
+			.build()
+
 		// Based on MapSpecializedMethodsCommand from Enigma CLI.
 		// But modified to not include unmapped specialized methods.
 
-		val saveParameters = MappingSaveParameters(MappingFileNameFormat.BY_DEOBF)
-		val source = MappingCommandsUtil.read("enigma", this.mappings.get().asFile.toPath(), saveParameters)
-		val result: EntryTree<EntryMapping?> = HashEntryTree()
+		val progress: ProgressListener = VerboseConsoleProgressListener()
+		val project = MappingEmitter.openProject(
+			enigma,
+			this.jarToMap.get().asFile.toPath(),
+			this.mappings.get().asFile.toPath(),
+			progress
+		)
 
-		val jcp = JarClassProvider(this.getTaskByName<MapGameJarTask>(MapGameJarTask.TASK_NAME).outputJar.get().asFile.toPath())
-		val jarIndex = JarIndex.empty()
-		jarIndex.indexJar(jcp.classNames, CachingClassProvider(jcp), ProgressListener.none())
+		val emitter = MappingEmitter(project, plugin)
+		emitter.fillMappings()
+		val result: EntryTree<EntryMapping?> = emitter.result()
 
-		val bridgeMethodIndex = jarIndex.bridgeMethodIndex
-		val translator: Translator = MappingTranslator(source, jarIndex.entryResolver)
-
-		// Copy all non-specialized methods
-		for (node in source) {
-			if (node.entry !is MethodEntry || !bridgeMethodIndex.isSpecializedMethod(node.entry as MethodEntry)) {
-				result.insert(node.entry, node.value)
-			}
-		}
+		val bridgeMethodIndex = project.jarIndex.bridgeMethodIndex
+		val translator: Translator = MappingTranslator(project.mapper.obfToDeobf, project.jarIndex.entryResolver)
 
 		// Add inner classes that are not present in the result mapping tree.
-		val innerClassesMap = jarIndex.entryIndex.classes.parallelStream()
+		val innerClassesMap = project.jarIndex.entryIndex.classes.parallelStream()
 			.filter { it.isInnerClass }
 			.sorted(Comparator.comparing { it.fullName })
 			.collect(Collectors.toMap(ClassEntry::getOutermostClass, { listOf(it) }, { a, b -> a + b }))
@@ -119,7 +131,7 @@ open class BuildBaseMappingsTinyTask : DefaultYalmmTask(Constants.Groups.BUILD) 
 
 		val output = this.outputMappings.toPath()
 		Utils.delete(output)
-		MappingCommandsUtil.write(result, "tinyv2:mojang_named:named", output, saveParameters)
+		MappingCommandsUtil.write(result, "tinyv2:mojang_named:named", output, MappingSaveParameters(MappingFileNameFormat.BY_DEOBF))
 	}
 
 	private fun listHierarchy(node: ClassEntry): List<ClassEntry> {

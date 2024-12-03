@@ -15,6 +15,14 @@ plugins {
 
 group = Constants.GROUP
 
+repositories {
+	mavenCentral()
+	maven {
+		name = "Fabric Maven"
+		url = uri("https://maven.fabricmc.net/")
+	}
+}
+
 extensions.add("mappings", MappingsExtension(project))
 
 sourceSets {
@@ -58,7 +66,10 @@ tasks.register(EnigmaMappingsTask.TASK_NAME, EnigmaMappingsTask::class) {
 	this.dependsOn(MapGameJarTask.TASK_NAME)
 	this.jarToMap.set(mapGameJarTask.get().outputJar.get().asFile)
 }
-tasks.register(BuildBaseMappingsTinyTask.TASK_NAME, BuildBaseMappingsTinyTask::class)
+tasks.register(BuildBaseMappingsTinyTask.TASK_NAME, BuildBaseMappingsTinyTask::class).configure {
+	this.dependsOn(MapGameJarTask.TASK_NAME)
+	this.jarToMap.set(mapGameJarTask.get().outputJar.get().asFile)
+}
 val buildTinyTask = tasks.register(BuildIntermediaryMappingsTinyTask.TASK_NAME, BuildIntermediaryMappingsTinyTask::class)
 
 tasks.processResources.configure {

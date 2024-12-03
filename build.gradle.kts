@@ -2,20 +2,11 @@ import yalmm.Constants
 
 plugins {
 	id("yalmm")
-	`java-library`
 	`maven-publish`
 }
 
 version = "${Constants.MINECRAFT_VERSION}+build.${System.getenv().getOrDefault("BUILD_NUMBER", "local")}"
 base.archivesName.set("yalmm")
-
-repositories {
-	mavenCentral()
-	maven {
-		name = "Fabric Maven"
-		url = uri("https://maven.fabricmc.net/")
-	}
-}
 
 dependencies {
 	intermediaryMappings("net.fabricmc:intermediary:${Constants.MINECRAFT_VERSION}")
