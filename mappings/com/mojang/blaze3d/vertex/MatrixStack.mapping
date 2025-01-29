@@ -13,7 +13,7 @@ CLASS com/mojang/blaze3d/vertex/PoseStack com/mojang/blaze3d/vertex/MatrixStack
 	COMMENT An entry of identity matrix is pushed when a stack is created. This
 	COMMENT means that a stack is {@linkplain #isEmpty empty} if and only if the
 	COMMENT stack contains exactly one entry.
-	FIELD poseStack stack Ljava/util/Deque;
+	FIELD poses stack Ljava/util/List;
 	METHOD clear isEmpty ()Z
 		COMMENT {@return {@code true} if the matrix stack is empty, or {@code false} otherwise}
 	METHOD last peek ()Lcom/mojang/blaze3d/vertex/PoseStack$Pose;
