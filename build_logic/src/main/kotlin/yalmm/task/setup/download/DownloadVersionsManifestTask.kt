@@ -13,16 +13,20 @@ open class DownloadVersionsManifestTask : DefaultYalmmTask(Constants.Groups.SETU
 		private const val FILE_NAME = "version_manifest_v2.json"
 	}
 
+	@Suppress("LeakingThis")
+	private val action = Downloader(this)
+		.src("https://piston-meta.mojang.com/mc/game/$FILE_NAME")
+		.overwrite(true)
+
 	@OutputFile
 	val manifestFile: File = this.fileConstants.mcCacheDir.resolve(FILE_NAME).toFile()
 
 	@TaskAction
 	fun run() {
 		this.logger.lifecycle("Downloading Minecraft versions manifest.")
-		Downloader(this)
-			.src("https://piston-meta.mojang.com/mc/game/$FILE_NAME")
+
+		this.action
 			.dest(this.manifestFile)
-			.overwrite(true)
 			.download()
 	}
 }

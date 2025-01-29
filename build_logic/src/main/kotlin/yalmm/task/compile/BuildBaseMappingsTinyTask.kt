@@ -47,7 +47,7 @@ open class BuildBaseMappingsTinyTask : DefaultYalmmTask(Constants.Groups.BUILD) 
 	init {
 		this.dependsOn(MapGameJarTask.TASK_NAME)
 		this.mappings.convention { this.fileConstants.mappingsDir.toFile() }
-		this.enigmaProfile.convention { this.project.file("enigma_profile.json") }
+		this.enigmaProfile.convention(this.project.layout.projectDirectory.file("enigma_profile.json"))
 	}
 
 	@TaskAction
