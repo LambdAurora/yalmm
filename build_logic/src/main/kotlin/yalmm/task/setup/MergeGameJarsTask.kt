@@ -29,10 +29,15 @@ open class MergeGameJarsTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 
 	init {
 		this.dependsOn(DownloadGameArtifactTask.DOWNLOAD_CLIENT_JAR_TASK_NAME, ExtractServerJarTask.TASK_NAME)
-		this.clientJar.convention {
-			this.getTaskByName<DownloadGameArtifactTask>(DownloadGameArtifactTask.DOWNLOAD_CLIENT_JAR_TASK_NAME).artifactFile.get().asFile
-		}
-		this.serverJar.convention { this.getTaskByName<ExtractServerJarTask>(ExtractServerJarTask.TASK_NAME).serverJar }
+		this.clientJar.convention(
+			this.taskByName<DownloadGameArtifactTask>(DownloadGameArtifactTask.DOWNLOAD_CLIENT_JAR_TASK_NAME)
+				.flatMap { it.artifactFile }
+		)
+		this.serverJar.convention(
+			this.project.layout.file(
+				this.taskByName<ExtractServerJarTask>(ExtractServerJarTask.TASK_NAME).map { it.serverJar }
+			)
+		)
 	}
 
 	@TaskAction
