@@ -1,39 +1,46 @@
 package yalmm.util
 
 import de.undercouch.gradle.tasks.download.DownloadAction
+import de.undercouch.gradle.tasks.download.DownloadDetails
+import org.gradle.api.Action
 import org.gradle.api.Task
 import java.io.File
 import java.io.IOException
 import java.net.URI
 
-class Downloader(private val task: Task) {
-	private val project = task.project
-	private var src: String? = null
-	private var dest: File? = null
-	private var overwrite = false
+class Downloader(task: Task) {
+	private val action = DownloadAction(task.project, task);
 
 	fun src(url: String?): Downloader {
-		this.src = url
+		return this.src(URI(url!!))
+	}
+
+	fun src(url: URI): Downloader {
+		return this.src(url.toURL())
+	}
+
+	private fun src(url: java.net.URL): Downloader {
+		this.action.src(url)
 		return this
 	}
 
 	fun dest(file: File?): Downloader {
-		this.dest = file
+		this.action.dest(file)
 		return this
 	}
 
 	fun overwrite(overwrite: Boolean): Downloader {
-		this.overwrite = overwrite
+		this.action.overwrite(overwrite)
+		return this
+	}
+
+	fun eachFile(action: Action<DownloadDetails>): Downloader {
+		this.action.eachFile(action)
 		return this
 	}
 
 	@Throws(IOException::class)
 	fun download() {
-		val downloadAction = DownloadAction(this.project, this.task)
-		downloadAction.src(URI(this.src!!).toURL())
-		downloadAction.dest(this.dest!!)
-		downloadAction.overwrite(this.overwrite)
-
-		downloadAction.execute()
+		this.action.execute()
 	}
 }

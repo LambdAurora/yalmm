@@ -31,12 +31,16 @@ open class BuildMojangTinyTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 
 	init {
 		this.dependsOn(DownloadGameArtifactTask.DOWNLOAD_CLIENT_MAPPINGS_TASK_NAME, DownloadGameArtifactTask.DOWNLOAD_SERVER_MAPPINGS_TASK_NAME)
-		this.clientMappingsFile.convention {
-			this.getTaskByName<DownloadGameArtifactTask>(DownloadGameArtifactTask.DOWNLOAD_CLIENT_MAPPINGS_TASK_NAME).artifactFile.get().asFile
-		}
-		this.serverMappingsFile.convention {
-			this.getTaskByName<DownloadGameArtifactTask>(DownloadGameArtifactTask.DOWNLOAD_SERVER_MAPPINGS_TASK_NAME).artifactFile.get().asFile
-		}
+		this.clientMappingsFile.convention(
+			this.taskByName<DownloadGameArtifactTask>(DownloadGameArtifactTask.DOWNLOAD_CLIENT_MAPPINGS_TASK_NAME).flatMap {
+				it.artifactFile
+			}
+		)
+		this.serverMappingsFile.convention(
+			this.taskByName<DownloadGameArtifactTask>(DownloadGameArtifactTask.DOWNLOAD_SERVER_MAPPINGS_TASK_NAME).flatMap {
+				it.artifactFile
+			}
+		)
 	}
 
 	@TaskAction
@@ -46,7 +50,7 @@ open class BuildMojangTinyTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 		val nsSwitch = MappingSourceNsSwitch(mappingTree, "official")
 
 		Files.newBufferedReader(this.clientMappingsFile.get().asFile.toPath()).use { clientReader ->
-			Files.newBufferedReader(this.serverMappingsFile.get().asFile.toPath()) .use { serverReader ->
+			Files.newBufferedReader(this.serverMappingsFile.get().asFile.toPath()).use { serverReader ->
 				ProGuardFileReader.read(clientReader, "named", "official", nsSwitch)
 				ProGuardFileReader.read(serverReader, "named", "official", nsSwitch)
 			}
