@@ -41,6 +41,6 @@ class Downloader(task: Task) {
 
 	@Throws(IOException::class)
 	fun download() {
-		this.action.execute()
+		this.action.execute().join()
 	}
 }
