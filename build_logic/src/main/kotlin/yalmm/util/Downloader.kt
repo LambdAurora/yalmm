@@ -7,9 +7,10 @@ import org.gradle.api.Task
 import java.io.File
 import java.io.IOException
 import java.net.URI
+import java.util.concurrent.CompletableFuture
 
 class Downloader(task: Task) {
-	private val action = DownloadAction(task.project, task);
+	private val action = DownloadAction(task.project, task)
 
 	fun src(url: String?): Downloader {
 		return this.src(URI(url!!))
@@ -40,7 +41,7 @@ class Downloader(task: Task) {
 	}
 
 	@Throws(IOException::class)
-	fun download() {
-		this.action.execute().join()
+	fun download(): CompletableFuture<Void> {
+		return this.action.execute()
 	}
 }
