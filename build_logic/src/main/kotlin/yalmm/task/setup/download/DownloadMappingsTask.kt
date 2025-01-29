@@ -8,12 +8,18 @@ import org.gradle.api.tasks.TaskAction
 import yalmm.Constants
 import yalmm.task.DefaultYalmmTask
 import yalmm.util.Downloader
+import java.nio.file.FileSystems
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+import java.util.stream.StreamSupport
+import kotlin.io.path.name
 
 open class DownloadMappingsTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 	@Input
 	val mappingsName: Property<String> = project.objects.property(String::class.java)
+
+	@Input
+	val mappingsUrl: Property<String> = project.objects.property(String::class.java)
 
 	@OutputFile
 	val jarFile: RegularFileProperty = project.objects.fileProperty()
@@ -21,7 +27,14 @@ open class DownloadMappingsTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 	@OutputFile
 	val tinyFile: RegularFileProperty = project.objects.fileProperty()
 
+	@Suppress("LeakingThis")
+	private val action = Downloader(this)
+		.overwrite(false)
+
 	init {
+		this.mappingsUrl.convention(this.mappingsName.map {
+			this.project.configurations.getByName(it).resolve().iterator().next().toURI().toString()
+		})
 		this.jarFile.fileProvider(mappingsName.map {
 			this.fileConstants.mcVersionDir.resolve("artifacts").resolve(getMappingsFileName(it) + ".jar").toFile()
 		})
@@ -32,20 +45,23 @@ open class DownloadMappingsTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 
 	@TaskAction
 	fun downloadMappings() {
-		Downloader(this)
-			.src(this.project.configurations.getByName(this.mappingsName.get()).resolve().iterator().next().toURI().toString())
+		this.action
+			.src(this.mappingsUrl.get())
 			.dest(this.jarFile.get().asFile)
-			.overwrite(false)
 			.download()
 
-		Files.copy(
-			this.project.zipTree(this.jarFile.get())
-				.files.stream()
+		FileSystems.newFileSystem(this.jarFile.asFile.get().toPath()).use { fs ->
+			val mappingsFile = StreamSupport.stream(fs.rootDirectories.spliterator(), false)
+				.flatMap { Files.walk(it) }
 				.filter { it.name.endsWith("mappings.tiny") }
-				.findFirst().get().toPath(),
-			this.tinyFile.get().asFile.toPath(),
-			StandardCopyOption.REPLACE_EXISTING
-		)
+				.findFirst().get()
+
+			Files.copy(
+				mappingsFile,
+				this.tinyFile.get().asFile.toPath(),
+				StandardCopyOption.REPLACE_EXISTING
+			)
+		}
 	}
 
 	companion object {

@@ -12,7 +12,6 @@ import java.io.IOException
 import java.nio.file.Files
 import java.util.regex.Pattern
 
-
 open class MapJarTask(group: String, private val from: String, private val to: String) : DefaultYalmmTask(group) {
 	@InputFile
 	val inputJar: RegularFileProperty = project.objects.fileProperty()

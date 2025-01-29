@@ -37,9 +37,19 @@ open class BuildIntermediaryMappingsTinyTask : DefaultYalmmTask(Constants.Groups
 
 	init {
 		this.dependsOn(BuildBaseMappingsTinyTask.TASK_NAME, BuildMojangTinyTask.TASK_NAME, "downloadIntermediary")
-		this.mappings.convention { this.getTaskByName<BuildBaseMappingsTinyTask>(BuildBaseMappingsTinyTask.TASK_NAME).outputMappings }
-		this.mojangTiny.convention { this.getTaskByName<BuildMojangTinyTask>(BuildMojangTinyTask.TASK_NAME).tinyFile }
-		this.intermediaryTiny.convention { this.getTaskByName<DownloadMappingsTask>("downloadIntermediary").tinyFile.get().asFile }
+		this.mappings.convention(
+			this.project.layout.file(
+				this.taskByName<BuildBaseMappingsTinyTask>(BuildBaseMappingsTinyTask.TASK_NAME).map { it.outputMappings }
+			)
+		)
+		this.mojangTiny.convention(
+			this.project.layout.file(
+				this.taskByName<BuildMojangTinyTask>(BuildMojangTinyTask.TASK_NAME).map { it.tinyFile }
+			)
+		)
+		this.intermediaryTiny.convention(
+			this.taskByName<DownloadMappingsTask>("downloadIntermediary").flatMap { it.tinyFile }
+		)
 	}
 
 	@TaskAction

@@ -20,6 +20,9 @@ open class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.SETUP
 
 	private val manifestFile: File
 	private val versionEntry: Optional<VersionsManifest.Entry>
+	@Suppress("LeakingThis")
+	private val action = Downloader(this)
+		.overwrite(true)
 
 	init {
 		this.dependsOn(DownloadVersionsManifestTask.TASK_NAME)
@@ -37,10 +40,9 @@ open class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.SETUP
 		val entry = this.versionEntry.or { getManifestVersion() }
 
 		if (entry.isPresent) {
-			Downloader(this)
+			this.action
 				.src(entry.get().url)
 				.dest(this.versionFile)
-				.overwrite(true)
 				.download()
 		} else if (!this.versionFile.exists()) {
 			throw RuntimeException("Could not find version data for Minecraft " + Constants.MINECRAFT_VERSION)

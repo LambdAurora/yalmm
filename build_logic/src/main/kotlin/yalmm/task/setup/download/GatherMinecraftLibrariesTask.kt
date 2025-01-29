@@ -4,10 +4,12 @@ import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.TaskAction
 import yalmm.Constants
+import yalmm.data.meta.version.LibraryArtifact
 import yalmm.data.meta.version.VersionManifest
 import yalmm.task.DefaultYalmmTask
 import yalmm.util.Downloader
 import yalmm.util.FileUtils
+import java.net.URI
 import java.nio.file.FileSystems
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
@@ -22,6 +24,9 @@ open class GatherMinecraftLibrariesTask : DefaultYalmmTask(Constants.Groups.SETU
 
 	@InputFile
 	val serverBootstrapJar: RegularFileProperty = this.project.objects.fileProperty()
+
+	@Suppress("LeakingThis")
+	private val action = Downloader(this).overwrite(false)
 
 	init {
 		this.dependsOn(DownloadVersionManifestTask.TASK_NAME, DownloadGameArtifactTask.DOWNLOAD_SERVER_TASK_NAME)
@@ -45,19 +50,28 @@ open class GatherMinecraftLibrariesTask : DefaultYalmmTask(Constants.Groups.SETU
 
 		val extractedLibraries = this.extractBundledLibraries().map { it.name }
 
-		version.libraries.parallelStream().filter {
+		this.action.dest(this.fileConstants.librariesDir.toFile())
+		val artifacts: MutableMap<URI, LibraryArtifact> = HashMap() // DO NOT EVER PUT URL AS THE KEY.
+
+		version.libraries.stream().filter {
 			// We only download libraries that are either not available locally and that are required at compile time.
 			// Any libraries with rules can be considered a runtime-only library.
 			!extractedLibraries.contains(it.name) && it.rules == null
 		}.forEach {
 			val artifact = it.downloads.artifact
+			val uri = URI(artifact.url())
 
-			Downloader(this)
-				.src(artifact.url())
-				.dest(this.fileConstants.librariesDir.resolve(artifact.path()).toFile())
-				.overwrite(false)
-				.download()
+			artifacts[uri] = artifact
+
+			this.action.src(uri)
 		}
+
+		this.action.eachFile {
+			val artifact = artifacts[this.sourceURL.toURI()]!!
+			this.path = artifact.path()
+		}
+
+		this.action.download()
 	}
 
 	/**

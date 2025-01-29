@@ -38,6 +38,9 @@ open class DownloadGameArtifactTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 
 	private val manifestFile: File
 	private var version: Optional<VersionManifest>?
+	@Suppress("LeakingThis")
+	private val action = Downloader(this)
+		.overwrite(false)
 
 	init {
 		this.dependsOn(DownloadVersionManifestTask.TASK_NAME)
@@ -63,10 +66,9 @@ open class DownloadGameArtifactTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 		this.logger.lifecycle("Downloading Minecraft ${Constants.MINECRAFT_VERSION} ${name} artifact.")
 
 		val artifact = this.getVersionManifest().get().downloads[name]
-		Downloader(this)
+		this.action
 			.src(artifact.url())
 			.dest(this.artifactFile.get().asFile)
-			.overwrite(false)
 			.download()
 
 		FileUtils.validateSha1(
