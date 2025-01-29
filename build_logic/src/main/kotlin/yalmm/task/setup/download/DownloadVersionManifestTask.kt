@@ -9,6 +9,7 @@ import yalmm.util.Downloader
 import java.io.File
 import java.nio.file.Files
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 open class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 	companion object {
@@ -44,6 +45,7 @@ open class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.SETUP
 				.src(entry.get().url)
 				.dest(this.versionFile)
 				.download()
+				.orTimeout(1, TimeUnit.MINUTES)
 		} else if (!this.versionFile.exists()) {
 			throw RuntimeException("Could not find version data for Minecraft " + Constants.MINECRAFT_VERSION)
 		}

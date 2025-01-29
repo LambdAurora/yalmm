@@ -11,6 +11,7 @@ import yalmm.util.Downloader
 import java.nio.file.FileSystems
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+import java.util.concurrent.TimeUnit
 import java.util.stream.StreamSupport
 import kotlin.io.path.name
 
@@ -49,19 +50,20 @@ open class DownloadMappingsTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 			.src(this.mappingsUrl.get())
 			.dest(this.jarFile.get().asFile)
 			.download()
+			.thenRun {
+				FileSystems.newFileSystem(this.jarFile.asFile.get().toPath()).use { fs ->
+					val mappingsFile = StreamSupport.stream(fs.rootDirectories.spliterator(), false)
+						.flatMap { Files.walk(it) }
+						.filter { it.name.endsWith("mappings.tiny") }
+						.findFirst().get()
 
-		FileSystems.newFileSystem(this.jarFile.asFile.get().toPath()).use { fs ->
-			val mappingsFile = StreamSupport.stream(fs.rootDirectories.spliterator(), false)
-				.flatMap { Files.walk(it) }
-				.filter { it.name.endsWith("mappings.tiny") }
-				.findFirst().get()
-
-			Files.copy(
-				mappingsFile,
-				this.tinyFile.get().asFile.toPath(),
-				StandardCopyOption.REPLACE_EXISTING
-			)
-		}
+					Files.copy(
+						mappingsFile,
+						this.tinyFile.get().asFile.toPath(),
+						StandardCopyOption.REPLACE_EXISTING
+					)
+				}
+			}.orTimeout(10, TimeUnit.MINUTES)
 	}
 
 	companion object {

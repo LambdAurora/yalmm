@@ -13,6 +13,7 @@ import yalmm.util.FileUtils
 import java.io.File
 import java.nio.file.Files
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 open class DownloadGameArtifactTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 	companion object {
@@ -70,11 +71,12 @@ open class DownloadGameArtifactTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 			.src(artifact.url())
 			.dest(this.artifactFile.get().asFile)
 			.download()
-
-		FileUtils.validateSha1(
-			this.artifactFile.get().asFile.toPath(),
-			artifact.sha1()
-		)
+			.thenRun {
+				FileUtils.validateSha1(
+					this.artifactFile.get().asFile.toPath(),
+					artifact.sha1()
+				)
+			}.orTimeout(10, TimeUnit.MINUTES)
 	}
 
 	private fun getVersionManifest(): Optional<VersionManifest> {

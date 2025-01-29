@@ -6,6 +6,7 @@ import yalmm.Constants
 import yalmm.task.DefaultYalmmTask
 import yalmm.util.Downloader
 import java.io.File
+import java.util.concurrent.TimeUnit
 
 open class DownloadVersionsManifestTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 	companion object {
@@ -28,5 +29,6 @@ open class DownloadVersionsManifestTask : DefaultYalmmTask(Constants.Groups.SETU
 		this.action
 			.dest(this.manifestFile)
 			.download()
+			.orTimeout(1, TimeUnit.MINUTES)
 	}
 }
