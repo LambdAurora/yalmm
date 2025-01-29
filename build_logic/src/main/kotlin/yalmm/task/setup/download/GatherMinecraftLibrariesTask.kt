@@ -13,6 +13,7 @@ import java.net.URI
 import java.nio.file.FileSystems
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+import java.util.concurrent.TimeUnit
 
 open class GatherMinecraftLibrariesTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 	companion object {
@@ -71,7 +72,7 @@ open class GatherMinecraftLibrariesTask : DefaultYalmmTask(Constants.Groups.SETU
 			this.path = artifact.path()
 		}
 
-		this.action.download()
+		this.action.download().orTimeout(30, TimeUnit.MINUTES)
 	}
 
 	/**
