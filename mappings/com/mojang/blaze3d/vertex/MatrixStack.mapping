@@ -14,31 +14,30 @@ CLASS com/mojang/blaze3d/vertex/PoseStack com/mojang/blaze3d/vertex/MatrixStack
 	COMMENT means that a stack is {@linkplain #isEmpty empty} if and only if the
 	COMMENT stack contains exactly one entry.
 	FIELD poses stack Ljava/util/List;
-	METHOD clear isEmpty ()Z
+	METHOD isEmpty isEmpty ()Z
 		COMMENT {@return {@code true} if the matrix stack is empty, or {@code false} otherwise}
 	METHOD last peek ()Lcom/mojang/blaze3d/vertex/PoseStack$Pose;
 		COMMENT {@return the current set of model and normal matrices that are being manipulated from the stack}
-	METHOD mulPose multiply (Lorg/joml/Matrix4f;)V
-		COMMENT Multiplies the current model matrix by the given matrix.
-		COMMENT <p>
-		COMMENT This does not update the normal matrix unlike other transformation methods.
+	METHOD mulPose multitply (Lorg/joml/Matrix4fc;)V
+		COMMENT Multiplies the current model matrix by the given matrix,
+		COMMENT and recomputes the normal matrix.
 		ARG 1 matrix
 			COMMENT the matrix to multiply with
-	METHOD mulPose rotate (Lorg/joml/Quaternionf;)V
+	METHOD mulPose rotate (Lorg/joml/Quaternionfc;)V
 		COMMENT Applies the rotation transformation of the given {@link Quaternionf} to the current matrix.
 		COMMENT
-		COMMENT @see #rotateAround(Quaternionf, float, float, float)
+		COMMENT @see #rotateAround(Quaternionfc, float, float, float)
 		ARG 1 quaternion
 			COMMENT the rotation transformation quaternion
 	METHOD popPose pop ()V
 		COMMENT Pops the current entry from this stack.
 	METHOD pushPose push ()V
 		COMMENT Pushes a new model and normal matrix onto this stack.
-	METHOD rotateAround rotateAround (Lorg/joml/Quaternionf;FFF)V
+	METHOD rotateAround rotateAround (Lorg/joml/Quaternionfc;FFF)V
 		COMMENT Applies the rotation transformation of the given {@link Quaternionf} to the current matrix
 		COMMENT while using {@code (oX, oY, oZ)} as the rotation origin.
 		COMMENT
-		COMMENT @see #rotate(Quaternionf)
+		COMMENT @see #rotate(Quaternionfc)
 		ARG 1 quaternion
 			COMMENT the rotation transformation quaternion
 		ARG 2 oX
@@ -61,6 +60,7 @@ CLASS com/mojang/blaze3d/vertex/PoseStack com/mojang/blaze3d/vertex/MatrixStack
 		COMMENT Translates the model.
 		COMMENT
 		COMMENT @see #translate(float, float, float)
+		COMMENT @see #translate(Vec3)
 		ARG 1 x
 			COMMENT the translation amount on the X axis
 		ARG 3 y
@@ -71,16 +71,26 @@ CLASS com/mojang/blaze3d/vertex/PoseStack com/mojang/blaze3d/vertex/MatrixStack
 		COMMENT Translates the model.
 		COMMENT
 		COMMENT @see #translate(double, double, double)
+		COMMENT @see #translate(Vec3)
 		ARG 1 x
 			COMMENT the translation amount on the X axis
 		ARG 2 y
 			COMMENT the translation amount on the Y axis
 		ARG 3 z
 			COMMENT the translation amount on the Z axis
+	METHOD translate translate (Lnet/minecraft/world/phys/Vec3;)V
+		COMMENT Translates the model.
+		COMMENT
+		COMMENT @see #translate(double, double, double)
+		COMMENT @see #translate(float, float, float)
+		ARG 1 translation
+			COMMENT the translation vector
 	CLASS Pose Entry
 		FIELD normal normalMatrix Lorg/joml/Matrix3f;
 		FIELD pose modelMatrix Lorg/joml/Matrix4f;
 		METHOD copy copy ()Lcom/mojang/blaze3d/vertex/PoseStack$Pose;
+		METHOD mulPose multiply (Lorg/joml/Matrix4fc;)V
+			ARG 1 matrix
 		METHOD normal normal ()Lorg/joml/Matrix3f;
 			COMMENT {@return the normal matrix}
 			COMMENT <p>
@@ -89,3 +99,21 @@ CLASS com/mojang/blaze3d/vertex/PoseStack com/mojang/blaze3d/vertex/MatrixStack
 			COMMENT {@return the model matrix}
 			COMMENT <p>
 			COMMENT The model matrix contains the position and rotation data needed for a model to render.
+		METHOD rotate rotate (Lorg/joml/Quaternionfc;)V
+			ARG 1 quaternion
+		METHOD rotateAround rotateAround (Lorg/joml/Quaternionfc;FFF)V
+			ARG 1 quaternion
+			ARG 2 oX
+			ARG 3 oY
+			ARG 4 oZ
+		METHOD scale scale (FFF)V
+			ARG 1 x
+			ARG 2 y
+			ARG 3 z
+		METHOD set (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;)V
+			ARG 1 entry
+		METHOD setIdentity setIdentity ()V
+		METHOD translate translate (FFF)Lorg/joml/Matrix4f;
+			ARG 1 x
+			ARG 2 y
+			ARG 3 z

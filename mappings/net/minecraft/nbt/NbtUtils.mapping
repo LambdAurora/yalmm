@@ -1,24 +1,24 @@
 CLASS net/minecraft/nbt/NbtUtils
 	COMMENT Provides utility methods for handling NBT.
-	METHOD createUUID fromUuid (Ljava/util/UUID;)Lnet/minecraft/nbt/IntArrayTag;
-		COMMENT Serializes a {@link UUID} into its equivalent NBT representation.
-		COMMENT
-		COMMENT @return the serialized UUID
-		COMMENT @see #toUuid(NbtElement)
-		COMMENT @since 20w10a
-		ARG 0 uuid
-	METHOD loadUUID toUuid (Lnet/minecraft/nbt/Tag;)Ljava/util/UUID;
-		COMMENT Deserializes an NBT element into a {@link UUID}.
-		COMMENT The NBT element's data must have the same structure as the output of {@link #fromUuid}.
-		COMMENT
-		COMMENT @return the deserialized UUID
-		COMMENT @throws IllegalArgumentException if {@code element} is not a valid representation of a UUID
-		COMMENT @see #fromUuid(UUID)
-		COMMENT @since 20w10a
+	METHOD addCurrentDataVersion (Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/nbt/CompoundTag;
 		ARG 0 nbt
-	METHOD readBlockPos (Lnet/minecraft/nbt/CompoundTag;Ljava/lang/String;)Ljava/util/Optional;
+	METHOD addDataVersion (Lnet/minecraft/nbt/CompoundTag;I)Lnet/minecraft/nbt/CompoundTag;
 		ARG 0 nbt
-		ARG 1 key
+		ARG 1 version
+	METHOD getDataVersion (Lnet/minecraft/nbt/CompoundTag;I)I
+		ARG 0 nbt
+		ARG 1 defaultVersion
+	METHOD indent (ILjava/lang/StringBuilder;)Ljava/lang/StringBuilder;
+		ARG 0 indentCount
+		ARG 1 builder
+	METHOD prettyPrint (Ljava/lang/StringBuilder;Lnet/minecraft/nbt/Tag;IZ)Ljava/lang/StringBuilder;
+		ARG 0 builder
+		ARG 1 nbt
+		ARG 2 indentCount
+	METHOD prettyPrint (Lnet/minecraft/nbt/Tag;)Ljava/lang/String;
+		ARG 0 nbt
+	METHOD prettyPrint (Lnet/minecraft/nbt/Tag;Z)Ljava/lang/String;
+		ARG 0 nbt
 	METHOD readBlockState toBlockState (Lnet/minecraft/core/HolderGetter;Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/world/level/block/state/BlockState;
 		COMMENT {@return the block state from the {@code nbt}}
 		COMMENT <p>
@@ -30,6 +30,10 @@ CLASS net/minecraft/nbt/NbtUtils
 			COMMENT the block lookup
 		ARG 1 nbt
 			COMMENT the NBT representing the block state
+	METHOD structureToSnbt (Lnet/minecraft/nbt/CompoundTag;)Ljava/lang/String;
+		ARG 0 nbt
+	METHOD toPrettyComponent (Lnet/minecraft/nbt/Tag;)Lnet/minecraft/network/chat/Component;
+		ARG 0 nbt
 	METHOD writeBlockState fromBlockState (Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/nbt/CompoundTag;
 		COMMENT {@return the serialized block state}
 		COMMENT

@@ -1,8 +1,0 @@
-CLASS net/minecraft/client/resources/model/ModelResourceLocation net/minecraft/client/resources/model/ModelIdentifier
-	FIELD id id Lnet/minecraft/resources/ResourceLocation;
-	FIELD variant variant Ljava/lang/String;
-	METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;)V
-		ARG 1 id
-		ARG 2 variant
-	METHOD id id ()Lnet/minecraft/resources/ResourceLocation;
-	METHOD variant variant ()Ljava/lang/String;

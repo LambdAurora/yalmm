@@ -1,12 +1,6 @@
 CLASS net/minecraft/nbt/Tag net/minecraft/nbt/NbtElement
 	COMMENT Represents an NBT element.
 	FIELD MAX_DEPTH MAX_DEPTH I
-	FIELD TAG_ANY_NUMERIC NUMBER_TYPE B
-		COMMENT A wildcard NBT numeric identifier, whose value is {@value},
-		COMMENT that can be used for <i>checking</i> whether an NBT element is an {@link NbtNumber}.
-		COMMENT
-		COMMENT @see NbtCompound#getTypeOf(String)
-		COMMENT @see NbtCompound#contains(String, int)
 	FIELD TAG_BYTE BYTE_TYPE B
 		COMMENT The numeric identifier of an NBT byte value, whose value is {@value}.
 		COMMENT
@@ -65,17 +59,28 @@ CLASS net/minecraft/nbt/Tag net/minecraft/nbt/NbtElement
 		ARG 1 visitor
 	METHOD acceptAsRoot acceptAsRoot (Lnet/minecraft/nbt/StreamTagVisitor;)V
 		ARG 1 visitor
+	METHOD asBoolean asBoolean ()Ljava/util/Optional;
+	METHOD asByte asByte ()Ljava/util/Optional;
+	METHOD asByteArray asByteArray ()Ljava/util/Optional;
+	METHOD asCompound asCompound ()Ljava/util/Optional;
+	METHOD asDouble asDouble ()Ljava/util/Optional;
+	METHOD asFloat asFloat ()Ljava/util/Optional;
+	METHOD asInt asInt ()Ljava/util/Optional;
+	METHOD asIntArray asIntArray ()Ljava/util/Optional;
+	METHOD asList asList ()Ljava/util/Optional;
+	METHOD asLong asLong ()Ljava/util/Optional;
+	METHOD asLongArray asLongArray ()Ljava/util/Optional;
+	METHOD asNumber asNumber ()Ljava/util/Optional;
+	METHOD asShort asShort ()Ljava/util/Optional;
+	METHOD asString asString ()Ljava/util/Optional;
 	METHOD copy copy ()Lnet/minecraft/nbt/Tag;
 		COMMENT {@return a copy of this NBT element of equal value}
-	METHOD getAsString asString ()Ljava/lang/String;
-		COMMENT {@return the NBT's string representation}
-		COMMENT
-		COMMENT @implNote By default, this returns the same result as {@link net.minecraft.nbt.visitor.StringNbtVisitor}.
-		COMMENT {@link NbtString} will return its string value instead.
 	METHOD getId typeId ()B
 		COMMENT {@return the numerical identifier of the type of this NBT element}
 	METHOD getType type ()Lnet/minecraft/nbt/TagType;
 		COMMENT {@return the NBT type definition of this NBT element}
+	METHOD lambda$asBoolean$0 (Ljava/lang/Byte;)Ljava/lang/Boolean;
+		ARG 0 value
 	METHOD sizeInBytes getSizeInBytes ()I
 		COMMENT {@return the size in bytes of this NBT element}
 	METHOD write write (Ljava/io/DataOutput;)V

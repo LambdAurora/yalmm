@@ -10,9 +10,9 @@ CLASS net/minecraft/resources/ResourceLocation net/minecraft/resources/Identifie
 	COMMENT @see net.minecraft.resources.ResourceKey
 	FIELD DEFAULT_NAMESPACE DEFAULT_NAMESPACE Ljava/lang/String;
 		COMMENT The default namespace whose value is {@value}.
+	FIELD namespace namespace Ljava/lang/String;
 	FIELD NAMESPACE_SEPARATOR NAMESPACE_SEPARATOR C
 		COMMENT The separator between the namespace and the path whose value is {@value}.
-	FIELD namespace namespace Ljava/lang/String;
 	FIELD path path Ljava/lang/String;
 	METHOD <init> (Ljava/lang/String;Ljava/lang/String;)V
 		ARG 1 namespace
@@ -101,4 +101,3 @@ CLASS net/minecraft/resources/ResourceLocation net/minecraft/resources/Identifie
 		COMMENT @return a new identifier within the default namespace with the given path
 		ARG 0 path
 			COMMENT the path of the identifier
-	CLASS Serializer

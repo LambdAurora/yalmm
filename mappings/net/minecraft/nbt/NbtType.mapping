@@ -8,13 +8,6 @@ CLASS net/minecraft/nbt/TagType net/minecraft/nbt/NbtType
 		COMMENT @see NbtTypes#byId(int)
 		ARG 0 id
 			COMMENT the identifier of the NBT type
-	METHOD isValue isImmutable ()Z
-		COMMENT Determines the immutability of this type.
-		COMMENT <p>
-		COMMENT The mutability of an NBT type means the held value can be modified
-		COMMENT after the NBT element is instantiated.
-		COMMENT
-		COMMENT @return {@code true} if this NBT type is immutable, or {@code false} otherwise
 	METHOD load read (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)Lnet/minecraft/nbt/Tag;
 		ARG 1 input
 		ARG 2 tracker

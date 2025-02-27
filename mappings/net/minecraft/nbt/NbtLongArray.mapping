@@ -4,10 +4,6 @@ CLASS net/minecraft/nbt/LongArrayTag net/minecraft/nbt/NbtLongArray
 	COMMENT accessing indices that are out of bounds will throw {@link ArrayIndexOutOfBoundsException}.
 	COMMENT The backing array can be obtained via {@link #getLongArray()}.
 	FIELD data value [J
-	METHOD <init> (Lit/unimi/dsi/fastutil/longs/LongSet;)V
-		ARG 1 value
-	METHOD <init> (Ljava/util/List;)V
-		ARG 1 value
 	METHOD <init> ([J)V
 		ARG 1 value
 	METHOD equals (Ljava/lang/Object;)Z
@@ -17,8 +13,6 @@ CLASS net/minecraft/nbt/LongArrayTag net/minecraft/nbt/NbtLongArray
 		COMMENT
 		COMMENT @apiNote This does not copy the array, so modifications to the returned array
 		COMMENT also apply to this NBT long array.
-	METHOD toArray toArray (Ljava/util/List;)[J
-		ARG 0 list
 	CLASS 1
 		METHOD readAccounted readLongArray (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)[J
 			ARG 0 input

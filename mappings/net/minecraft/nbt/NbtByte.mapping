@@ -5,15 +5,16 @@ CLASS net/minecraft/nbt/ByteTag net/minecraft/nbt/NbtByte
 		COMMENT The NBT byte representing {@code 1}.
 		COMMENT
 		COMMENT @apiNote This is often used to indicate a {@code true} boolean value.
+	FIELD value value B
 	FIELD ZERO ZERO Lnet/minecraft/nbt/ByteTag;
 		COMMENT The NBT byte representing {@code 0}.
 		COMMENT
 		COMMENT @apiNote This is often used to indicate a {@code false} boolean value.
-	FIELD data value B
 	METHOD <init> (B)V
 		ARG 1 value
 	METHOD equals (Ljava/lang/Object;)Z
 		ARG 1 o
+	METHOD value value ()B
 	METHOD valueOf of (B)Lnet/minecraft/nbt/ByteTag;
 		COMMENT {@return the NBT byte from {@code value}}
 		COMMENT
