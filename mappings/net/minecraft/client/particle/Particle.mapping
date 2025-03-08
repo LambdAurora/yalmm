@@ -24,9 +24,6 @@ CLASS net/minecraft/client/particle/Particle
 		ARG 5 z
 	METHOD render (Lcom/mojang/blaze3d/vertex/VertexConsumer;Lnet/minecraft/client/Camera;F)V
 		ARG 3 tickDelta
-	METHOD renderCustom (Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/client/Camera;F)V
-		ARG 1 matrices
-		ARG 4 tickDelta
 	METHOD scale (F)Lnet/minecraft/client/particle/Particle;
 		ARG 1 scale
 	METHOD setAlpha (F)V
