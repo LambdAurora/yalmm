@@ -34,13 +34,7 @@ CLASS net/minecraft/client/renderer/RenderStateShard
 		METHOD <init> (Z)V
 			ARG 1 enabled
 	CLASS ShaderStateShard
-		METHOD <init> (Lnet/minecraft/client/renderer/ShaderProgram;)V
-			ARG 1 shader
 	CLASS TextureStateShard
-		METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/util/TriState;Z)V
-			ARG 1 texture
-			ARG 2 blur
-			ARG 3 mipmap
 	CLASS WriteMaskStateShard
 		METHOD <init> (ZZ)V
 			ARG 1 writeColor
