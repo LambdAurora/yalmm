@@ -78,10 +78,3 @@ CLASS net/minecraft/nbt/ListTag net/minecraft/nbt/NbtList
 		ARG 1 element
 	METHOD updateTypeAfterRemove forgetTypeIfEmpty ()V
 	CLASS 1
-		METHOD loadList readList (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)Lnet/minecraft/nbt/ListTag;
-			ARG 0 input
-			ARG 1 tracker
-		METHOD parseList (Ljava/io/DataInput;Lnet/minecraft/nbt/StreamTagVisitor;Lnet/minecraft/nbt/NbtAccounter;)Lnet/minecraft/nbt/StreamTagVisitor$ValueResult;
-			ARG 0 input
-			ARG 1 visitor
-			ARG 2 tracker

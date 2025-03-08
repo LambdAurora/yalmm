@@ -17,10 +17,4 @@ CLASS net/minecraft/core/IdMap
 		COMMENT @see #getRawIdOrThrow(Object)
 		ARG 1 value
 			COMMENT the value for which to get its raw identifier
-	METHOD getIdOrThrow getRawIdOrThrow (Ljava/lang/Object;)I
-		COMMENT {@return the raw identifier of the given {@code value}}
-		COMMENT
-		COMMENT @throws IllegalArgumentException if the value is not known
-		COMMENT @see #getRawId(Object)
-		ARG 1 value
 	METHOD size size ()I

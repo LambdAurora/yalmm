@@ -1,6 +1,5 @@
 CLASS net/minecraft/server/packs/resources/ResourceProvider net/minecraft/resources/io/ResourceProvider
 	COMMENT Provides resource access.
-	FIELD EMPTY EMPTY Lnet/minecraft/server/packs/resources/ResourceProvider;
 	METHOD fromMap (Ljava/util/Map;)Lnet/minecraft/server/packs/resources/ResourceProvider;
 		ARG 0 resources
 	METHOD getResource getResource (Lnet/minecraft/resources/ResourceLocation;)Ljava/util/Optional;
@@ -26,10 +25,6 @@ CLASS net/minecraft/server/packs/resources/ResourceProvider net/minecraft/resour
 		COMMENT @throws FileNotFoundException if the corresponding resource was not found
 		ARG 1 id
 			COMMENT the resource identifier to search for
-	METHOD lambda$fromMap$2 (Ljava/util/Map;Lnet/minecraft/resources/ResourceLocation;)Ljava/util/Optional;
-		ARG 1 id
-	METHOD lambda$static$0 (Lnet/minecraft/resources/ResourceLocation;)Ljava/util/Optional;
-		ARG 0 id
 	METHOD open open (Lnet/minecraft/resources/ResourceLocation;)Ljava/io/InputStream;
 		COMMENT Opens a new input stream to read the corresponding resource for the given identifier.
 		COMMENT

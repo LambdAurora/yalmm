@@ -36,7 +36,6 @@ CLASS net/minecraft/nbt/CompoundTag net/minecraft/nbt/NbtCompound
 			COMMENT the key of the value to check for
 		ARG 2 type
 			COMMENT the type to expect
-	METHOD entrySet entrySet ()Ljava/util/Set;
 	METHOD equals (Ljava/lang/Object;)Z
 		ARG 1 o
 	METHOD get get (Ljava/lang/String;)Lnet/minecraft/nbt/Tag;
@@ -235,20 +234,20 @@ CLASS net/minecraft/nbt/CompoundTag net/minecraft/nbt/NbtCompound
 			COMMENT the key of the value
 		ARG 2 value
 			COMMENT the value to put
-	METHOD putByteArray putByteArray (Ljava/lang/String;Ljava/util/List;)V
-		COMMENT Puts a list of bytes to this compound. This copies the list.
-		COMMENT
-		COMMENT @see #getByteArray(String)
-		COMMENT @see #putByteArray(String, byte[])
-		ARG 1 key
-			COMMENT the key of the value
-		ARG 2 value
-			COMMENT the value to put
 	METHOD putByteArray putByteArray (Ljava/lang/String;[B)V
 		COMMENT Puts a byte array to this compound. This does not copy the array.
 		COMMENT
 		COMMENT @see #getByteArray(String)
 		COMMENT @see #putByteArray(String, List)
+		ARG 1 key
+			COMMENT the key of the value
+		ARG 2 value
+			COMMENT the value to put
+	METHOD putByteArray putByteArray (Ljava/lang/String;Ljava/util/List;)V
+		COMMENT Puts a list of bytes to this compound. This copies the list.
+		COMMENT
+		COMMENT @see #getByteArray(String)
+		COMMENT @see #putByteArray(String, byte[])
 		ARG 1 key
 			COMMENT the key of the value
 		ARG 2 value
@@ -277,20 +276,20 @@ CLASS net/minecraft/nbt/CompoundTag net/minecraft/nbt/NbtCompound
 			COMMENT the key of the value
 		ARG 2 value
 			COMMENT the value to put
-	METHOD putIntArray putIntArray (Ljava/lang/String;Ljava/util/List;)V
-		COMMENT Puts a list of integers to this compound. This copies the list.
-		COMMENT
-		COMMENT @see #getIntArray(String)
-		COMMENT @see #putIntArray(String, int[])
-		ARG 1 key
-			COMMENT the key of the value
-		ARG 2 value
-			COMMENT the value to put
 	METHOD putIntArray putIntArray (Ljava/lang/String;[I)V
 		COMMENT Puts an integer array to this compound. This does not copy the array.
 		COMMENT
 		COMMENT @see #getIntArray(String)
 		COMMENT @see #putIntArray(String, List)
+		ARG 1 key
+			COMMENT the key of the value
+		ARG 2 value
+			COMMENT the value to put
+	METHOD putIntArray putIntArray (Ljava/lang/String;Ljava/util/List;)V
+		COMMENT Puts a list of integers to this compound. This copies the list.
+		COMMENT
+		COMMENT @see #getIntArray(String)
+		COMMENT @see #putIntArray(String, int[])
 		ARG 1 key
 			COMMENT the key of the value
 		ARG 2 value
@@ -303,20 +302,20 @@ CLASS net/minecraft/nbt/CompoundTag net/minecraft/nbt/NbtCompound
 			COMMENT the key of the value
 		ARG 2 value
 			COMMENT the value to put
-	METHOD putLongArray putLongArray (Ljava/lang/String;Ljava/util/List;)V
-		COMMENT Puts a list of long to this compound. This copies the list.
-		COMMENT
-		COMMENT @see #getLongArray(String)
-		COMMENT @see #putLongArray(String, long[])
-		ARG 1 key
-			COMMENT the key of the value
-		ARG 2 value
-			COMMENT the value to put
 	METHOD putLongArray putLongArray (Ljava/lang/String;[J)V
 		COMMENT Puts a long array to this compound. This does not copy the array.
 		COMMENT
 		COMMENT @see #getLongArray(String)
 		COMMENT @see #putLongArray(String, List)
+		ARG 1 key
+			COMMENT the key of the value
+		ARG 2 value
+			COMMENT the value to put
+	METHOD putLongArray putLongArray (Ljava/lang/String;Ljava/util/List;)V
+		COMMENT Puts a list of long to this compound. This copies the list.
+		COMMENT
+		COMMENT @see #getLongArray(String)
+		COMMENT @see #putLongArray(String, long[])
 		ARG 1 key
 			COMMENT the key of the value
 		ARG 2 value
@@ -347,16 +346,10 @@ CLASS net/minecraft/nbt/CompoundTag net/minecraft/nbt/NbtCompound
 			COMMENT the key of the value
 		ARG 2 value
 			COMMENT the value to put
-	METHOD readNamedTagData readEntry (Lnet/minecraft/nbt/TagType;Ljava/lang/String;Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)Lnet/minecraft/nbt/Tag;
-		ARG 0 type
-		ARG 1 key
-		ARG 2 input
-		ARG 3 tracker
 	METHOD remove remove (Ljava/lang/String;)V
 		COMMENT Removes the entry with the specified {@code key}. Does nothing if there is none.
 		ARG 1 key
 			COMMENT the key of the entry to remove
-	METHOD shallowCopy shallowCopy ()Lnet/minecraft/nbt/CompoundTag;
 	METHOD size size ()I
 		COMMENT {@return the size of the entries of this compound}
 	METHOD writeNamedTag writeEntry (Ljava/lang/String;Lnet/minecraft/nbt/Tag;Ljava/io/DataOutput;)V
@@ -364,9 +357,3 @@ CLASS net/minecraft/nbt/CompoundTag net/minecraft/nbt/NbtCompound
 		ARG 1 value
 		ARG 2 output
 	CLASS 1
-		METHOD loadCompound readCompound (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)Lnet/minecraft/nbt/CompoundTag;
-			ARG 0 input
-			ARG 1 tracker
-		METHOD readString readString (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)Ljava/lang/String;
-			ARG 0 input
-			ARG 1 tracker

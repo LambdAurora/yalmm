@@ -16,9 +16,6 @@ CLASS net/minecraft/nbt/NbtUtils
 		COMMENT @see #fromUuid(UUID)
 		COMMENT @since 20w10a
 		ARG 0 nbt
-	METHOD readBlockPos (Lnet/minecraft/nbt/CompoundTag;Ljava/lang/String;)Ljava/util/Optional;
-		ARG 0 nbt
-		ARG 1 key
 	METHOD readBlockState toBlockState (Lnet/minecraft/core/HolderGetter;Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/world/level/block/state/BlockState;
 		COMMENT {@return the block state from the {@code nbt}}
 		COMMENT <p>

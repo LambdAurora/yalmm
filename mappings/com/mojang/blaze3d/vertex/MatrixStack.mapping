@@ -18,18 +18,18 @@ CLASS com/mojang/blaze3d/vertex/PoseStack com/mojang/blaze3d/vertex/MatrixStack
 		COMMENT {@return {@code true} if the matrix stack is empty, or {@code false} otherwise}
 	METHOD last peek ()Lcom/mojang/blaze3d/vertex/PoseStack$Pose;
 		COMMENT {@return the current set of model and normal matrices that are being manipulated from the stack}
-	METHOD mulPose multiply (Lorg/joml/Matrix4f;)V
-		COMMENT Multiplies the current model matrix by the given matrix.
-		COMMENT <p>
-		COMMENT This does not update the normal matrix unlike other transformation methods.
-		ARG 1 matrix
-			COMMENT the matrix to multiply with
 	METHOD mulPose rotate (Lorg/joml/Quaternionf;)V
 		COMMENT Applies the rotation transformation of the given {@link Quaternionf} to the current matrix.
 		COMMENT
 		COMMENT @see #rotateAround(Quaternionf, float, float, float)
 		ARG 1 quaternion
 			COMMENT the rotation transformation quaternion
+	METHOD mulPoseMatrix multiply (Lorg/joml/Matrix4f;)V
+		COMMENT Multiplies the current model matrix by the given matrix.
+		COMMENT <p>
+		COMMENT This does not update the normal matrix unlike other transformation methods.
+		ARG 1 matrix
+			COMMENT the matrix to multiply with
 	METHOD popPose pop ()V
 		COMMENT Pops the current entry from this stack.
 	METHOD pushPose push ()V
@@ -80,7 +80,6 @@ CLASS com/mojang/blaze3d/vertex/PoseStack com/mojang/blaze3d/vertex/MatrixStack
 	CLASS Pose Entry
 		FIELD normal normalMatrix Lorg/joml/Matrix3f;
 		FIELD pose modelMatrix Lorg/joml/Matrix4f;
-		METHOD copy copy ()Lcom/mojang/blaze3d/vertex/PoseStack$Pose;
 		METHOD normal normal ()Lorg/joml/Matrix3f;
 			COMMENT {@return the normal matrix}
 			COMMENT <p>

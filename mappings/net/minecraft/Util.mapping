@@ -7,8 +7,6 @@ CLASS net/minecraft/Util
 	CLASS OS
 		METHOD <init> (Ljava/lang/String;ILjava/lang/String;)V
 			ARG 3 name
-		METHOD getOpenUriArguments (Ljava/net/URI;)[Ljava/lang/String;
-			ARG 1 uri
 		METHOD openUri (Ljava/lang/String;)V
 			ARG 1 uri
 		METHOD openUri (Ljava/net/URI;)V

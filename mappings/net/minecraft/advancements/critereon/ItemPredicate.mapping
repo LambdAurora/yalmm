@@ -1,24 +1,23 @@
 CLASS net/minecraft/advancements/critereon/ItemPredicate
 	COMMENT Represents a predicate to match items with.
-	FIELD components components Lnet/minecraft/core/component/DataComponentPredicate;
-		COMMENT the data components predicate to match if present
 	FIELD count count Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;
 		COMMENT the count of items range to match if present
-	FIELD items items Ljava/util/Optional;
-		COMMENT the items to match if present
-	FIELD subPredicates subPredicates Ljava/util/Map;
-		COMMENT the item sub-predicates to match
-	METHOD components components ()Lnet/minecraft/core/component/DataComponentPredicate;
-	METHOD count count ()Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;
-	METHOD items items ()Ljava/util/Optional;
-	METHOD subPredicates subPredicates ()Ljava/util/Map;
-	METHOD test (Ljava/lang/Object;)Z
-		ARG 1 item
+	METHOD fromJson (Lcom/google/gson/JsonElement;)Lnet/minecraft/advancements/critereon/ItemPredicate;
+		ARG 0 json
+	METHOD fromJsonArray (Lcom/google/gson/JsonElement;)[Lnet/minecraft/advancements/critereon/ItemPredicate;
+		ARG 0 json
 	CLASS Builder
-		METHOD hasComponents (Lnet/minecraft/core/component/DataComponentPredicate;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
-			ARG 1 components
+		METHOD hasDurability (Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
+			ARG 1 durability
+		METHOD hasEnchantment (Lnet/minecraft/advancements/critereon/EnchantmentPredicate;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
+			ARG 1 enchantments
+		METHOD hasNbt (Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
+			ARG 1 nbt
+		METHOD hasStoredEnchantment (Lnet/minecraft/advancements/critereon/EnchantmentPredicate;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
+			ARG 1 storedEnchantments
+		METHOD of ([Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
+			ARG 1 items
+		METHOD of (Lnet/minecraft/tags/TagKey;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
+			ARG 1 tag
 		METHOD withCount (Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
 			ARG 1 countRange
-		METHOD withSubPredicate (Lnet/minecraft/advancements/critereon/ItemSubPredicate$Type;Lnet/minecraft/advancements/critereon/ItemSubPredicate;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
-			ARG 1 type
-			ARG 2 subPredicate

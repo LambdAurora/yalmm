@@ -13,6 +13,3 @@ CLASS net/minecraft/nbt/StringTag net/minecraft/nbt/NbtString
 		ARG 0 value
 			COMMENT the value
 	CLASS 1
-		METHOD readAccounted readString (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)Ljava/lang/String;
-			ARG 0 input
-			ARG 1 tracker

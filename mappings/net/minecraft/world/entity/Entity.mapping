@@ -4,12 +4,12 @@ CLASS net/minecraft/world/entity/Entity
 	FIELD position pos Lnet/minecraft/world/phys/Vec3;
 	FIELD wasEyeInWater submergedInWater Z
 	FIELD wasTouchingWater touchingWater Z
+	FIELD xo prevX D
 	FIELD xRot pitch F
 	FIELD xRotO prevPitch F
-	FIELD xo prevX D
+	FIELD yo prevY D
 	FIELD yRot yaw F
 	FIELD yRotO prevYaw F
-	FIELD yo prevY D
 	FIELD zo prevZ D
 	METHOD addAdditionalSaveData writeCustomDataFromNbt (Lnet/minecraft/nbt/CompoundTag;)V
 		ARG 1 nbt
@@ -22,8 +22,8 @@ CLASS net/minecraft/world/entity/Entity
 		ARG 4 verticalRange
 	METHOD equals (Ljava/lang/Object;)Z
 		ARG 1 o
-	METHOD gameEvent emitGameEvent (Lnet/minecraft/core/Holder;)V
-	METHOD isInLiquid isInFluid ()Z
+	METHOD gameEvent emitGameEvent (Lnet/minecraft/world/level/gameevent/GameEvent;)V
+	METHOD gameEvent emitGameEvent (Lnet/minecraft/world/level/gameevent/GameEvent;Lnet/minecraft/world/entity/Entity;)V
 	METHOD isInWater isTouchingWater ()Z
 		COMMENT {@return {@code true} if this entity's bounding box is touching water,
 		COMMENT or {@code false} otherwise}

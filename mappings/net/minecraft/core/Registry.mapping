@@ -58,8 +58,6 @@ CLASS net/minecraft/core/Registry
 		ARG 1 rawId
 	METHOD getHolder (Lnet/minecraft/resources/ResourceKey;)Ljava/util/Optional;
 		ARG 1 key
-	METHOD getHolder (Lnet/minecraft/resources/ResourceLocation;)Ljava/util/Optional;
-		ARG 1 id
 	METHOD getKey getId (Ljava/lang/Object;)Lnet/minecraft/resources/ResourceLocation;
 		COMMENT {@return the identifier associated with {@code value}, or {@code null} if it is not registered}
 		ARG 1 value
@@ -92,8 +90,6 @@ CLASS net/minecraft/core/Registry
 		ARG 0 registry
 		ARG 1 id
 		ARG 2 value
-	METHOD registrationInfo (Lnet/minecraft/resources/ResourceKey;)Ljava/util/Optional;
-		ARG 1 key
 	METHOD registryKeySet keySet ()Ljava/util/Set;
 	METHOD registryLifecycle getLifecycle ()Lcom/mojang/serialization/Lifecycle;
 	METHOD wrapAsHolder (Ljava/lang/Object;)Lnet/minecraft/core/Holder;

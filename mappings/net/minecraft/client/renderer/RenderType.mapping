@@ -12,12 +12,6 @@ CLASS net/minecraft/client/renderer/RenderType
 		ARG 0 texture
 	METHOD beaconBeam (Lnet/minecraft/resources/ResourceLocation;Z)Lnet/minecraft/client/renderer/RenderType;
 		ARG 0 texture
-	METHOD breezeEyes (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
-		ARG 0 texture
-	METHOD breezeWind (Lnet/minecraft/resources/ResourceLocation;FF)Lnet/minecraft/client/renderer/RenderType;
-		ARG 0 texture
-		ARG 1 uOffset
-		ARG 2 vOffset
 	METHOD create (Ljava/lang/String;Lcom/mojang/blaze3d/vertex/VertexFormat;Lcom/mojang/blaze3d/vertex/VertexFormat$Mode;ILnet/minecraft/client/renderer/RenderType$CompositeState;)Lnet/minecraft/client/renderer/RenderType$CompositeRenderType;
 		ARG 0 name
 		ARG 1 format
@@ -32,10 +26,6 @@ CLASS net/minecraft/client/renderer/RenderType
 		ARG 4 affectsCrumbling
 		ARG 5 sortOnUpload
 		ARG 6 state
-	METHOD createArmorCutoutNoCull (Ljava/lang/String;Lnet/minecraft/resources/ResourceLocation;Z)Lnet/minecraft/client/renderer/RenderType$CompositeRenderType;
-		ARG 0 name
-	METHOD createArmorDecalCutoutNoCull (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
-		ARG 0 texture
 	METHOD crumbling (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
 		ARG 0 texture
 	METHOD dragonExplosionAlpha (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;

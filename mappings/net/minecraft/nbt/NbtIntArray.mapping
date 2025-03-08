@@ -4,9 +4,9 @@ CLASS net/minecraft/nbt/IntArrayTag net/minecraft/nbt/NbtIntArray
 	COMMENT accessing indices that are out of bounds will throw {@link ArrayIndexOutOfBoundsException}.
 	COMMENT The backing array can be obtained via {@link #getIntArray()}.
 	FIELD data value [I
-	METHOD <init> (Ljava/util/List;)V
-		ARG 1 value
 	METHOD <init> ([I)V
+		ARG 1 value
+	METHOD <init> (Ljava/util/List;)V
 		ARG 1 value
 	METHOD equals (Ljava/lang/Object;)Z
 		ARG 1 o
@@ -18,6 +18,3 @@ CLASS net/minecraft/nbt/IntArrayTag net/minecraft/nbt/NbtIntArray
 	METHOD toArray toArray (Ljava/util/List;)[I
 		ARG 0 list
 	CLASS 1
-		METHOD readAccounted readIntArray (Ljava/io/DataInput;Lnet/minecraft/nbt/NbtAccounter;)[I
-			ARG 0 input
-			ARG 1 tracker

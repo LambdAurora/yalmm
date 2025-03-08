@@ -47,17 +47,6 @@ CLASS net/minecraft/network/chat/Component net/minecraft/network/chat/Text
 			COMMENT the translation key
 		ARG 1 args
 			COMMENT the arguments the translation may take
-	METHOD translatableEscape stringifiedTranslatable (Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
-		COMMENT Creates a new mutable translatable text, with the non-primitive args represented as
-		COMMENT strings.
-		COMMENT
-		COMMENT @return the new mutable translatable text
-		COMMENT @see #translatable(String)
-		COMMENT @see #translatable(String, Object...)
-		ARG 0 translationKey
-			COMMENT the translation key
-		ARG 1 args
-			COMMENT the arguments the translation may take
 	METHOD translatableWithFallback translatableWithFallback (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
 		COMMENT Creates a new mutable translatable text with a given {@code fallback}
 		COMMENT if the translation cannot be found.
@@ -80,15 +69,3 @@ CLASS net/minecraft/network/chat/Component net/minecraft/network/chat/Text
 			COMMENT the fallback text
 		ARG 2 args
 			COMMENT the arguments the translation may take
-	METHOD translationArg of (Lcom/mojang/brigadier/Message;)Lnet/minecraft/network/chat/Component;
-		ARG 0 message
-	METHOD translationArg of (Ljava/net/URI;)Lnet/minecraft/network/chat/Component;
-		ARG 0 uri
-	METHOD translationArg of (Ljava/util/Date;)Lnet/minecraft/network/chat/Component;
-		ARG 0 date
-	METHOD translationArg of (Ljava/util/UUID;)Lnet/minecraft/network/chat/Component;
-		ARG 0 uuid
-	METHOD translationArg of (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/network/chat/Component;
-		ARG 0 id
-	METHOD translationArg of (Lnet/minecraft/world/level/ChunkPos;)Lnet/minecraft/network/chat/Component;
-		ARG 0 pos
