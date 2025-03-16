@@ -1,5 +1,6 @@
 CLASS net/minecraft/advancements/critereon/EntityPredicate
 	COMMENT Represents a predicate to match entities with.
+	FIELD components components Lnet/minecraft/advancements/critereon/DataComponentMatchers;
 	FIELD distanceToPlayer distanceToPlayer Ljava/util/Optional;
 		COMMENT the distance predicate to match if present
 	FIELD effects effects Ljava/util/Optional;
@@ -28,6 +29,7 @@ CLASS net/minecraft/advancements/critereon/EntityPredicate
 		COMMENT the team to match if present
 	FIELD vehicle vehicle Ljava/util/Optional;
 		COMMENT the vehicle predicate to match if present
+	METHOD components components ()Lnet/minecraft/advancements/critereon/DataComponentMatchers;
 	METHOD createContext (Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/world/level/storage/loot/LootContext;
 		ARG 0 player
 	METHOD distanceToPlayer distanceToPlayer ()Ljava/util/Optional;
@@ -54,5 +56,15 @@ CLASS net/minecraft/advancements/critereon/EntityPredicate
 	METHOD wrap (Lnet/minecraft/advancements/critereon/EntityPredicate;)Lnet/minecraft/advancements/critereon/ContextAwarePredicate;
 		ARG 0 predicate
 	CLASS Builder
+		METHOD components (Lnet/minecraft/advancements/critereon/DataComponentMatchers;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+			ARG 1 components
+		METHOD equipment (Lnet/minecraft/advancements/critereon/EntityEquipmentPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+			ARG 1 equipment
+		METHOD periodicTick (I)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+			ARG 1 periodicTick
+		METHOD slots (Lnet/minecraft/advancements/critereon/SlotsPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+			ARG 1 slots
+		METHOD subPredicate (Lnet/minecraft/advancements/critereon/EntitySubPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+			ARG 1 subPredicate
 		METHOD team (Ljava/lang/String;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
 			ARG 1 team

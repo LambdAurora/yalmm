@@ -60,8 +60,9 @@ CLASS net/minecraft/world/level/block/entity/BlockEntity
 		COMMENT {@return the level this block entity belongs to}
 		COMMENT <p>
 		COMMENT This can return {@code null} during world generation.
-	METHOD getPosFromTag readBlockPosFromNbt (Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/core/BlockPos;
-		ARG 0 nbt
+	METHOD getPosFromTag readBlockPosFromNbt (Lnet/minecraft/world/level/ChunkPos;Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/core/BlockPos;
+		ARG 0 chunkPos
+		ARG 1 nbt
 	METHOD getUpdatePacket toUpdatePacket ()Lnet/minecraft/network/protocol/Packet;
 		COMMENT {@return the packet to send to nearby players when the block entity's observable
 		COMMENT state changes, or {@code null} to not send the packet}

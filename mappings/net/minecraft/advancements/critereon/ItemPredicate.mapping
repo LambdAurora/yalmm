@@ -1,30 +1,24 @@
 CLASS net/minecraft/advancements/critereon/ItemPredicate
 	COMMENT Represents a predicate to match items with.
-	FIELD components components Lnet/minecraft/core/component/DataComponentExactPredicate;
-		COMMENT the data components exact predicate to match if present
+	FIELD components components Lnet/minecraft/advancements/critereon/DataComponentMatchers;
+		COMMENT the data components to match
 	FIELD count count Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;
-		COMMENT the count of items range to match if present
+		COMMENT the count of items range to match
 	FIELD items items Ljava/util/Optional;
 		COMMENT the items to match if present
-	FIELD subPredicates subPredicates Ljava/util/Map;
-		COMMENT the item sub-predicates to match
-	METHOD components components ()Lnet/minecraft/core/component/DataComponentExactPredicate;
+	METHOD components components ()Lnet/minecraft/advancements/critereon/DataComponentMatchers;
 	METHOD count count ()Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;
 	METHOD items items ()Ljava/util/Optional;
-	METHOD subPredicates subPredicates ()Ljava/util/Map;
 	METHOD test (Ljava/lang/Object;)Z
 		ARG 1 item
 	CLASS Builder
-		METHOD hasComponents (Lnet/minecraft/core/component/DataComponentExactPredicate;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
-			ARG 1 predicate
 		METHOD of (Lnet/minecraft/core/HolderGetter;[Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
 			ARG 1 registryAccess
 			ARG 2 items
 		METHOD of (Lnet/minecraft/core/HolderGetter;Lnet/minecraft/tags/TagKey;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
 			ARG 1 registryAccess
 			ARG 2 tag
+		METHOD withComponents (Lnet/minecraft/advancements/critereon/DataComponentMatchers;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
+			ARG 1 components
 		METHOD withCount (Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
 			ARG 1 countRange
-		METHOD withSubPredicate (Lnet/minecraft/core/component/predicates/DataComponentPredicate$Type;Lnet/minecraft/core/component/predicates/DataComponentPredicate;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
-			ARG 1 type
-			ARG 2 predicate
