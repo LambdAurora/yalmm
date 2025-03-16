@@ -1,0 +1,4 @@
+CLASS net/minecraft/client/renderer/RenderPipelines
+	FIELD PIPELINES_BY_LOCATION PIPELINES_BY_ID Ljava/util/Map;
+	METHOD register (Lcom/mojang/blaze3d/pipeline/RenderPipeline;)Lcom/mojang/blaze3d/pipeline/RenderPipeline;
+		ARG 0 renderPipeline
