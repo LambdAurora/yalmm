@@ -30,8 +30,8 @@ CLASS net/minecraft/world/entity/Entity
 	METHOD defineSynchedData initDataTracker ()V
 	METHOD gameEvent emitGameEvent (Lnet/minecraft/world/level/gameevent/GameEvent;)V
 	METHOD gameEvent emitGameEvent (Lnet/minecraft/world/level/gameevent/GameEvent;Lnet/minecraft/world/entity/Entity;)V
-	METHOD getBbHeight getHeight ()F
-	METHOD getBbWidth getWidth ()F
+	METHOD getBbHeight getBoundingHeight ()F
+	METHOD getBbWidth getBoundingWidth ()F
 	METHOD getDeltaMovement getVelocity ()Lnet/minecraft/world/phys/Vec3;
 	METHOD getEntityData getDataTracker ()Lnet/minecraft/network/syncher/SynchedEntityData;
 	METHOD getXRot getPitch ()F
