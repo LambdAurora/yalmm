@@ -6,8 +6,6 @@ CLASS net/minecraft/nbt/DoubleTag net/minecraft/nbt/NbtDouble
 	FIELD data value D
 	METHOD <init> (D)V
 		ARG 1 value
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD valueOf of (D)Lnet/minecraft/nbt/DoubleTag;
 		COMMENT {@return the NBT double from {@code value}}
 		ARG 0 value

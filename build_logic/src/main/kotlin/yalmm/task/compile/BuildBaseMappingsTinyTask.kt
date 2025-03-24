@@ -75,6 +75,7 @@ open class BuildBaseMappingsTinyTask : DefaultYalmmTask(Constants.Groups.BUILD) 
 		val emitter = MappingEmitter(project, plugin)
 		emitter.fillMappings()
 		val result: EntryTree<EntryMapping?> = emitter.result()
+		plugin.newMappingEmitter(project).fillMappings(result)
 
 		val bridgeMethodIndex = project.jarIndex.bridgeMethodIndex
 		val translator: Translator = MappingTranslator(project.mapper.obfToDeobf, project.jarIndex.entryResolver)

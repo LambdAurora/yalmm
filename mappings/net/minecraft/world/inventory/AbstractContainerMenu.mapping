@@ -1,0 +1,8 @@
+CLASS net/minecraft/world/inventory/AbstractContainerMenu
+	FIELD containerId syncId I
+	METHOD clickMenuButton onButtonClick (Lnet/minecraft/world/entity/player/Player;I)Z
+		ARG 2 id
+	METHOD getSlot (I)Lnet/minecraft/world/inventory/Slot;
+		ARG 1 index
+	METHOD removeSlotListener (Lnet/minecraft/world/inventory/ContainerListener;)V
+		ARG 1 listener

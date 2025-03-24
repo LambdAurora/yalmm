@@ -1,5 +1,6 @@
 package yalmm.enigma;
 
+import cuchaz.enigma.EnigmaProject;
 import cuchaz.enigma.api.EnigmaPlugin;
 import cuchaz.enigma.api.EnigmaPluginContext;
 import cuchaz.enigma.api.service.JarIndexerService;
@@ -12,7 +13,7 @@ public class YalmmEnigmaPlugin implements EnigmaPlugin {
 	public void init(EnigmaPluginContext context) {
 		context.registerService(
 				"yalmm:jar_indexer", JarIndexerService.TYPE,
-				ctx -> this.indexer
+				this.indexer::withContext
 		);
 		context.registerService(
 				"yalmm:name_proposal", NameProposalService.TYPE,
@@ -22,5 +23,9 @@ public class YalmmEnigmaPlugin implements EnigmaPlugin {
 
 	public JarIndexer getIndexer() {
 		return this.indexer;
+	}
+
+	public CustomMappingEmitter newMappingEmitter(EnigmaProject project) {
+		return new CustomMappingEmitter(this, project);
 	}
 }

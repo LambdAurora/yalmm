@@ -1,14 +1,12 @@
 package yalmm.util;
 
 import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.FieldInsnNode;
-import org.objectweb.asm.tree.FieldNode;
-import org.objectweb.asm.tree.MethodNode;
+import org.objectweb.asm.tree.*;
 
 import java.util.Optional;
+import java.util.stream.Stream;
 
-public class AsmUtils {
+public final class AsmUtils {
 	public static boolean maskMatch(int value, int... masks) {
 		boolean matched = true;
 
@@ -48,10 +46,15 @@ public class AsmUtils {
 	}
 
 	public static Optional<FieldNode> getFieldFromGetter(ClassNode classNode, MethodNode node) {
-		if (Descriptors.getDescriptor(node).getArgumentDescs().size() != 0) return Optional.empty();
-		if (node.instructions.size() != 3) return Optional.empty();
-		if (node.instructions.get(0).getOpcode() != Opcodes.ALOAD) return Optional.empty();
-		var getFieldNode = node.instructions.get(1);
+		if (!Descriptors.getDescriptor(node).getArgumentDescs().isEmpty()) return Optional.empty();
+
+		var instructions = Stream.of(node.instructions.toArray())
+				.filter(opcode -> !(opcode instanceof LineNumberNode || opcode instanceof LabelNode))
+				.toList();
+
+		if (instructions.size() != 3) return Optional.empty();
+		if (instructions.get(0).getOpcode() != Opcodes.ALOAD) return Optional.empty();
+		var getFieldNode = instructions.get(1);
 		if (getFieldNode.getOpcode() != Opcodes.GETFIELD) return Optional.empty();
 
 		var fieldInsnNode = (FieldInsnNode) getFieldNode;
@@ -64,7 +67,7 @@ public class AsmUtils {
 			default -> Opcodes.ARETURN;
 		};
 
-		if (node.instructions.get(2).getOpcode() != expectedReturnOpcode) return Optional.empty();
+		if (instructions.get(2).getOpcode() != expectedReturnOpcode) return Optional.empty();
 
 		if (fieldInsnNode.owner.equals(classNode.name)) {
 			return getField(classNode, fieldInsnNode.name, fieldInsnNode.desc);
@@ -75,10 +78,15 @@ public class AsmUtils {
 
 	public static Optional<FieldNode> getFieldFromSetter(ClassNode classNode, MethodNode node) {
 		if (Descriptors.getDescriptor(node).getArgumentDescs().size() != 1) return Optional.empty();
-		if (node.instructions.size() != 4) return Optional.empty();
-		if (node.instructions.get(0).getOpcode() != Opcodes.ALOAD) return Optional.empty();
-		if (node.instructions.get(3).getOpcode() != Opcodes.RETURN) return Optional.empty();
-		var putFieldNode = node.instructions.get(2);
+
+		var instructions = Stream.of(node.instructions.toArray())
+				.filter(opcode -> !(opcode instanceof LineNumberNode || opcode instanceof LabelNode))
+				.toList();
+
+		if (instructions.size() != 4) return Optional.empty();
+		if (instructions.get(0).getOpcode() != Opcodes.ALOAD) return Optional.empty();
+		if (instructions.get(3).getOpcode() != Opcodes.RETURN) return Optional.empty();
+		var putFieldNode = instructions.get(2);
 		if (putFieldNode.getOpcode() != Opcodes.PUTFIELD) return Optional.empty();
 
 		var fieldInsnNode = (FieldInsnNode) putFieldNode;
@@ -91,7 +99,7 @@ public class AsmUtils {
 			default -> Opcodes.ALOAD;
 		};
 
-		if (node.instructions.get(1).getOpcode() != expectedLoadOpcode) return Optional.empty();
+		if (instructions.get(1).getOpcode() != expectedLoadOpcode) return Optional.empty();
 
 		if (fieldInsnNode.owner.equals(classNode.name)) {
 			return getField(classNode, fieldInsnNode.name, fieldInsnNode.desc);
