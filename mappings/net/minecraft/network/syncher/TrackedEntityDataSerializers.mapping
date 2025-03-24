@@ -1,0 +1,5 @@
+CLASS net/minecraft/network/syncher/EntityDataSerializers net/minecraft/network/syncher/TrackedEntityDataSerializers
+	METHOD getSerializedId (Lnet/minecraft/network/syncher/EntityDataSerializer;)I
+		ARG 0 serializer
+	METHOD getSerializer (I)Lnet/minecraft/network/syncher/EntityDataSerializer;
+		ARG 0 id

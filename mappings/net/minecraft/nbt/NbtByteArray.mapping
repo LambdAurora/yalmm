@@ -6,8 +6,6 @@ CLASS net/minecraft/nbt/ByteArrayTag net/minecraft/nbt/NbtByteArray
 	FIELD data value [B
 	METHOD <init> ([B)V
 		ARG 1 value
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD getAsByteArray getByteArray ()[B
 		COMMENT {@return the underlying byte array}
 		COMMENT

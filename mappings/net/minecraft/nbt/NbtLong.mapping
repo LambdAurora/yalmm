@@ -4,8 +4,6 @@ CLASS net/minecraft/nbt/LongTag net/minecraft/nbt/NbtLong
 	FIELD value value J
 	METHOD <init> (J)V
 		ARG 1 value
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD value value ()J
 	METHOD valueOf of (J)Lnet/minecraft/nbt/LongTag;
 		COMMENT {@return the NBT long from {@code value}}

@@ -12,8 +12,6 @@ CLASS net/minecraft/nbt/ByteTag net/minecraft/nbt/NbtByte
 		COMMENT @apiNote This is often used to indicate a {@code false} boolean value.
 	METHOD <init> (B)V
 		ARG 1 value
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD value value ()B
 	METHOD valueOf of (B)Lnet/minecraft/nbt/ByteTag;
 		COMMENT {@return the NBT byte from {@code value}}

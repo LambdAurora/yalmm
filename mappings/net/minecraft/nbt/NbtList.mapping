@@ -15,8 +15,6 @@ CLASS net/minecraft/nbt/ListTag net/minecraft/nbt/NbtList
 	COMMENT Unlike {@link NbtCompound}, there is no Java type-based adder, and numeric value
 	COMMENT getters will not try to cast the values.
 	FIELD list value Ljava/util/List;
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD get get (I)Ljava/lang/Object;
 		ARG 1 index
 	CLASS 1

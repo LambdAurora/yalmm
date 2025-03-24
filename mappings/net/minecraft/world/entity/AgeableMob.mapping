@@ -1,0 +1,4 @@
+CLASS net/minecraft/world/entity/AgeableMob
+	METHOD ageBoundaryReached onGrowUp ()V
+	METHOD setAge (I)V
+		ARG 1 age

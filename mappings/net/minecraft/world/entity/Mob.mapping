@@ -1,0 +1,12 @@
+CLASS net/minecraft/world/entity/Mob
+	METHOD restrictTo (Lnet/minecraft/core/BlockPos;I)V
+		ARG 1 center
+		ARG 2 radius
+	METHOD setAggressive (Z)V
+		ARG 1 aggressive
+	METHOD setBaby (Z)V
+		ARG 1 baby
+	METHOD setLeftHanded (Z)V
+		ARG 1 leftHanded
+	METHOD setNoAi (Z)V
+		ARG 1 noAi

@@ -28,14 +28,6 @@ public class ConstructorParametersNameProposer extends NameProposer {
 
 	@Override
 	public Optional<String> proposeName(Entry<?> obfEntry, EntryRemapper remapper) {
-		FieldEntry linkedField = this.index.getLinkedField((LocalVariableEntry) obfEntry);
-
-		var deobfField = remapper.extendedDeobfuscate(linkedField);
-
-		if (deobfField != null && deobfField.isDeobfuscated()) {
-			return Optional.of(deobfField.getValue().getName());
-		} else {
-			return Optional.of(linkedField.getName());
-		}
+		return this.index.getLinkedField((LocalVariableEntry) obfEntry).resolve(remapper);
 	}
 }
