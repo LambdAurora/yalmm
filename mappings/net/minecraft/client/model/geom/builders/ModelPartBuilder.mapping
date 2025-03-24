@@ -1,0 +1,26 @@
+CLASS net/minecraft/client/model/geom/builders/CubeListBuilder net/minecraft/client/model/geom/builders/ModelPartBuilder
+	FIELD xTexOffs u I
+	FIELD yTexOffs v I
+	METHOD addBox cuboid (FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+	METHOD addBox cuboid (FFFFFFLjava/util/Set;)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+	METHOD addBox cuboid (FFFFFFLnet/minecraft/client/model/geom/builders/CubeDeformation;)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+	METHOD addBox cuboid (FFFFFFLnet/minecraft/client/model/geom/builders/CubeDeformation;FF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+	METHOD addBox cuboid (FFFFFFZ)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+	METHOD addBox cuboid (Ljava/lang/String;FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+		ARG 1 name
+	METHOD addBox cuboid (Ljava/lang/String;FFFFFFLnet/minecraft/client/model/geom/builders/CubeDeformation;)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+		ARG 1 name
+	METHOD addBox cuboid (Ljava/lang/String;FFFIIIII)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+		ARG 1 name
+		ARG 8 u
+		ARG 9 v
+	METHOD addBox cuboid (Ljava/lang/String;FFFIIILnet/minecraft/client/model/geom/builders/CubeDeformation;II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+		ARG 1 name
+		ARG 9 u
+		ARG 10 v
+	METHOD mirror mirrored ()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+	METHOD mirror mirrored (Z)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+		ARG 1 mirror
+	METHOD texOffs uv (II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+		ARG 1 u
+		ARG 2 v

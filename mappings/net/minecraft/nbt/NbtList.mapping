@@ -19,8 +19,6 @@ CLASS net/minecraft/nbt/ListTag net/minecraft/nbt/NbtList
 	METHOD <init> (Ljava/util/List;B)V
 		ARG 1 value
 		ARG 2 type
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD get get (I)Ljava/lang/Object;
 		ARG 1 index
 	METHOD getCompound getCompound (I)Lnet/minecraft/nbt/CompoundTag;

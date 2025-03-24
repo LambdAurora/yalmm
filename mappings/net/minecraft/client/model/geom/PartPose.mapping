@@ -1,0 +1,4 @@
+CLASS net/minecraft/client/model/geom/PartPose
+	FIELD xRot pitch F
+	FIELD yRot yaw F
+	FIELD zRot roll F

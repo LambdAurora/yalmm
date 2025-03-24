@@ -1,0 +1,5 @@
+CLASS net/minecraft/network/syncher/EntityDataSerializer net/minecraft/network/syncher/TrackedEntityDataSerializer
+	METHOD copy (Ljava/lang/Object;)Ljava/lang/Object;
+		ARG 1 value
+	METHOD write (Lnet/minecraft/network/FriendlyByteBuf;Ljava/lang/Object;)V
+		ARG 2 value

@@ -1,0 +1,25 @@
+CLASS net/minecraft/world/InteractionResult
+	COMMENT An enum indicating the hand interaction's result.
+	COMMENT Methods called on hand interaction, such as {@link net.minecraft.world.entity.Mob#interact}, return this.
+	FIELD CONSUME Lnet/minecraft/world/InteractionResult;
+		COMMENT Indicates an action is performed but no animation should accompany the performance.
+	FIELD CONSUME_PARTIAL Lnet/minecraft/world/InteractionResult;
+		COMMENT Indicates an action is performed
+		COMMENT but no animation should accompany the performance
+		COMMENT and no statistic should be incremented.
+	FIELD FAIL Lnet/minecraft/world/InteractionResult;
+		COMMENT Indicates that an action is not performed and prevents other actions from performing.
+	FIELD PASS Lnet/minecraft/world/InteractionResult;
+		COMMENT Indicates an action is not performed but allows other actions to perform.
+	FIELD SUCCESS Lnet/minecraft/world/InteractionResult;
+		COMMENT Indicates an action is performed
+		COMMENT and the actor's hand should swing to indicate the performance.
+	METHOD consumesAction isAccepted ()Z
+		COMMENT {@return {@code true} if the action is performed, or {@code false} otherwise}
+	METHOD shouldAwardStats ()Z
+		COMMENT {@return {@code true} if the action performance should increment an item's "used" statistic, or {@code false} otherwise}
+	METHOD shouldSwing ()Z
+		COMMENT {@return {@code true} if an actor should have a hand-swinging animation on action performance, or {@code false} otherwise}
+	METHOD sidedSuccess (Z)Lnet/minecraft/world/InteractionResult;
+		COMMENT {@return {@link #SUCCESS} if {@code clientSide} is {@code true}, or {@link #CONSUME} otherwise}
+		ARG 0 clientSide

@@ -1,0 +1,16 @@
+CLASS net/minecraft/world/Container
+	METHOD canPlaceItem (ILnet/minecraft/world/item/ItemStack;)Z
+		ARG 1 index
+	METHOD canTakeItem (Lnet/minecraft/world/Container;ILnet/minecraft/world/item/ItemStack;)Z
+		ARG 2 index
+	METHOD countItem (Lnet/minecraft/world/item/Item;)I
+		ARG 1 item
+	METHOD getContainerSize size ()I
+	METHOD getItem (I)Lnet/minecraft/world/item/ItemStack;
+		ARG 1 index
+	METHOD hasAnyMatching (Ljava/util/function/Predicate;)Z
+		ARG 1 predicate
+	METHOD setItem (ILnet/minecraft/world/item/ItemStack;)V
+		ARG 1 index
+	METHOD startOpen onOpen (Lnet/minecraft/world/entity/player/Player;)V
+	METHOD stopOpen onClose (Lnet/minecraft/world/entity/player/Player;)V

@@ -19,8 +19,6 @@ CLASS net/minecraft/resources/ResourceLocation net/minecraft/resources/Identifie
 		ARG 2 path
 	METHOD compareTo compareTo (Ljava/lang/Object;)I
 		ARG 1 o
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD getNamespace namespace ()Ljava/lang/String;
 		COMMENT {@return the namespace of the identifier}
 		COMMENT <p>

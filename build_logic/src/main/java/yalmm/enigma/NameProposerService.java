@@ -4,8 +4,7 @@ import cuchaz.enigma.api.service.EnigmaServiceContext;
 import cuchaz.enigma.api.service.NameProposalService;
 import cuchaz.enigma.translation.mapping.EntryRemapper;
 import cuchaz.enigma.translation.representation.entry.Entry;
-import yalmm.enigma.naming.ConstructorParametersNameProposer;
-import yalmm.enigma.naming.NameProposer;
+import yalmm.enigma.naming.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,10 @@ public class NameProposerService implements NameProposalService {
 	private final List<NameProposer> nameProposers = new ArrayList<>();
 
 	public NameProposerService(JarIndexer indexer, EnigmaServiceContext<NameProposalService> context) {
+		this.nameProposers.add(new EqualsNameProposer());
 		this.nameProposers.add(new ConstructorParametersNameProposer(indexer));
+		this.nameProposers.add(new SetterParamNameProposer(indexer));
+		this.nameProposers.add(new SimpleTypeParamNameProposer(indexer));
 	}
 
 	@Override

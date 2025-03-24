@@ -13,6 +13,10 @@ repositories {
 		name = "Fabric Maven"
 		url = uri("https://maven.fabricmc.net/")
 	}
+	maven {
+		name = "Quilt Maven"
+		url = uri("https://maven.quiltmc.org/repository/release/")
+	}
 }
 
 dependencies {
@@ -20,6 +24,7 @@ dependencies {
 	implementation(libs.asm)
 	implementation(libs.download.task)
 	implementation(libs.gson)
+	implementation(libs.quilt.json5)
 	implementation(libs.mappingio)
 	implementation(libs.stitch)
 	implementation(libs.tinyremapper)

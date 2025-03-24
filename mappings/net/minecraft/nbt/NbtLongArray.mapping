@@ -10,8 +10,6 @@ CLASS net/minecraft/nbt/LongArrayTag net/minecraft/nbt/NbtLongArray
 		ARG 1 value
 	METHOD <init> (Ljava/util/List;)V
 		ARG 1 value
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD getAsLongArray getLongArray ()[J
 		COMMENT {@return the underlying long array}
 		COMMENT

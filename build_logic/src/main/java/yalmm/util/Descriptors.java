@@ -4,6 +4,7 @@ import cuchaz.enigma.translation.representation.MethodDescriptor;
 import cuchaz.enigma.translation.representation.TypeDescriptor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
+import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 
 import java.util.ArrayList;
@@ -18,6 +19,10 @@ public class Descriptors {
 	}
 
 	public static List<Type> getParameterTypes(MethodNode node) {
+		return List.of(Type.getArgumentTypes(node.desc));
+	}
+
+	public static List<Type> getParameterTypes(MethodInsnNode node) {
 		return List.of(Type.getArgumentTypes(node.desc));
 	}
 

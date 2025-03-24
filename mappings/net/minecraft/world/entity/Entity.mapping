@@ -1,7 +1,10 @@
 CLASS net/minecraft/world/entity/Entity
+	FIELD deltaMovement velocity Lnet/minecraft/world/phys/Vec3;
+	FIELD entityData dataTracker Lnet/minecraft/network/syncher/SynchedEntityData;
 	FIELD ID_TAG ID_KEY Ljava/lang/String;
 	FIELD PASSENGERS_TAG PASSENGERS_KEY Ljava/lang/String;
 	FIELD position pos Lnet/minecraft/world/phys/Vec3;
+	FIELD UUID_TAG UUID_KEY Ljava/lang/String;
 	FIELD wasEyeInWater submergedInWater Z
 	FIELD wasTouchingWater touchingWater Z
 	FIELD xo prevX D
@@ -11,8 +14,12 @@ CLASS net/minecraft/world/entity/Entity
 	FIELD yRot yaw F
 	FIELD yRotO prevYaw F
 	FIELD zo prevZ D
-	METHOD addAdditionalSaveData writeCustomDataFromNbt (Lnet/minecraft/nbt/CompoundTag;)V
+	METHOD addAdditionalSaveData writeCustomDataToNbt (Lnet/minecraft/nbt/CompoundTag;)V
 		ARG 1 nbt
+	METHOD addDeltaMovement addVelocity (Lnet/minecraft/world/phys/Vec3;)V
+		ARG 1 velocity
+	METHOD addTag (Ljava/lang/String;)Z
+		ARG 1 tag
 	METHOD closerThan isInRange (Lnet/minecraft/world/entity/Entity;D)Z
 		ARG 1 other
 		ARG 2 range
@@ -20,10 +27,24 @@ CLASS net/minecraft/world/entity/Entity
 		ARG 1 other
 		ARG 2 horizontalRange
 		ARG 4 verticalRange
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
+	METHOD defineSynchedData initDataTracker ()V
 	METHOD gameEvent emitGameEvent (Lnet/minecraft/world/level/gameevent/GameEvent;)V
 	METHOD gameEvent emitGameEvent (Lnet/minecraft/world/level/gameevent/GameEvent;Lnet/minecraft/world/entity/Entity;)V
+	METHOD getBbHeight getHeight ()F
+	METHOD getBbWidth getWidth ()F
+	METHOD getDeltaMovement getVelocity ()Lnet/minecraft/world/phys/Vec3;
+	METHOD getEntityData getDataTracker ()Lnet/minecraft/network/syncher/SynchedEntityData;
+	METHOD getXRot getPitch ()F
+	METHOD getYHeadRot getHeadYaw ()F
+	METHOD getYRot getYaw ()F
+	METHOD handleEntityEvent (B)V
+		ARG 1 event
+	METHOD isFree (DDD)Z
+		ARG 1 offsetX
+		ARG 3 offsetY
+		ARG 5 offsetZ
+	METHOD isFree (Lnet/minecraft/world/phys/AABB;)Z
+		ARG 1 box
 	METHOD isInWater isTouchingWater ()Z
 		COMMENT {@return {@code true} if this entity's bounding box is touching water,
 		COMMENT or {@code false} otherwise}
@@ -59,24 +80,48 @@ CLASS net/minecraft/world/entity/Entity
 	METHOD position getPos ()Lnet/minecraft/world/phys/Vec3;
 	METHOD readAdditionalSaveData readCustomDataFromNbt (Lnet/minecraft/nbt/CompoundTag;)V
 		ARG 1 nbt
+	METHOD remove (Lnet/minecraft/world/entity/Entity$RemovalReason;)V
+		ARG 1 reason
+	METHOD removeTag (Ljava/lang/String;)Z
+		ARG 1 tag
 	METHOD save saveNbt (Lnet/minecraft/nbt/CompoundTag;)Z
 		ARG 1 nbt
 	METHOD saveAsPassenger saveSelfNbt (Lnet/minecraft/nbt/CompoundTag;)Z
 		ARG 1 nbt
 	METHOD saveWithoutId writeNbt (Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/nbt/CompoundTag;
 		ARG 1 nbt
+	METHOD setDeltaMovement setVelocity (DDD)V
+		ARG 1 x
+		ARG 3 y
+		ARG 5 z
+	METHOD setDeltaMovement setVelocity (Lnet/minecraft/world/phys/Vec3;)V
 	METHOD setId (I)V
 		ARG 1 id
 	METHOD setNoGravity (Z)V
 		ARG 1 noGravity
+	METHOD setOnGround (Z)V
+		ARG 1 onGround
+	METHOD setOnGroundWithKnownMovement (ZLnet/minecraft/world/phys/Vec3;)V
+		ARG 1 onGround
+		ARG 2 movement
 	METHOD setPos (DDD)V
 		ARG 1 x
 		ARG 3 y
 		ARG 5 z
+	METHOD setPos (Lnet/minecraft/world/phys/Vec3;)V
+		ARG 1 pos
 	METHOD setRot setRotation (FF)V
 		ARG 1 yaw
 		ARG 2 pitch
+	METHOD setSecondsOnFire (I)V
+		ARG 1 seconds
 	METHOD setSilent (Z)V
 		ARG 1 silent
 	METHOD setXRot setPitch (F)V
+		ARG 1 pitch
+	METHOD setYBodyRot setBodyYaw (F)V
+		ARG 1 bodyYaw
+	METHOD setYHeadRot setHeadYaw (F)V
+		ARG 1 headYaw
 	METHOD setYRot setYaw (F)V
+		ARG 1 yaw

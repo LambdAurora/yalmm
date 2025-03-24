@@ -4,8 +4,6 @@ CLASS net/minecraft/nbt/ShortTag net/minecraft/nbt/NbtShort
 	FIELD data value S
 	METHOD <init> (S)V
 		ARG 1 value
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD valueOf of (S)Lnet/minecraft/nbt/ShortTag;
 		COMMENT {@return the NBT short from {@code value}}
 		ARG 0 value

@@ -8,11 +8,19 @@ plugins {
 version = "${Constants.MINECRAFT_VERSION}+build.${System.getenv().getOrDefault("BUILD_NUMBER", "local")}"
 base.archivesName.set("yalmm")
 
+repositories {
+	maven {
+		name = "Quilt Maven"
+		url = uri("https://maven.quiltmc.org/repository/release/")
+	}
+}
+
 dependencies {
 	intermediaryMappings("net.fabricmc:intermediary:${Constants.MINECRAFT_VERSION}")
 
 	enigmaRuntime(libs.enigma.gui)
 	enigmaRuntime(libs.asm)
+	enigmaRuntime(libs.quilt.json5)
 }
 
 publishing {

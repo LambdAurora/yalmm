@@ -36,8 +36,6 @@ CLASS net/minecraft/nbt/CompoundTag net/minecraft/nbt/NbtCompound
 			COMMENT the key of the value to check for
 		ARG 2 type
 			COMMENT the type to expect
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD get get (Ljava/lang/String;)Lnet/minecraft/nbt/Tag;
 		COMMENT {@return the element associated with the key from this compound, or {@code null} if there is none}
 		COMMENT

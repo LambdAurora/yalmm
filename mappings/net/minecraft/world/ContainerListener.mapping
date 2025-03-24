@@ -1,0 +1,3 @@
+CLASS net/minecraft/world/ContainerListener
+	METHOD containerChanged onContainerChanged (Lnet/minecraft/world/Container;)V
+		ARG 1 sender

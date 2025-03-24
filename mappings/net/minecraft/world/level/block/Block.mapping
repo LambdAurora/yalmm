@@ -28,6 +28,3 @@ CLASS net/minecraft/world/level/block/Block
 		ARG 0 stateId
 	METHOD withPropertiesOf (Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/state/BlockState;
 		ARG 1 state
-	CLASS BlockStatePairKey
-		METHOD equals (Ljava/lang/Object;)Z
-			ARG 1 o

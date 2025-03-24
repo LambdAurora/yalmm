@@ -1,7 +1,10 @@
 {
 	"services": {
 		"jar_indexer": {
-			"id": "yalmm:jar_indexer"
+			"id": "yalmm:jar_indexer",
+			"args": {
+				"simple_type_field_names_path": "./simple_type_field_names.json5"
+			}
 		},
 		"name_proposal": {
 			"id": "yalmm:name_proposal"
