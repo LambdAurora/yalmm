@@ -24,8 +24,6 @@ CLASS net/minecraft/resources/ResourceLocation net/minecraft/resources/Identifie
 			COMMENT the namespace of the identifier
 		ARG 1 path
 			COMMENT the path of the identifier
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD fromNamespaceAndPath of (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
 		ARG 0 namespace
 			COMMENT the namespace of the identifier

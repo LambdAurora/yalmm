@@ -4,8 +4,6 @@ CLASS net/minecraft/nbt/IntTag net/minecraft/nbt/NbtInt
 	FIELD data value I
 	METHOD <init> (I)V
 		ARG 1 value
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD valueOf of (I)Lnet/minecraft/nbt/IntTag;
 		COMMENT {@return the NBT integer from {@code value}}
 		ARG 0 value

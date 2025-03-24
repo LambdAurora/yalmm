@@ -12,8 +12,6 @@ CLASS net/minecraft/nbt/ByteTag net/minecraft/nbt/NbtByte
 	FIELD data value B
 	METHOD <init> (B)V
 		ARG 1 value
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD valueOf of (B)Lnet/minecraft/nbt/ByteTag;
 		COMMENT {@return the NBT byte from {@code value}}
 		COMMENT

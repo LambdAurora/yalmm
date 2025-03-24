@@ -1,0 +1,2 @@
+CLASS net/minecraft/world/inventory/Slot
+	METHOD isActive isEnabled ()Z

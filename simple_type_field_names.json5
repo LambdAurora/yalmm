@@ -1,0 +1,59 @@
+{
+	// Codec
+	"com/mojang/serialization/Codec": "codec",
+	"com/mojang/serialization/Dynamic": "dynamic",
+	"com/mojang/serialization/DynamicOps": {
+		local_name: "ops",
+		fallback: [
+			"dynOps"
+		]
+	},
+	"com/mojang/serialization/codecs/RecordCodecBuilder$Instance": "instance",
+	"com/mojang/serialization/MapCodec": "codec",
+
+	// Resources
+	"net/minecraft/resources/ResourceLocation": { // Identifier
+		local_name: "id",
+		exclusive: true,
+		fallback: [
+			"identifier"
+		]
+	},
+	"net/minecraft/nbt/CompoundTag": "nbt",
+	"java/util/UUID": "uuid",
+
+	// Pos
+	"net/minecraft/core/BlockPos": "pos",
+	"net/minecraft/core/BlockPos$Mutable": {
+		local_name: "pos",
+		fallback: [
+			"mutablePos"
+		]
+	},
+
+	// Blocks
+	"net/minecraft/world/level/block/Block": "block",
+	"net/minecraft/world/level/block/state/BlockState": "state",
+	"net/minecraft/world/level/block/entity/BlockEntity": "blockEntity",
+	"net/minecraft/world/level/block/entity/BeaconBlockEntity": "beacon",
+	"net/minecraft/world/level/block/entity/BedBlockEntity": "bed",
+
+	// Items
+	"net/minecraft/world/item/ItemStack": "stack",
+
+	// Entities
+	"net/minecraft/world/entity/Entity": "entity",
+	"net/minecraft/world/entity/player/Player": {
+		local_name: "player",
+		fallback: [
+			"playerEntity"
+		]
+	},
+
+	// Utils
+	"net/minecraft/world/InteractionHand": "hand",
+
+	// Rendering
+	"com/mojang/blaze3d/vertex/PoseStack": "matrices",
+	"net/minecraft/client/gui/GuiGraphics": "graphics"
+}

@@ -8,8 +8,6 @@ CLASS net/minecraft/nbt/IntArrayTag net/minecraft/nbt/NbtIntArray
 		ARG 1 value
 	METHOD <init> ([I)V
 		ARG 1 value
-	METHOD equals (Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD getAsIntArray getIntArray ()[I
 		COMMENT {@return the underlying int array}
 		COMMENT
