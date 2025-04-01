@@ -3,9 +3,9 @@ CLASS net/minecraft/core/HolderSet
 		ARG 1 owner
 	METHOD contains (Lnet/minecraft/core/Holder;)Z
 		ARG 1 value
-	METHOD direct (Ljava/util/List;)Lnet/minecraft/core/HolderSet$Direct;
-		ARG 0 contents
 	METHOD direct ([Lnet/minecraft/core/Holder;)Lnet/minecraft/core/HolderSet$Direct;
+		ARG 0 contents
+	METHOD direct (Ljava/util/Collection;)Lnet/minecraft/core/HolderSet$Direct;
 		ARG 0 contents
 	METHOD emptyNamed (Lnet/minecraft/core/HolderOwner;Lnet/minecraft/tags/TagKey;)Lnet/minecraft/core/HolderSet$Named;
 		ARG 0 owner
