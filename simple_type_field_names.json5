@@ -55,5 +55,8 @@
 
 	// Rendering
 	"com/mojang/blaze3d/vertex/PoseStack": "matrices",
-	"net/minecraft/client/gui/GuiGraphics": "graphics"
+	"com/mojang/blaze3d/pipeline/RenderPipeline": "renderPipeline",
+	"net/minecraft/client/gui/GuiGraphics": "graphics",
+	"net/minecraft/client/gui/Font": "font",
+	"net/minecraft/client/renderer/texture/TextureAtlasSprite": "sprite"
 }

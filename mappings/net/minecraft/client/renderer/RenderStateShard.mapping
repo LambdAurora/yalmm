@@ -18,8 +18,6 @@ CLASS net/minecraft/client/renderer/RenderStateShard
 			ARG 1 enabled
 	CLASS MultiTextureStateShard
 		CLASS Builder
-			METHOD add (Lnet/minecraft/resources/ResourceLocation;ZZ)Lnet/minecraft/client/renderer/RenderStateShard$MultiTextureStateShard$Builder;
-				ARG 1 texure
 	CLASS OffsetTexturingStateShard
 		METHOD <init> (FF)V
 			ARG 1 u
@@ -28,7 +26,3 @@ CLASS net/minecraft/client/renderer/RenderStateShard
 		METHOD <init> (Z)V
 			ARG 1 enabled
 	CLASS TextureStateShard
-		METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/util/TriState;Z)V
-			ARG 1 texture
-			ARG 2 blur
-			ARG 3 mipmap

@@ -28,8 +28,6 @@ CLASS net/minecraft/client/renderer/RenderType
 		ARG 5 state
 	METHOD createArmorDecalCutoutNoCull (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
 		ARG 0 texture
-	METHOD crosshair (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
-		ARG 0 texture
 	METHOD crumbling (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
 		ARG 0 texture
 	METHOD dragonExplosionAlpha (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
@@ -72,12 +70,6 @@ CLASS net/minecraft/client/renderer/RenderType
 		ARG 0 texture
 	METHOD eyes (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
 		ARG 0 texture
-	METHOD guiOpaqueTexturedBackground (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
-		ARG 0 texture
-	METHOD guiTextured (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
-		ARG 0 texture
-	METHOD guiTexturedOverlay (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
-		ARG 0 texture
 	METHOD itemEntityTranslucentCull (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
 		ARG 0 texture
 	METHOD outline (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
@@ -93,8 +85,6 @@ CLASS net/minecraft/client/renderer/RenderType
 	METHOD textPolygonOffset (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
 		ARG 0 texture
 	METHOD textSeeThrough (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
-		ARG 0 texture
-	METHOD vignette (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
 		ARG 0 texture
 	CLASS CompositeRenderType
 		METHOD <init> (Ljava/lang/String;IZZLcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/client/renderer/RenderType$CompositeState;)V
