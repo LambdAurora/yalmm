@@ -323,17 +323,6 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 2 stack
 		ARG 3 x
 		ARG 4 y
-	METHOD renderItemDecorations (Lnet/minecraft/client/gui/GuiGraphics$ItemSlotContext;Lnet/minecraft/client/gui/Font;Lnet/minecraft/world/item/ItemStack;II)V
-		ARG 1 itemSlotContext
-		ARG 3 stack
-		ARG 4 x
-		ARG 5 y
-	METHOD renderItemDecorations (Lnet/minecraft/client/gui/GuiGraphics$ItemSlotContext;Lnet/minecraft/client/gui/Font;Lnet/minecraft/world/item/ItemStack;IILjava/lang/String;)V
-		ARG 1 itemSlotContext
-		ARG 3 stack
-		ARG 4 x
-		ARG 5 y
-		ARG 6 countText
 	METHOD renderOutline (IIIII)V
 		ARG 1 x
 		ARG 2 y
@@ -344,7 +333,7 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 2 text
 		ARG 3 x
 		ARG 4 y
-	METHOD renderTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;IILnet/minecraft/resources/ResourceLocation;)V
+	METHOD renderTooltip drawOrderedTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;IILnet/minecraft/resources/ResourceLocation;)V
 		ARG 2 text
 		ARG 3 x
 		ARG 4 y
