@@ -267,15 +267,6 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 2 style
 		ARG 3 x
 		ARG 4 y
-	METHOD renderComponentTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;II)V
-		ARG 2 text
-		ARG 3 x
-		ARG 4 y
-	METHOD renderComponentTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;IILnet/minecraft/resources/ResourceLocation;)V
-		ARG 2 text
-		ARG 3 x
-		ARG 4 y
-		ARG 5 boxTexture
 	METHOD renderFakeItem drawItemWithoutEntity (Lnet/minecraft/world/item/ItemStack;II)V
 		ARG 1 stack
 		ARG 2 x
@@ -329,50 +320,6 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 3 width
 		ARG 4 height
 		ARG 5 color
-	METHOD renderTooltip drawOrderedTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;II)V
-		ARG 2 text
-		ARG 3 x
-		ARG 4 y
-	METHOD renderTooltip drawOrderedTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;IILnet/minecraft/resources/ResourceLocation;)V
-		ARG 2 text
-		ARG 3 x
-		ARG 4 y
-		ARG 5 boxTexture
-	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;Ljava/util/Optional;II)V
-		ARG 2 tooltip
-		ARG 3 data
-		ARG 4 x
-		ARG 5 y
-	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;Ljava/util/Optional;IILnet/minecraft/resources/ResourceLocation;)V
-		ARG 2 tooltip
-		ARG 3 data
-		ARG 4 x
-		ARG 5 y
-		ARG 6 boxTexture
-	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;Lnet/minecraft/client/gui/screens/inventory/tooltip/ClientTooltipPositioner;II)V
-		ARG 2 text
-		ARG 3 positioner
-		ARG 4 x
-		ARG 5 y
-	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;II)V
-		ARG 2 text
-		ARG 3 x
-		ARG 4 y
-	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;IILnet/minecraft/resources/ResourceLocation;)V
-		ARG 2 text
-		ARG 3 x
-		ARG 4 y
-		ARG 5 boxTexture
-	METHOD renderTooltip drawTooltip (Lnet/minecraft/client/gui/Font;Lnet/minecraft/world/item/ItemStack;II)V
-		ARG 2 stack
-		ARG 3 x
-		ARG 4 y
-	METHOD renderTooltipInternal drawTooltip (Lnet/minecraft/client/gui/Font;Ljava/util/List;IILnet/minecraft/client/gui/screens/inventory/tooltip/ClientTooltipPositioner;Lnet/minecraft/resources/ResourceLocation;)V
-		ARG 2 content
-		ARG 3 x
-		ARG 4 y
-		ARG 5 positioner
-		ARG 6 boxTexture
 	METHOD submitBlit submitTextureQuad (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lcom/mojang/blaze3d/textures/GpuTexture;IIIIFFFFI)V
 		ARG 1 renderPipeline
 		ARG 2 texture
