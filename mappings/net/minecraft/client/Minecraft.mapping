@@ -1,3 +1,0 @@
-CLASS net/minecraft/client/Minecraft
-	METHOD addResourcePackLoadFailToast (Lnet/minecraft/network/chat/Component;)V
-		ARG 1 message

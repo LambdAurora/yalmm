@@ -1,7 +1,5 @@
 CLASS net/minecraft/client/renderer/texture/TextureAtlasSprite
-	FIELD atlasLocation id Lnet/minecraft/resources/ResourceLocation;
-	METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/texture/SpriteContents;IIII)V
-		ARG 1 id
-		ARG 5 x
-		ARG 6 y
-	METHOD atlasLocation id ()Lnet/minecraft/resources/ResourceLocation;
+	FIELD name id Lnet/minecraft/resources/ResourceLocation;
+	METHOD getName id ()Lnet/minecraft/resources/ResourceLocation;
+	CLASS Info
+		FIELD name id Lnet/minecraft/resources/ResourceLocation;
