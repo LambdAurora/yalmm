@@ -20,11 +20,6 @@ CLASS com/mojang/blaze3d/vertex/VertexConsumer
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
-	METHOD normal normal (Lorg/joml/Matrix3f;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
-		ARG 1 matrix
-		ARG 2 x
-		ARG 3 y
-		ARG 4 z
 	METHOD overlayCoords overlay (I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
 		ARG 1 overlay
 	METHOD overlayCoords overlay (II)Lcom/mojang/blaze3d/vertex/VertexConsumer;
@@ -64,8 +59,3 @@ CLASS com/mojang/blaze3d/vertex/VertexConsumer
 		ARG 12 nX
 		ARG 13 nY
 		ARG 14 nZ
-	METHOD vertex addVertex (Lorg/joml/Matrix4f;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
-		ARG 1 matrix
-		ARG 2 x
-		ARG 3 y
-		ARG 4 z

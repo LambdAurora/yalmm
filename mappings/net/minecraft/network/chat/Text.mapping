@@ -47,25 +47,3 @@ CLASS net/minecraft/network/chat/Component net/minecraft/network/chat/Text
 			COMMENT the translation key
 		ARG 1 args
 			COMMENT the arguments the translation may take
-	METHOD translatableWithFallback translatableWithFallback (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
-		COMMENT Creates a new mutable translatable text with a given {@code fallback}
-		COMMENT if the translation cannot be found.
-		COMMENT
-		COMMENT @return the new mutable translatable text
-		COMMENT @see #translatableWithFallback(String, String, Object...)
-		ARG 0 translationKey
-			COMMENT the translation key
-		ARG 1 fallback
-			COMMENT the fallback text
-	METHOD translatableWithFallback translatableWithFallback (Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
-		COMMENT Creates a new mutable translatable text with a given {@code fallback}
-		COMMENT if the translation cannot be found.
-		COMMENT
-		COMMENT @return the new mutable translatable text
-		COMMENT @see #translatableWithFallback(String, String)
-		ARG 0 translationKey
-			COMMENT the translation key
-		ARG 1 fallback
-			COMMENT the fallback text
-		ARG 2 args
-			COMMENT the arguments the translation may take

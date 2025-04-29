@@ -196,8 +196,6 @@ CLASS net/minecraft/nbt/CompoundTag net/minecraft/nbt/NbtCompound
 			COMMENT the key of the value to check for
 	METHOD isEmpty isEmpty ()Z
 		COMMENT {@return {@code true} if the compound has no entries, or {@code false} otherwise}
-	METHOD lambda$static$2 (Lnet/minecraft/nbt/CompoundTag;)Lcom/mojang/serialization/Dynamic;
-		ARG 0 nbt
 	METHOD merge merge (Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/nbt/CompoundTag;
 		COMMENT Merges the entries of {@code source} to this compound.
 		COMMENT The passed compound will not be modified.

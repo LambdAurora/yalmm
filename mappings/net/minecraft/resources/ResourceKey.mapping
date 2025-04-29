@@ -6,8 +6,6 @@ CLASS net/minecraft/resources/ResourceKey
 		COMMENT The identifier of the value in the registry specified by {@link #registry}.
 	FIELD registryName registry Lnet/minecraft/resources/ResourceLocation;
 		COMMENT The identifier of the registry in the root registry.
-	FIELD VALUES Ljava/util/concurrent/ConcurrentMap;
-		COMMENT A weak cache of all resource keys ever created.
 	METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;)V
 		ARG 1 registry
 		ARG 2 value
@@ -29,6 +27,3 @@ CLASS net/minecraft/resources/ResourceKey
 		ARG 1 value
 	METHOD location value ()Lnet/minecraft/resources/ResourceLocation;
 	METHOD registry registry ()Lnet/minecraft/resources/ResourceLocation;
-	CLASS InternKey
-		FIELD location value Lnet/minecraft/resources/ResourceLocation;
-		METHOD location value ()Lnet/minecraft/resources/ResourceLocation;

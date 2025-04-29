@@ -91,6 +91,3 @@ CLASS net/minecraft/core/Registry
 		ARG 1 id
 		ARG 2 value
 	METHOD registryKeySet keySet ()Ljava/util/Set;
-	METHOD registryLifecycle getLifecycle ()Lcom/mojang/serialization/Lifecycle;
-	METHOD wrapAsHolder (Ljava/lang/Object;)Lnet/minecraft/core/Holder;
-		ARG 1 value

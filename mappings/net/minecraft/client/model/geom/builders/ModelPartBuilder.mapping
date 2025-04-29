@@ -2,7 +2,6 @@ CLASS net/minecraft/client/model/geom/builders/CubeListBuilder net/minecraft/cli
 	FIELD xTexOffs u I
 	FIELD yTexOffs v I
 	METHOD addBox cuboid (FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
-	METHOD addBox cuboid (FFFFFFLjava/util/Set;)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
 	METHOD addBox cuboid (FFFFFFLnet/minecraft/client/model/geom/builders/CubeDeformation;)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
 	METHOD addBox cuboid (FFFFFFLnet/minecraft/client/model/geom/builders/CubeDeformation;FF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
 	METHOD addBox cuboid (FFFFFFZ)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;

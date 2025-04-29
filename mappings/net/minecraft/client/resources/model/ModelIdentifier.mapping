@@ -4,17 +4,7 @@ CLASS net/minecraft/client/resources/model/ModelResourceLocation net/minecraft/c
 		ARG 1 namespace
 		ARG 2 path
 		ARG 3 variant
-	METHOD <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lnet/minecraft/resources/ResourceLocation$Dummy;)V
-		ARG 1 namespace
-		ARG 2 path
 	METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;)V
 		ARG 1 id
 		ARG 2 variant
 	METHOD getVariant variant ()Ljava/lang/String;
-	METHOD lowercaseVariant (Ljava/lang/String;)Ljava/lang/String;
-		ARG 0 variant
-	METHOD vanilla ofDefault (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/client/resources/model/ModelResourceLocation;
-		ARG 0 path
-			COMMENT the path of the model in the default namespace
-		ARG 1 variant
-			COMMENT the variant of the model

@@ -1,8 +1,6 @@
 CLASS net/minecraft/world/Container
 	METHOD canPlaceItem (ILnet/minecraft/world/item/ItemStack;)Z
 		ARG 1 index
-	METHOD canTakeItem (Lnet/minecraft/world/Container;ILnet/minecraft/world/item/ItemStack;)Z
-		ARG 2 index
 	METHOD countItem (Lnet/minecraft/world/item/Item;)I
 		ARG 1 item
 	METHOD getContainerSize size ()I

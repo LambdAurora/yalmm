@@ -1,14 +1,14 @@
 CLASS net/minecraft/core/BlockPos
+	METHOD <init> (Lnet/minecraft/core/Position;)V
+		ARG 1 pos
+	METHOD <init> (Lnet/minecraft/core/Vec3i;)V
+		ARG 1 pos
+	METHOD <init> (Lnet/minecraft/world/phys/Vec3;)V
+		ARG 1 pos
 	METHOD asLong (III)J
 		ARG 0 x
 		ARG 1 y
 		ARG 2 z
-	METHOD containing ofFloored (DDD)Lnet/minecraft/core/BlockPos;
-		ARG 0 x
-		ARG 2 y
-		ARG 4 z
-	METHOD containing of (Lnet/minecraft/core/Position;)Lnet/minecraft/core/BlockPos;
-	METHOD getCenter atCenter ()Lnet/minecraft/world/phys/Vec3;
 	METHOD getX unpackLongX (J)I
 		ARG 0 packedPos
 	METHOD getY unpackLongY (J)I
@@ -28,6 +28,14 @@ CLASS net/minecraft/core/BlockPos
 		COMMENT position won't affect the returned position.
 	METHOD of of (J)Lnet/minecraft/core/BlockPos;
 		ARG 0 packedPos
+	METHOD offset (JIII)J
+		ARG 0 packedPos
+		ARG 2 offsetX
+		ARG 3 offsetY
+		ARG 4 offsetZ
+	METHOD offset (JLnet/minecraft/core/Direction;)J
+		ARG 0 packedPos
+		ARG 2 direction
 	METHOD relative offset (Lnet/minecraft/core/Direction;)Lnet/minecraft/core/BlockPos;
 		ARG 1 direction
 	METHOD south (I)Lnet/minecraft/core/BlockPos;

@@ -16,17 +16,6 @@ CLASS net/minecraft/nbt/NbtUtils
 		COMMENT @see #fromUuid(UUID)
 		COMMENT @since 20w10a
 		ARG 0 nbt
-	METHOD readBlockState toBlockState (Lnet/minecraft/core/HolderGetter;Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/world/level/block/state/BlockState;
-		COMMENT {@return the block state from the {@code nbt}}
-		COMMENT <p>
-		COMMENT This returns the default state for {@link net.minecraft.block.Blocks#AIR}
-		COMMENT if the block name is not present.
-		COMMENT
-		COMMENT @see #fromBlockState(BlockState)
-		ARG 0 blockLookup
-			COMMENT the block lookup
-		ARG 1 nbt
-			COMMENT the NBT representing the block state
 	METHOD writeBlockState fromBlockState (Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/nbt/CompoundTag;
 		COMMENT {@return the serialized block state}
 		COMMENT

@@ -8,10 +8,6 @@ CLASS net/minecraft/server/packs/resources/FallbackResourceManager net/minecraft
 		ARG 2 namespace
 	METHOD getMetadataLocation getMetadataPath (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/resources/ResourceLocation;
 		ARG 0 id
-	METHOD getResourceLocationFromMetadata getResourceIdentifierFromMetadata (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/resources/ResourceLocation;
-		ARG 0 id
-	METHOD isMetadata isMetadata (Lnet/minecraft/resources/ResourceLocation;)Z
-		ARG 0 id
 	METHOD push addPack (Lnet/minecraft/server/packs/PackResources;)V
 		COMMENT Adds a resource pack to this resource manager.
 		ARG 1 pack
@@ -32,15 +28,8 @@ CLASS net/minecraft/server/packs/resources/FallbackResourceManager net/minecraft
 		ARG 1 name
 		ARG 2 pack
 		ARG 3 filter
-	CLASS 1ResourceWithSourceAndIndex FindResourceEntry
 	CLASS EntryStack ResourceEntries
-		FIELD fileLocation path Lnet/minecraft/resources/ResourceLocation;
-		FIELD metaSources metadataSources Ljava/util/Map;
 		FIELD metadataLocation metadataId Lnet/minecraft/resources/ResourceLocation;
-		METHOD <init> (Lnet/minecraft/resources/ResourceLocation;)V
-			ARG 1 path
-		METHOD fileLocation path ()Lnet/minecraft/resources/ResourceLocation;
-		METHOD metaSources metadataSources ()Ljava/util/Map;
 		METHOD metadataLocation metadataId ()Lnet/minecraft/resources/ResourceLocation;
 	CLASS LeakedResourceWarningInputStream DebugInputStream
 		METHOD <init> (Ljava/io/InputStream;Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;)V
@@ -54,8 +43,6 @@ CLASS net/minecraft/server/packs/resources/FallbackResourceManager net/minecraft
 		METHOD filter filter ()Ljava/util/function/Predicate;
 		METHOD name name ()Ljava/lang/String;
 		METHOD resources resources ()Lnet/minecraft/server/packs/PackResources;
-	CLASS ResourceWithSource ResourceEntry
-		FIELD resource resource Lnet/minecraft/server/packs/resources/IoSupplier;
-		FIELD source source Lnet/minecraft/server/packs/PackResources;
-		METHOD resource resource ()Lnet/minecraft/server/packs/resources/IoSupplier;
-		METHOD source source ()Lnet/minecraft/server/packs/PackResources;
+	CLASS SinglePackResourceThunkSupplier
+		FIELD location path Lnet/minecraft/resources/ResourceLocation;
+		FIELD metadataLocation metadataPath Lnet/minecraft/resources/ResourceLocation;

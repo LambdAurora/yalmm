@@ -1,7 +1,5 @@
 CLASS net/minecraft/server/packs/resources/ResourceProvider net/minecraft/resources/io/ResourceProvider
 	COMMENT Provides resource access.
-	METHOD fromMap (Ljava/util/Map;)Lnet/minecraft/server/packs/resources/ResourceProvider;
-		ARG 0 resources
 	METHOD getResource getResource (Lnet/minecraft/resources/ResourceLocation;)Ljava/util/Optional;
 		COMMENT Finds and returns the corresponding resource for the given identifier.
 		COMMENT <p>

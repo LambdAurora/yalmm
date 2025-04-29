@@ -35,7 +35,6 @@ CLASS net/minecraft/resources/ResourceLocation net/minecraft/resources/Identifie
 		COMMENT <strong>Warning</strong>: this method does not replace any slash in the path with dots.
 		COMMENT
 		COMMENT @see #toTranslationKey(String)
-		COMMENT @see #toTranslationKey(String, String)
 		COMMENT @see #toShortTranslationKey()
 	METHOD toLanguageKey toTranslationKey (Ljava/lang/String;)Ljava/lang/String;
 		COMMENT {@return the {@linkplain #toTranslationKey() full translation key of this identifier} prefixed with {@code prefix} and a dot}
@@ -43,29 +42,14 @@ CLASS net/minecraft/resources/ResourceLocation net/minecraft/resources/Identifie
 		COMMENT <strong>Warning</strong>: this method does not replace any slash in the path with dots.
 		COMMENT
 		COMMENT @see #toTranslationKey()
-		COMMENT @see #toTranslationKey(String, String)
 		COMMENT @see #toShortTranslationKey()
 		ARG 1 prefix
 			COMMENT the prefix of the translation key
-	METHOD toLanguageKey toTranslationKey (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-		COMMENT {@return the {@linkplain #toTranslationKey() full translation key of this identifier} prefixed with {@code prefix} and a dot,
-		COMMENT and suffixed with a dot and {@code suffix}}
-		COMMENT <p>
-		COMMENT <strong>Warning</strong>: this method does not replace any slash in the path with dots.
-		COMMENT
-		COMMENT @see #toTranslationKey()
-		COMMENT @see #toTranslationKey(String)
-		COMMENT @see #toShortTranslationKey()
-		ARG 1 prefix
-			COMMENT the prefix of the translation key
-		ARG 2 suffix
-			COMMENT the suffix of the translation key
 	METHOD toShortLanguageKey toShortTranslationKey ()Ljava/lang/String;
 		COMMENT {@return the short translation key, with the default namespace omitted if present}
 		COMMENT
 		COMMENT @see #toTranslationKey()
 		COMMENT @see #toTranslationKey(String)
-		COMMENT @see #toTranslationKey(String, String)
 	METHOD tryBuild tryParse (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
 		COMMENT {@return an identifier from the provided {@code namespace} and {@code path}, or {@code null} if either argument is invalid}
 		COMMENT

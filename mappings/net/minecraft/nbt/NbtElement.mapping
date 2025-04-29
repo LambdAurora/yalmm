@@ -76,8 +76,6 @@ CLASS net/minecraft/nbt/Tag net/minecraft/nbt/NbtElement
 		COMMENT {@return the numerical identifier of the type of this NBT element}
 	METHOD getType type ()Lnet/minecraft/nbt/TagType;
 		COMMENT {@return the NBT type definition of this NBT element}
-	METHOD sizeInBytes getSizeInBytes ()I
-		COMMENT {@return the size in bytes of this NBT element}
 	METHOD write write (Ljava/io/DataOutput;)V
 		COMMENT Writes the NBT element to {@code output}.
 		COMMENT

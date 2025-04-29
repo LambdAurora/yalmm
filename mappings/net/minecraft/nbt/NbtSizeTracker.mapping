@@ -4,6 +4,3 @@ CLASS net/minecraft/nbt/NbtAccounter net/minecraft/nbt/NbtSizeTracker
 	COMMENT than {@link #maxBytes} or if the depth exceeds {@link #maxDepth} during addition.
 	FIELD quota maxBytes J
 	FIELD usage usage J
-	METHOD accountBytes add (J)V
-		ARG 1 bytes
-	METHOD getUsage getUsage ()J

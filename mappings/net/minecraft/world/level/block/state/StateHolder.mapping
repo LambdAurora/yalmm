@@ -6,6 +6,3 @@ CLASS net/minecraft/world/level/block/state/StateHolder
 	METHOD setValue with (Lnet/minecraft/world/level/block/state/properties/Property;Ljava/lang/Comparable;)Ljava/lang/Object;
 		ARG 1 property
 		ARG 2 value
-	METHOD trySetValue withIfExists (Lnet/minecraft/world/level/block/state/properties/Property;Ljava/lang/Comparable;)Ljava/lang/Object;
-		ARG 1 property
-		ARG 2 value

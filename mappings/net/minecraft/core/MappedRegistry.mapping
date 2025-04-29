@@ -1,11 +1,7 @@
 CLASS net/minecraft/core/MappedRegistry
 	FIELD byId byRawId Lit/unimi/dsi/fastutil/objects/ObjectList;
 	FIELD byLocation byId Ljava/util/Map;
-	METHOD <init> (Lnet/minecraft/resources/ResourceKey;Lcom/mojang/serialization/Lifecycle;)V
-		ARG 1 key
-	METHOD <init> (Lnet/minecraft/resources/ResourceKey;Lcom/mojang/serialization/Lifecycle;Z)V
-		ARG 1 key
-	METHOD getOrCreateHolderOrThrow (Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/core/Holder$Reference;
+	METHOD <init> (Lnet/minecraft/resources/ResourceKey;Lcom/mojang/serialization/Lifecycle;Ljava/util/function/Function;)V
 		ARG 1 key
 	METHOD validateWrite (Lnet/minecraft/resources/ResourceKey;)V
 		ARG 1 key
