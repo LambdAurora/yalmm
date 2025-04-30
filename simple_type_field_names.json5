@@ -21,6 +21,8 @@
 	},
 	"net/minecraft/nbt/CompoundTag": "nbt",
 	"java/util/UUID": "uuid",
+	"net/minecraft/world/level/storage/ValueInput": "input",
+	"net/minecraft/world/level/storage/ValueOutput": "output",
 
 	// Pos
 	"net/minecraft/core/BlockPos": "pos",

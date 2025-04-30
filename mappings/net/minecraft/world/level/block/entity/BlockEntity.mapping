@@ -42,8 +42,8 @@ CLASS net/minecraft/world/level/block/entity/BlockEntity
 		ARG 1 type
 		ARG 2 pos
 		ARG 3 state
-	METHOD addEntityType writeIdentifyingData (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/world/level/block/entity/BlockEntityType;)V
-		ARG 0 nbt
+	METHOD addEntityType writeIdentifyingType (Lnet/minecraft/world/level/storage/ValueOutput;Lnet/minecraft/world/level/block/entity/BlockEntityType;)V
+		ARG 0 output
 		ARG 1 type
 	METHOD applyComponentsFromItemStack (Lnet/minecraft/world/item/ItemStack;)V
 		ARG 1 stack
@@ -100,27 +100,18 @@ CLASS net/minecraft/world/level/block/entity/BlockEntity
 			COMMENT the lookup provider
 	METHOD isValidBlockState (Lnet/minecraft/world/level/block/state/BlockState;)Z
 		ARG 1 state
-	METHOD loadAdditional readNbt (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
-		COMMENT Reads data from {@code nbt}. Subclasses should override this if they
+	METHOD loadAdditional readData (Lnet/minecraft/world/level/storage/ValueInput;)V
+		COMMENT Reads data from the {@code input}. Subclasses should override this if they
 		COMMENT store a persistent data.
 		COMMENT <p>
-		COMMENT NBT is a storage format; therefore, a data from NBT is loaded to a
-		COMMENT block entity instance's fields, which are used for other operations instead
-		COMMENT of the NBT. The data is written back to NBT when saving the block entity.
-		COMMENT <p>
-		COMMENT {@code nbt} might not have all expected keys, or might have a key whose
-		COMMENT value does not meet the requirement (such as the type or the range). This
-		COMMENT method should fall back to a reasonable default value instead of throwing an
-		COMMENT exception.
+		COMMENT The {@code input} might not have all expected keys, or might have a key whose
+		COMMENT value does not meet the requirement (such as the type or the range).
+		COMMENT This method should fall back to a reasonable default value instead of throwing an exception.
 		COMMENT
-		COMMENT @see #writeNbt
-		ARG 1 nbt
-			COMMENT the NBT to read from
-		ARG 2 lookupProvider
-			COMMENT the lookup provider
-	METHOD loadCustomOnly readDataNbt (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
-		ARG 1 nbt
-		ARG 2 lookupProvider
+		COMMENT @see #writeData
+		ARG 1 input
+			COMMENT the input to read from
+	METHOD loadCustomOnly readCustomOnly (Lnet/minecraft/world/level/storage/ValueInput;)V
 	METHOD loadStatic createFromNbt (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/world/level/block/entity/BlockEntity;
 		COMMENT {@return the new block entity loaded from {@code nbt}, or {@code null} if it fails}
 		COMMENT <p>
@@ -135,33 +126,36 @@ CLASS net/minecraft/world/level/block/entity/BlockEntity
 			COMMENT the NBT data of the block entity
 		ARG 3 lookupProvider
 			COMMENT the lookup provider
-	METHOD loadWithComponents readWithComponents (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
-		ARG 1 nbt
-		ARG 2 lookupProvider
-	METHOD removeComponentsFromTag removeComponentsFromNbt (Lnet/minecraft/nbt/CompoundTag;)V
-		ARG 1 nbt
-	METHOD saveAdditional writeNbt (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
-		ARG 1 nbt
-		ARG 2 lookupProvider
-	METHOD saveCustomAndMetadata toDataAndMetadataNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
-		ARG 1 lookupProvider
+	METHOD loadWithComponents readDataAndComponents (Lnet/minecraft/world/level/storage/ValueInput;)V
+	METHOD saveAdditional writeData (Lnet/minecraft/world/level/storage/ValueOutput;)V
+		COMMENT Writes data to the {@code output}. Subclasses should override this if they
+		COMMENT store a persistent data.
+		COMMENT
+		COMMENT @see #readData
+		ARG 1 output
 	METHOD saveCustomOnly toDataOnlyNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
 		ARG 1 lookupProvider
-	METHOD saveId writeIdentifyingData (Lnet/minecraft/nbt/CompoundTag;)V
-		COMMENT Writes to {@code nbt} the block entity type identifier under the {@code id} key,
+	METHOD saveCustomOnly writeCustomOnly (Lnet/minecraft/world/level/storage/ValueOutput;)V
+	METHOD saveId writeId (Lnet/minecraft/world/level/storage/ValueOutput;)V
+		COMMENT Writes to the {@code output} the block entity type identifier under the {@code id} key.
+		COMMENT
+		COMMENT @throws RuntimeException if the block entity type is not registered in the registry
+		ARG 1 output
+			COMMENT the output to write to
+	METHOD saveMetadata writeMetadata (Lnet/minecraft/world/level/storage/ValueOutput;)V
+		COMMENT Writes to the {@code output} the block entity type identifier under the {@code id} key,
 		COMMENT and the block's position under {@code x}, {@code y}, and {@code z} keys.
 		COMMENT
 		COMMENT @throws RuntimeException if the block entity type is not registered in the registry
-		ARG 1 nbt
-			COMMENT the NBT to write to
-	METHOD saveMetadata writeMetadata (Lnet/minecraft/nbt/CompoundTag;)V
-		ARG 1 nbt
+		ARG 1 output
+			COMMENT the output to write to
 	METHOD saveWithFullMetadata toFullNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
 		ARG 1 lookupProvider
-	METHOD saveWithId toIdentifiedNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
-		ARG 1 lookupProvider
+	METHOD saveWithFullMetadata writeWithFullMetadata (Lnet/minecraft/world/level/storage/ValueOutput;)V
+	METHOD saveWithId writeWithId (Lnet/minecraft/world/level/storage/ValueOutput;)V
 	METHOD saveWithoutMetadata toNbt (Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/CompoundTag;
 		ARG 1 lookupProvider
+	METHOD saveWithoutMetadata writeWithoutMetadata (Lnet/minecraft/world/level/storage/ValueOutput;)V
 	METHOD setBlockState (Lnet/minecraft/world/level/block/state/BlockState;)V
 		ARG 1 state
 	METHOD setChanged markDirty (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V

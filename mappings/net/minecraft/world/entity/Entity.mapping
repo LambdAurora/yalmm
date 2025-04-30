@@ -17,8 +17,7 @@ CLASS net/minecraft/world/entity/Entity
 	FIELD yRotO prevYaw F
 	FIELD zo z D
 	FIELD zOld prevZ D
-	METHOD addAdditionalSaveData writeCustomDataToNbt (Lnet/minecraft/nbt/CompoundTag;)V
-		ARG 1 nbt
+	METHOD addAdditionalSaveData writeCustomSaveData (Lnet/minecraft/world/level/storage/ValueOutput;)V
 	METHOD addDeltaMovement addVelocity (Lnet/minecraft/world/phys/Vec3;)V
 		ARG 1 velocity
 	METHOD addTag (Ljava/lang/String;)Z
@@ -60,8 +59,6 @@ CLASS net/minecraft/world/entity/Entity
 		COMMENT
 		COMMENT @see #isTouchingWater()
 		COMMENT @see #isInFluid()
-	METHOD load readNbt (Lnet/minecraft/nbt/CompoundTag;)V
-		ARG 1 nbt
 	METHOD playSound (Lnet/minecraft/sounds/SoundEvent;)V
 		COMMENT Plays a given sound coming from this entity, if this entity is not silent
 		COMMENT
@@ -81,18 +78,11 @@ CLASS net/minecraft/world/entity/Entity
 		ARG 3 pitch
 			COMMENT the pitch to play the sound at
 	METHOD position getPos ()Lnet/minecraft/world/phys/Vec3;
-	METHOD readAdditionalSaveData readCustomDataFromNbt (Lnet/minecraft/nbt/CompoundTag;)V
-		ARG 1 nbt
+	METHOD readAdditionalSaveData readCustomSaveData (Lnet/minecraft/world/level/storage/ValueInput;)V
 	METHOD remove (Lnet/minecraft/world/entity/Entity$RemovalReason;)V
 		ARG 1 reason
 	METHOD removeTag (Ljava/lang/String;)Z
 		ARG 1 tag
-	METHOD save saveNbt (Lnet/minecraft/nbt/CompoundTag;)Z
-		ARG 1 nbt
-	METHOD saveAsPassenger saveSelfNbt (Lnet/minecraft/nbt/CompoundTag;)Z
-		ARG 1 nbt
-	METHOD saveWithoutId writeNbt (Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/nbt/CompoundTag;
-		ARG 1 nbt
 	METHOD setDeltaMovement setVelocity (DDD)V
 		ARG 1 x
 		ARG 3 y
