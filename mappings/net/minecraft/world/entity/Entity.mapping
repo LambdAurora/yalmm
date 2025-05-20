@@ -1,10 +1,23 @@
 CLASS net/minecraft/world/entity/Entity
 	FIELD deltaMovement velocity Lnet/minecraft/world/phys/Vec3;
 	FIELD entityData dataTracker Lnet/minecraft/network/syncher/SynchedEntityData;
-	FIELD ID_TAG ID_KEY Ljava/lang/String;
-	FIELD PASSENGERS_TAG PASSENGERS_KEY Ljava/lang/String;
 	FIELD position pos Lnet/minecraft/world/phys/Vec3;
-	FIELD UUID_TAG UUID_KEY Ljava/lang/String;
+	FIELD TAG_AIR AIR_KEY Ljava/lang/String;
+	FIELD TAG_DATA DATA_KEY Ljava/lang/String;
+	FIELD TAG_FALL_DISTANCE FALL_DISTANCE_KEY Ljava/lang/String;
+	FIELD TAG_FIRE FIRE_KEY Ljava/lang/String;
+	FIELD TAG_GLOWING GLOWING_KEY Ljava/lang/String;
+	FIELD TAG_ID ID_KEY Ljava/lang/String;
+	FIELD TAG_INVULNERABLE INVULNERABLE_KEY Ljava/lang/String;
+	FIELD TAG_MOTION MOTION_KEY Ljava/lang/String;
+	FIELD TAG_NO_GRAVITY NO_GRAVITY_KEY Ljava/lang/String;
+	FIELD TAG_ON_GROUND ON_GROUND_KEY Ljava/lang/String;
+	FIELD TAG_PASSENGERS PASSENGERS_KEY Ljava/lang/String;
+	FIELD TAG_PORTAL_COOLDOWN PORTAL_COOLDOWN_KEY Ljava/lang/String;
+	FIELD TAG_POS POS_KEY Ljava/lang/String;
+	FIELD TAG_ROTATION ROTATION_KEY Ljava/lang/String;
+	FIELD TAG_SILENT SILENT_KEY Ljava/lang/String;
+	FIELD TAG_UUID UUID_KEY Ljava/lang/String;
 	FIELD wasEyeInWater submergedInWater Z
 	FIELD wasTouchingWater touchingWater Z
 	FIELD xo x D

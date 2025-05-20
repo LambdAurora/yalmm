@@ -121,6 +121,12 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 4 y
 		ARG 5 width
 		ARG 6 height
+	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIIIF)V
+		ARG 3 x
+		ARG 4 y
+		ARG 5 width
+		ARG 6 height
+		ARG 7 opacity
 	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIIII)V
 		ARG 1 renderPipeline
 		ARG 2 sprite
@@ -320,18 +326,7 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 3 width
 		ARG 4 height
 		ARG 5 color
-	METHOD submitBlit submitTextureQuad (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lcom/mojang/blaze3d/textures/GpuTexture;IIIIFFFFI)V
-		ARG 1 renderPipeline
-		ARG 2 texture
-		ARG 3 startX
-		ARG 4 startY
-		ARG 5 endX
-		ARG 6 endY
-		ARG 7 startU
-		ARG 8 endU
-		ARG 9 startV
-		ARG 10 endV
-		ARG 11 color
+	METHOD submitBlit submitTexturedQuad (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lcom/mojang/blaze3d/textures/GpuTextureView;IIIIFFFFI)V
 	METHOD submitText (Lnet/minecraft/client/gui/render/state/TextRenderState;II)V
 		ARG 1 textRenderState
 		ARG 2 x
