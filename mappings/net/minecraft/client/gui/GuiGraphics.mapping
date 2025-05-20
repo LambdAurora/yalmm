@@ -327,10 +327,6 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 4 height
 		ARG 5 color
 	METHOD submitBlit submitTexturedQuad (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lcom/mojang/blaze3d/textures/GpuTextureView;IIIIFFFFI)V
-	METHOD submitText (Lnet/minecraft/client/gui/render/state/TextRenderState;II)V
-		ARG 1 textRenderState
-		ARG 2 x
-		ARG 3 y
 	METHOD vLine drawVerticalLine (IIII)V
 		ARG 1 x
 		ARG 2 startY
