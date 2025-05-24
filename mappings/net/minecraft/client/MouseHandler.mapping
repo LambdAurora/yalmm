@@ -1,0 +1,6 @@
+CLASS net/minecraft/client/MouseHandler
+	METHOD onPress (JIII)V
+		ARG 1 windowHandle
+		ARG 3 button
+		ARG 4 x
+		ARG 5 y

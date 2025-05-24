@@ -1,0 +1,5 @@
+CLASS net/minecraft/client/gui/components/AbstractSelectionList
+	CLASS Entry
+		METHOD render (Lnet/minecraft/client/gui/GuiGraphics;IIIIIIIZF)V
+			ARG 9 hovered
+			ARG 10 tickDelta
