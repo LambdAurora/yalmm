@@ -2,7 +2,7 @@ package yalmm
 
 object Constants {
 	const val GROUP = "dev.lambdaurora"
-	const val MINECRAFT_VERSION = "25w21a"
+	const val MINECRAFT_VERSION = "1.21.6-pre1"
 	const val JAVA_VERSION = 21
 
 	object Groups {

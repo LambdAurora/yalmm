@@ -159,8 +159,17 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 12 textureHeight
 		ARG 13 color
 	METHOD containsPointInScissor (II)Z
+		COMMENT {@return {@code true} if the given point is contained within the scissor area, or {@code false} otherwise}
+		COMMENT
+		COMMENT @see #enableScissor(int, int, int, int)
+		COMMENT @see #disableScissor()
 		ARG 1 x
 		ARG 2 y
+	METHOD disableScissor ()V
+		COMMENT Disables the scissor area.
+		COMMENT
+		COMMENT @see #enableScissor(int, int, int, int)
+		COMMENT @see #containsPointInScissor(int, int)
 	METHOD drawCenteredString drawCenteredShadowedText (Lnet/minecraft/client/gui/Font;Ljava/lang/String;III)V
 		ARG 2 text
 		ARG 3 centerX
@@ -228,23 +237,48 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 6 color
 		ARG 7 shadowed
 	METHOD enableScissor (IIII)V
+		COMMENT Enables the scissor area at the given coordinates.
+		COMMENT
+		COMMENT @see #disableScissor()
+		COMMENT @see #containsPointInScissor(int, int)
 		ARG 1 startX
+			COMMENT the start X-coordinate of the scissor area
 		ARG 2 startY
+			COMMENT the start Y-coordinate of the scissor area
 		ARG 3 endX
+			COMMENT the end X-coordinate of the scissor area
 		ARG 4 endY
+			COMMENT the end Y-coordinate of the scissor area
 	METHOD fill fill (IIIII)V
+		COMMENT Fills a given area with the given color.
+		COMMENT
+		COMMENT @see #fill(RenderPipeline, int, int, int, int, int)
 		ARG 1 startX
+			COMMENT the start X-coordinate
 		ARG 2 startY
+			COMMENT the start Y-coordinate
 		ARG 3 endX
+			COMMENT the end X-coordinate
 		ARG 4 endY
+			COMMENT the end Y-coordinate
 		ARG 5 color
+			COMMENT the ARGB color
 	METHOD fill (Lcom/mojang/blaze3d/pipeline/RenderPipeline;IIIII)V
-		ARG 1 renderPipeline
+		COMMENT Fills a given area with the given color.
+		COMMENT
+		COMMENT @see #fill(int, int, int, int, int)
+		ARG 1 pipeline
+			COMMENT the render pipeline to use
 		ARG 2 startX
+			COMMENT the start X-coordinate
 		ARG 3 startY
+			COMMENT the start Y-coordinate
 		ARG 4 endX
+			COMMENT the end X-coordinate
 		ARG 5 endY
+			COMMENT the end Y-coordinate
 		ARG 6 color
+			COMMENT the ARGB color
 	METHOD fillGradient fillGradient (IIIIII)V
 		ARG 1 startX
 		ARG 2 startY

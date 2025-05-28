@@ -1,0 +1,11 @@
+CLASS net/minecraft/client/gui/components/WidgetTooltipHolder
+	METHOD createTooltipPositioner (Lnet/minecraft/client/gui/navigation/ScreenRectangle;ZZ)Lnet/minecraft/client/gui/screens/inventory/tooltip/ClientTooltipPositioner;
+		ARG 1 widgetBounds
+		ARG 2 hovered
+		ARG 3 focused
+	METHOD refreshTooltipForNextRenderPass (Lnet/minecraft/client/gui/GuiGraphics;IIZZLnet/minecraft/client/gui/navigation/ScreenRectangle;)V
+		ARG 2 x
+		ARG 3 y
+		ARG 4 hovered
+		ARG 5 focused
+		ARG 6 widgetBounds
