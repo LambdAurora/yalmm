@@ -12,5 +12,7 @@ CLASS net/minecraft/world/Container
 		ARG 1 predicate
 	METHOD setItem (ILnet/minecraft/world/item/ItemStack;)V
 		ARG 1 index
-	METHOD startOpen onOpen (Lnet/minecraft/world/entity/player/Player;)V
-	METHOD stopOpen onClose (Lnet/minecraft/world/entity/player/Player;)V
+	METHOD startOpen onOpen (Lnet/minecraft/world/entity/ContainerUser;)V
+		ARG 1 user
+	METHOD stopOpen onClose (Lnet/minecraft/world/entity/ContainerUser;)V
+		ARG 1 user

@@ -2,8 +2,6 @@ CLASS net/minecraft/client/model/geom/ModelPart
 	FIELD xRot pitch F
 	FIELD yRot yaw F
 	FIELD zRot roll F
-	METHOD copyFrom (Lnet/minecraft/client/model/geom/ModelPart;)V
-		ARG 1 part
 	METHOD offsetPos (Lorg/joml/Vector3f;)V
 		ARG 1 offset
 	METHOD offsetRotation (Lorg/joml/Vector3f;)V

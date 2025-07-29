@@ -90,7 +90,6 @@ CLASS net/minecraft/world/entity/Entity
 			COMMENT the volume to play the sound at
 		ARG 3 pitch
 			COMMENT the pitch to play the sound at
-	METHOD position getPos ()Lnet/minecraft/world/phys/Vec3;
 	METHOD readAdditionalSaveData readCustomSaveData (Lnet/minecraft/world/level/storage/ValueInput;)V
 	METHOD remove (Lnet/minecraft/world/entity/Entity$RemovalReason;)V
 		ARG 1 reason

@@ -23,6 +23,8 @@
 	"java/util/UUID": "uuid",
 	"net/minecraft/world/level/storage/ValueInput": "input",
 	"net/minecraft/world/level/storage/ValueOutput": "output",
+	"net/minecraft/server/packs/resources/PreparableReloadListener$SharedState": "sharedState",
+	"net/minecraft/server/packs/resources/PreparableReloadListener$StateKey": "key",
 
 	// Pos
 	"net/minecraft/core/BlockPos": "pos",
