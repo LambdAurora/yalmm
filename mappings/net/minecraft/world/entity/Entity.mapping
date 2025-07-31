@@ -77,7 +77,8 @@ CLASS net/minecraft/world/entity/Entity
 			COMMENT the volume to play the sound at
 		ARG 3 pitch
 			COMMENT the pitch to play the sound at
-	METHOD position getPos ()Lnet/minecraft/world/phys/Vec3;
+	METHOD position ()Lnet/minecraft/world/phys/Vec3;
+		COMMENT {@return the position of this entity}
 	METHOD readAdditionalSaveData readCustomDataFromNbt (Lnet/minecraft/nbt/CompoundTag;)V
 		ARG 1 nbt
 	METHOD remove (Lnet/minecraft/world/entity/Entity$RemovalReason;)V
