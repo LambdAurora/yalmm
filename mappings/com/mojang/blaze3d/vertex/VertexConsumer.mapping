@@ -27,6 +27,9 @@ CLASS com/mojang/blaze3d/vertex/VertexConsumer
 		ARG 4 z
 	METHOD addVertex (Lorg/joml/Vector3f;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
 		ARG 1 pos
+	METHOD putBulkData quad (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lnet/minecraft/client/renderer/block/model/BakedQuad;[FFFFF[IIZ)V
+		ARG 1 matrix
+		ARG 2 quad
 	METHOD putBulkData quad (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lnet/minecraft/client/renderer/block/model/BakedQuad;FFFFII)V
 		ARG 1 matrix
 		ARG 2 quad
@@ -34,9 +37,6 @@ CLASS com/mojang/blaze3d/vertex/VertexConsumer
 		ARG 4 g
 		ARG 5 b
 		ARG 6 alpha
-	METHOD putBulkData quad (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lnet/minecraft/client/renderer/block/model/BakedQuad;[FFFFF[IIZ)V
-		ARG 1 matrix
-		ARG 2 quad
 	METHOD setColor color (FFFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
 		ARG 1 red
 		ARG 2 green
@@ -71,5 +71,3 @@ CLASS com/mojang/blaze3d/vertex/VertexConsumer
 	METHOD setUv2 light (II)Lcom/mojang/blaze3d/vertex/VertexConsumer;
 		ARG 1 u
 		ARG 2 v
-	METHOD setWhiteAlpha rgb (I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
-		ARG 1 rgb
