@@ -20,16 +20,29 @@ CLASS net/minecraft/network/chat/Component net/minecraft/network/chat/Text
 	COMMENT @see Text#selector(String, Optional)
 	METHOD empty empty ()Lnet/minecraft/network/chat/MutableComponent;
 	METHOD keybind keybind (Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+		ARG 0 name
 	METHOD literal literal (Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
 		COMMENT Creates a new mutable literal text.
 		COMMENT
 		COMMENT @return the new mutable literal text
 		ARG 0 text
 			COMMENT the content of the text
-	METHOD nbt nbt (Ljava/lang/String;ZLjava/util/Optional;Lnet/minecraft/network/chat/contents/DataSource;)Lnet/minecraft/network/chat/MutableComponent;
+	METHOD nbt nbt (Ljava/lang/String;ZLjava/util/Optional;Lnet/minecraft/network/chat/contents/data/DataSource;)Lnet/minecraft/network/chat/MutableComponent;
+		ARG 0 nbt
+		ARG 1 interpreting
+		ARG 2 separator
+		ARG 3 dataSource
+	METHOD object object (Lnet/minecraft/network/chat/contents/objects/ObjectInfo;)Lnet/minecraft/network/chat/MutableComponent;
+		ARG 0 contents
 	METHOD score score (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+		ARG 0 name
+		ARG 1 objective
 	METHOD score score (Lnet/minecraft/commands/arguments/selector/SelectorPattern;Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+		ARG 0 name
+		ARG 1 objective
 	METHOD selector selector (Lnet/minecraft/commands/arguments/selector/SelectorPattern;Ljava/util/Optional;)Lnet/minecraft/network/chat/MutableComponent;
+		ARG 0 selector
+		ARG 1 separator
 	METHOD translatable translatable (Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
 		COMMENT Creates a new mutable translatable text.
 		COMMENT
