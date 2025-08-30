@@ -13,7 +13,7 @@ class FileConstants(project: Project) {
 		val dotGradleDir = project.file(".gradle")
 		this.mcCacheDir = dotGradleDir.resolve("minecraft").toPath()
 		this.librariesDir = this.mcCacheDir.resolve("libraries")
-		this.mcVersionDir = this.mcCacheDir.resolve(Constants.MINECRAFT_VERSION)
+		this.mcVersionDir = this.mcCacheDir.resolve(project.property("minecraft_version").toString())
 		this.mappingsDir = project.file("mappings").toPath()
 	}
 }

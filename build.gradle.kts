@@ -5,7 +5,8 @@ plugins {
 	`maven-publish`
 }
 
-version = "${Constants.MINECRAFT_VERSION}+build.${System.getenv().getOrDefault("BUILD_NUMBER", "local")}"
+val minecraftVersion = project.property("minecraft_version").toString()
+version = "$minecraftVersion+build.${System.getenv().getOrDefault("BUILD_NUMBER", "local")}"
 base.archivesName.set("yalmm")
 
 repositories {
@@ -16,7 +17,7 @@ repositories {
 }
 
 dependencies {
-	intermediaryMappings("net.fabricmc:intermediary:${Constants.MINECRAFT_VERSION}")
+	intermediaryMappings("net.fabricmc:intermediary:$minecraftVersion")
 
 	enigmaRuntime(libs.enigma.gui)
 	enigmaRuntime(libs.asm)

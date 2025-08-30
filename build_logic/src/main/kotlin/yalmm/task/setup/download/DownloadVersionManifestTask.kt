@@ -1,5 +1,7 @@
 package yalmm.task.setup.download
 
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 import yalmm.Constants
@@ -11,13 +13,16 @@ import java.nio.file.Files
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-open class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.SETUP) {
+abstract class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 	companion object {
 		const val TASK_NAME = "downloadVersionManifest"
 	}
 
+	@get:Input
+	abstract val targetVersion: Property<String>
+
 	@OutputFile
-	val versionFile: File = this.fileConstants.mcCacheDir.resolve(Constants.MINECRAFT_VERSION).resolve("manifest.json").toFile()
+	val versionFile: File = this.fileConstants.mcCacheDir.resolve(this.project.property("minecraft_version").toString()).resolve("manifest.json").toFile()
 
 	private val manifestFile: File
 	private val versionEntry: Optional<VersionsManifest.Entry>
@@ -27,6 +32,7 @@ open class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.SETUP
 
 	init {
 		this.dependsOn(DownloadVersionsManifestTask.TASK_NAME)
+		this.targetVersion.convention(this.project.property("minecraft_version").toString())
 		this.manifestFile = this.getTaskByName<DownloadVersionsManifestTask>(DownloadVersionsManifestTask.TASK_NAME).manifestFile
 		this.versionEntry = this.getManifestVersion()
 
@@ -36,7 +42,7 @@ open class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.SETUP
 
 	@TaskAction
 	fun run() {
-		this.logger.lifecycle("Downloading Minecraft ${Constants.MINECRAFT_VERSION} version manifest.")
+		this.logger.lifecycle("Downloading Minecraft ${this.targetVersion.get()} version manifest.")
 
 		val entry = this.versionEntry.or { getManifestVersion() }
 
@@ -47,7 +53,7 @@ open class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.SETUP
 				.download()
 				.orTimeout(1, TimeUnit.MINUTES)
 		} else if (!this.versionFile.exists()) {
-			throw RuntimeException("Could not find version data for Minecraft " + Constants.MINECRAFT_VERSION)
+			throw RuntimeException("Could not find version data for Minecraft " + this.targetVersion.get())
 		}
 	}
 
@@ -55,7 +61,7 @@ open class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.SETUP
 		val manifest = if (this.manifestFile.exists()) VersionsManifest.fromString(Files.readString(this.manifestFile.toPath())) else null
 
 		return if (manifest != null) {
-			manifest.versions.stream().filter { it.id.equals(Constants.MINECRAFT_VERSION) }.findFirst()
+			manifest.versions.stream().filter { it.id.equals(this.targetVersion.get()) }.findFirst()
 		} else {
 			Optional.empty()
 		}

@@ -63,10 +63,11 @@ open class DownloadGameArtifactTask : DefaultYalmmTask(Constants.Groups.SETUP) {
 	@TaskAction
 	fun run() {
 		val name = this.name.get()
+		val manifest = this.getVersionManifest().get()
 
-		this.logger.lifecycle("Downloading Minecraft ${Constants.MINECRAFT_VERSION} ${name} artifact.")
+		this.logger.lifecycle("Downloading Minecraft ${manifest.id} $name artifact.")
 
-		val artifact = this.getVersionManifest().get().downloads[name]
+		val artifact = manifest.downloads[name]
 		this.action
 			.src(artifact.url())
 			.dest(this.artifactFile.get().asFile)

@@ -13,8 +13,6 @@ plugins {
 	`java-library`
 }
 
-group = Constants.GROUP
-
 repositories {
 	mavenCentral()
 	maven {
