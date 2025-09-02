@@ -1,6 +1,12 @@
 CLASS net/minecraft/client/MouseHandler
-	METHOD onPress (JIII)V
+	METHOD onButton (JLnet/minecraft/client/input/MouseButtonInfo;I)V
 		ARG 1 windowHandle
 		ARG 3 button
-		ARG 4 x
-		ARG 5 y
+	METHOD onMove (JDD)V
+		ARG 1 windowHandle
+		ARG 3 mouseX
+		ARG 5 mouseY
+	METHOD onScroll (JDD)V
+		ARG 1 windowHandle
+		ARG 3 scrollX
+		ARG 5 scrollY

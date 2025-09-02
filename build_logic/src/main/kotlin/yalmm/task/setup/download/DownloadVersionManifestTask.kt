@@ -22,7 +22,7 @@ abstract class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.S
 	abstract val targetVersion: Property<String>
 
 	@OutputFile
-	val versionFile: File = this.fileConstants.mcCacheDir.resolve(this.project.property("minecraft_version").toString()).resolve("manifest.json").toFile()
+	val versionFile: File = this.fileConstants.mcCacheDir.resolve(Constants.getMinecraftVersion(this.project)).resolve("manifest.json").toFile()
 
 	private val manifestFile: File
 	private val versionEntry: Optional<VersionsManifest.Entry>
@@ -32,7 +32,7 @@ abstract class DownloadVersionManifestTask : DefaultYalmmTask(Constants.Groups.S
 
 	init {
 		this.dependsOn(DownloadVersionsManifestTask.TASK_NAME)
-		this.targetVersion.convention(this.project.property("minecraft_version").toString())
+		this.targetVersion.convention(Constants.getMinecraftVersion(this.project))
 		this.manifestFile = this.getTaskByName<DownloadVersionsManifestTask>(DownloadVersionsManifestTask.TASK_NAME).manifestFile
 		this.versionEntry = this.getManifestVersion()
 

@@ -5,7 +5,7 @@ plugins {
 	`maven-publish`
 }
 
-val minecraftVersion = project.property("minecraft_version").toString()
+val minecraftVersion = Constants.getMinecraftVersion(project)
 version = "$minecraftVersion+build.${System.getenv().getOrDefault("BUILD_NUMBER", "local")}"
 base.archivesName.set("yalmm")
 

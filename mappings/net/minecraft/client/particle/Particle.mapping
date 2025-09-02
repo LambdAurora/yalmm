@@ -1,7 +1,4 @@
 CLASS net/minecraft/client/particle/Particle
-	FIELD bCol colorBlue F
-	FIELD gCol colorGreen F
-	FIELD rCol colorRed F
 	FIELD xd dX D
 	FIELD xo oX D
 	FIELD yd dY D
@@ -22,21 +19,10 @@ CLASS net/minecraft/client/particle/Particle
 		ARG 1 x
 		ARG 3 y
 		ARG 5 z
-	METHOD render (Lcom/mojang/blaze3d/vertex/VertexConsumer;Lnet/minecraft/client/Camera;F)V
-		ARG 3 tickDelta
-	METHOD renderCustom (Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/client/Camera;F)V
-		ARG 1 matrices
-		ARG 4 tickDelta
 	METHOD scale (F)Lnet/minecraft/client/particle/Particle;
 		ARG 1 scale
-	METHOD setAlpha (F)V
-		ARG 1 alpha
 	METHOD setBoundingBox (Lnet/minecraft/world/phys/AABB;)V
 		ARG 1 boundingBox
-	METHOD setColor (FFF)V
-		ARG 1 red
-		ARG 2 green
-		ARG 3 blue
 	METHOD setLifetime (I)V
 		ARG 1 lifetime
 	METHOD setParticleSpeed (DDD)V
