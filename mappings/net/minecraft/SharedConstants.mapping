@@ -1,0 +1,9 @@
+CLASS net/minecraft/SharedConstants
+	METHOD booleanProperty (Ljava/lang/String;)Z
+		ARG 0 key
+	METHOD debugFlag (Ljava/lang/String;)Z
+		ARG 0 name
+	METHOD debugIntValue (Ljava/lang/String;)I
+		ARG 0 name
+	METHOD prefixDebugFlagName (Ljava/lang/String;)Ljava/lang/String;
+		ARG 0 name
