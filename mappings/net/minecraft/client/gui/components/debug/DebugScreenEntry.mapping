@@ -1,0 +1,8 @@
+CLASS net/minecraft/client/gui/components/debug/DebugScreenEntry
+	METHOD display (Lnet/minecraft/client/gui/components/debug/DebugScreenDisplayer;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/chunk/LevelChunk;)V
+		ARG 1 displayer
+		ARG 2 level
+		ARG 3 clientChunk
+		ARG 4 serverChunk
+	METHOD isAllowed (Z)Z
+		ARG 1 onlyReducedInfo
