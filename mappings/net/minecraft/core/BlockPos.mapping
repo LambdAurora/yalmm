@@ -1,13 +1,30 @@
 CLASS net/minecraft/core/BlockPos
+	METHOD <init> (Lnet/minecraft/core/Vec3i;)V
+		ARG 1 vector
 	METHOD asLong (III)J
 		ARG 0 x
 		ARG 1 y
 		ARG 2 z
+	METHOD atY (I)Lnet/minecraft/core/BlockPos;
+		ARG 1 y
+	METHOD betweenClosed (Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;)Ljava/lang/Iterable;
+		ARG 0 a
+		ARG 1 b
+	METHOD betweenClosed (Lnet/minecraft/world/phys/AABB;)Ljava/lang/Iterable;
+		ARG 0 box
+	METHOD betweenClosedStream (Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;)Ljava/util/stream/Stream;
+		ARG 0 a
+		ARG 1 b
+	METHOD betweenClosedStream (Lnet/minecraft/world/level/levelgen/structure/BoundingBox;)Ljava/util/stream/Stream;
+		ARG 0 box
 	METHOD containing ofFloored (DDD)Lnet/minecraft/core/BlockPos;
 		ARG 0 x
 		ARG 2 y
 		ARG 4 z
 	METHOD containing of (Lnet/minecraft/core/Position;)Lnet/minecraft/core/BlockPos;
+		ARG 0 position
+	METHOD cross (Lnet/minecraft/core/Vec3i;)Lnet/minecraft/core/BlockPos;
+		ARG 1 other
 	METHOD getCenter atCenter ()Lnet/minecraft/world/phys/Vec3;
 	METHOD getX unpackLongX (J)I
 		ARG 0 packedPos
@@ -21,6 +38,12 @@ CLASS net/minecraft/core/BlockPos
 		COMMENT <p>
 		COMMENT This method should be called when a block position is used as map
 		COMMENT keys as to prevent side effects of mutations of mutable block positions.
+	METHOD max (Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/BlockPos;
+		ARG 0 a
+		ARG 1 b
+	METHOD min (Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/BlockPos;
+		ARG 0 a
+		ARG 1 b
 	METHOD mutable ()Lnet/minecraft/core/BlockPos$MutableBlockPos;
 		COMMENT {@return Returns a mutable copy of this block position}
 		COMMENT <p>
@@ -28,8 +51,58 @@ CLASS net/minecraft/core/BlockPos
 		COMMENT position won't affect the returned position.
 	METHOD of of (J)Lnet/minecraft/core/BlockPos;
 		ARG 0 packedPos
+	METHOD offset (JIII)J
+		ARG 0 packedPos
+		ARG 2 x
+		ARG 3 y
+		ARG 4 z
+	METHOD offset (JLnet/minecraft/core/Direction;)J
+		ARG 0 packedPos
+		ARG 2 direction
 	METHOD relative offset (Lnet/minecraft/core/Direction;)Lnet/minecraft/core/BlockPos;
 		ARG 1 direction
+	METHOD rotate (Lnet/minecraft/world/level/block/Rotation;)Lnet/minecraft/core/BlockPos;
+		ARG 1 rotation
 	METHOD south (I)Lnet/minecraft/core/BlockPos;
 		ARG 1 distance
+	METHOD subtract (Lnet/minecraft/core/Vec3i;)Lnet/minecraft/core/BlockPos;
+		ARG 1 other
 	CLASS MutableBlockPos Mutable
+		METHOD <init> (DDD)V
+			ARG 1 x
+			ARG 3 y
+			ARG 5 z
+		METHOD move (III)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 x
+			ARG 2 y
+			ARG 3 z
+		METHOD move (Lnet/minecraft/core/Direction;)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 direction
+		METHOD move (Lnet/minecraft/core/Direction;I)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 direction
+			ARG 2 distance
+		METHOD move (Lnet/minecraft/core/Vec3i;)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 offset
+		METHOD set (DDD)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 x
+			ARG 3 y
+			ARG 5 z
+		METHOD set (III)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 x
+			ARG 2 y
+			ARG 3 z
+		METHOD set (J)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 packedPos
+		METHOD set (Lnet/minecraft/core/Vec3i;)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 vector
+		METHOD setWithOffset (Lnet/minecraft/core/Vec3i;III)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 vector
+			ARG 2 offsetX
+			ARG 3 offsetY
+			ARG 4 offsetZ
+		METHOD setWithOffset (Lnet/minecraft/core/Vec3i;Lnet/minecraft/core/Direction;)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 vector
+			ARG 2 offsetDirection
+		METHOD setWithOffset (Lnet/minecraft/core/Vec3i;Lnet/minecraft/core/Vec3i;)Lnet/minecraft/core/BlockPos$MutableBlockPos;
+			ARG 1 vector
+			ARG 2 offset

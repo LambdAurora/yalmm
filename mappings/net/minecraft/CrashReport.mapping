@@ -1,0 +1,17 @@
+CLASS net/minecraft/CrashReport
+	METHOD addCategory (Ljava/lang/String;)Lnet/minecraft/CrashReportCategory;
+		ARG 1 title
+	METHOD addCategory (Ljava/lang/String;I)Lnet/minecraft/CrashReportCategory;
+		ARG 1 title
+	METHOD forThrowable (Ljava/lang/Throwable;Ljava/lang/String;)Lnet/minecraft/CrashReport;
+		ARG 0 exception
+		ARG 1 title
+	METHOD getDetails (Ljava/lang/StringBuilder;)V
+		ARG 1 builder
+	METHOD getFriendlyReport (Lnet/minecraft/ReportType;)Ljava/lang/String;
+		ARG 1 type
+	METHOD getFriendlyReport (Lnet/minecraft/ReportType;Ljava/util/List;)Ljava/lang/String;
+		ARG 1 type
+	METHOD saveToFile (Ljava/nio/file/Path;Lnet/minecraft/ReportType;)Z
+		ARG 1 path
+		ARG 2 type

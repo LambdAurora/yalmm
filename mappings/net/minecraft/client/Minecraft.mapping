@@ -1,6 +1,22 @@
 CLASS net/minecraft/client/Minecraft
+	METHOD <init> (Lnet/minecraft/client/main/GameConfig;)V
+		ARG 1 gameConfig
 	METHOD addResourcePackLoadFailToast (Lnet/minecraft/network/chat/Component;)V
 		ARG 1 message
+	METHOD buildInitialScreens (Lnet/minecraft/client/Minecraft$GameLoadCookie;)Ljava/lang/Runnable;
+		ARG 1 cookie
 	METHOD clearResourcePacksOnError (Ljava/lang/Throwable;Lnet/minecraft/network/chat/Component;Lnet/minecraft/client/Minecraft$GameLoadCookie;)V
 		ARG 1 error
 		ARG 2 toastText
+	METHOD createUserApiService (Lcom/mojang/authlib/yggdrasil/YggdrasilAuthenticationService;Lnet/minecraft/client/main/GameConfig;)Lcom/mojang/authlib/minecraft/UserApiService;
+		ARG 1 authService
+	METHOD lambda$new$3 (Lnet/minecraft/client/resources/language/ClientLanguage;)V
+		ARG 1 language
+	METHOD lambda$new$4 (Lnet/minecraft/client/Minecraft$GameLoadCookie;Ljava/lang/Throwable;)V
+		ARG 2 error
+	METHOD lambda$new$6 (Lnet/minecraft/client/Minecraft$GameLoadCookie;Ljava/util/Optional;)V
+		ARG 2 result
+	METHOD onGameLoadFinished (Lnet/minecraft/client/Minecraft$GameLoadCookie;)V
+		ARG 1 cookie
+	METHOD onResourceLoadFinished (Lnet/minecraft/client/Minecraft$GameLoadCookie;)V
+		ARG 1 cookie

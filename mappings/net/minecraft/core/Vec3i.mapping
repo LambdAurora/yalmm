@@ -8,21 +8,57 @@ CLASS net/minecraft/core/Vec3i
 		ARG 1 distance
 	METHOD below (I)Lnet/minecraft/core/Vec3i;
 		ARG 1 distance
+	METHOD closerThan (Lnet/minecraft/core/Vec3i;D)Z
+		ARG 1 destination
+		ARG 2 distance
+	METHOD closerToCenterThan (Lnet/minecraft/core/Position;D)Z
+		ARG 1 destination
+		ARG 2 distance
+	METHOD cross (Lnet/minecraft/core/Vec3i;)Lnet/minecraft/core/Vec3i;
+		ARG 1 other
+	METHOD distChessboard (Lnet/minecraft/core/Vec3i;)I
+		ARG 1 other
+	METHOD distManhattan (Lnet/minecraft/core/Vec3i;)I
+		ARG 1 other
+	METHOD distSqr (Lnet/minecraft/core/Vec3i;)D
+		ARG 1 destination
+	METHOD distToCenterSqr (DDD)D
+		ARG 1 destX
+		ARG 3 destY
+		ARG 5 destZ
+	METHOD distToCenterSqr (Lnet/minecraft/core/Position;)D
+		ARG 1 destination
+	METHOD distToLowCornerSqr (DDD)D
+		ARG 1 destX
+		ARG 3 destY
+		ARG 5 destZ
 	METHOD east (I)Lnet/minecraft/core/Vec3i;
 		ARG 1 distance
+	METHOD get (Lnet/minecraft/core/Direction$Axis;)I
+		ARG 1 axis
 	METHOD multiply (I)Lnet/minecraft/core/Vec3i;
-		ARG 1 scale
+		ARG 1 factor
 	METHOD north (I)Lnet/minecraft/core/Vec3i;
 		ARG 1 distance
 	METHOD offset (III)Lnet/minecraft/core/Vec3i;
 		ARG 1 x
 		ARG 2 y
 		ARG 3 z
-	METHOD relative offset (Lnet/minecraft/core/Direction$Axis;I)Lnet/minecraft/core/Vec3i;
-		ARG 1 axis
-		ARG 2 distance
+	METHOD offset (Lnet/minecraft/core/Vec3i;)Lnet/minecraft/core/Vec3i;
+		ARG 1 other
 	METHOD relative offset (Lnet/minecraft/core/Direction;I)Lnet/minecraft/core/Vec3i;
 		ARG 1 direction
 		ARG 2 distance
+	METHOD relative offset (Lnet/minecraft/core/Direction$Axis;I)Lnet/minecraft/core/Vec3i;
+		ARG 1 axis
+		ARG 2 distance
+	METHOD setX (I)Lnet/minecraft/core/Vec3i;
+		ARG 1 x
+	METHOD setY (I)Lnet/minecraft/core/Vec3i;
+		ARG 1 y
+	METHOD setZ (I)Lnet/minecraft/core/Vec3i;
+		ARG 1 z
+	METHOD subtract (Lnet/minecraft/core/Vec3i;)Lnet/minecraft/core/Vec3i;
+		ARG 1 other
 	METHOD west (I)Lnet/minecraft/core/Vec3i;
 		ARG 1 distance

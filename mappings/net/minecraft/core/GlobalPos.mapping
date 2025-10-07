@@ -1,3 +1,8 @@
 CLASS net/minecraft/core/GlobalPos
+	FIELD dimension dimension Lnet/minecraft/resources/ResourceKey;
+	FIELD pos pos Lnet/minecraft/core/BlockPos;
+	METHOD dimension dimension ()Lnet/minecraft/resources/ResourceKey;
 	METHOD of (Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/GlobalPos;
 		ARG 0 dimension
+		ARG 1 pos
+	METHOD pos pos ()Lnet/minecraft/core/BlockPos;
