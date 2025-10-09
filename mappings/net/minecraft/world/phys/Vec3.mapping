@@ -1,8 +1,6 @@
 CLASS net/minecraft/world/phys/Vec3
 	METHOD <init> (Lnet/minecraft/core/Vec3i;)V
 		ARG 1 vector
-	METHOD <init> (Lorg/joml/Vector3f;)V
-		ARG 1 vector
 	METHOD add (D)Lnet/minecraft/world/phys/Vec3;
 		ARG 1 value
 	METHOD add (DDD)Lnet/minecraft/world/phys/Vec3;
