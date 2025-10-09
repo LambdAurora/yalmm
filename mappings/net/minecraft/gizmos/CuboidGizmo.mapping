@@ -1,0 +1,3 @@
+CLASS net/minecraft/gizmos/CuboidGizmo
+	FIELD aabb box Lnet/minecraft/world/phys/AABB;
+	METHOD aabb box ()Lnet/minecraft/world/phys/AABB;

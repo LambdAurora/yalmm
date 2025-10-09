@@ -1,0 +1,13 @@
+CLASS net/minecraft/client/renderer/debug/DebugRenderer
+	METHOD emitGizmos (Lnet/minecraft/client/renderer/culling/Frustum;DDDF)V
+		ARG 2 x
+		ARG 4 y
+		ARG 6 z
+		ARG 8 tickDelta
+	CLASS SimpleDebugRenderer
+		METHOD emitGizmos (DDDLnet/minecraft/util/debug/DebugValueAccess;Lnet/minecraft/client/renderer/culling/Frustum;F)V
+			ARG 1 x
+			ARG 3 y
+			ARG 5 z
+			ARG 8 frustum
+			ARG 9 tickDelta
