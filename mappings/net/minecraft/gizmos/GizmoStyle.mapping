@@ -1,0 +1,12 @@
+CLASS net/minecraft/gizmos/GizmoStyle
+	METHOD fill (I)Lnet/minecraft/gizmos/GizmoStyle;
+		ARG 0 color
+	METHOD stroke (I)Lnet/minecraft/gizmos/GizmoStyle;
+		ARG 0 color
+	METHOD stroke (IF)Lnet/minecraft/gizmos/GizmoStyle;
+		ARG 0 color
+		ARG 1 width
+	METHOD strokeAndFill (IFI)Lnet/minecraft/gizmos/GizmoStyle;
+		ARG 0 strokeColor
+		ARG 1 strokeWidth
+		ARG 2 fillColor
