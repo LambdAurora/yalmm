@@ -40,8 +40,6 @@ CLASS net/minecraft/world/phys/Vec3
 		ARG 1 other
 	METHOD dot (Lnet/minecraft/world/phys/Vec3;)D
 		ARG 1 other
-	METHOD fromRGB24 (I)Lnet/minecraft/world/phys/Vec3;
-		ARG 0 color
 	METHOD get (Lnet/minecraft/core/Direction$Axis;)D
 		ARG 1 axis
 	METHOD lerp (Lnet/minecraft/world/phys/Vec3;D)Lnet/minecraft/world/phys/Vec3;

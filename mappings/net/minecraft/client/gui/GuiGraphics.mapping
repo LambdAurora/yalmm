@@ -1,8 +1,5 @@
 CLASS net/minecraft/client/gui/GuiGraphics
 	FIELD minecraft client Lnet/minecraft/client/Minecraft;
-	METHOD <init> (Lnet/minecraft/client/Minecraft;Lnet/minecraft/client/gui/render/state/GuiRenderState;)V
-		ARG 1 client
-		ARG 2 guiRenderState
 	METHOD blit drawTexture (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIFFIIII)V
 		ARG 1 renderPipeline
 		ARG 2 texture

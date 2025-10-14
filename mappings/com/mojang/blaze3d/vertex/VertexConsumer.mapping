@@ -20,12 +20,12 @@ CLASS com/mojang/blaze3d/vertex/VertexConsumer
 	METHOD addVertex (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lorg/joml/Vector3f;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
 		ARG 1 matrix
 		ARG 2 pos
-	METHOD addVertex (Lorg/joml/Matrix4f;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+	METHOD addVertex (Lorg/joml/Matrix4fc;FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
 		ARG 1 matrix
 		ARG 2 x
 		ARG 3 y
 		ARG 4 z
-	METHOD addVertex (Lorg/joml/Vector3f;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+	METHOD addVertex (Lorg/joml/Vector3fc;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
 		ARG 1 pos
 	METHOD putBulkData quad (Lcom/mojang/blaze3d/vertex/PoseStack$Pose;Lnet/minecraft/client/renderer/block/model/BakedQuad;[FFFFF[IIZ)V
 		ARG 1 matrix
@@ -51,6 +51,8 @@ CLASS com/mojang/blaze3d/vertex/VertexConsumer
 		ARG 4 alpha
 	METHOD setLight light (I)Lcom/mojang/blaze3d/vertex/VertexConsumer;
 		ARG 1 light
+	METHOD setLineWidth lineWidth (F)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+		ARG 1 width
 	METHOD setNormal normal (FFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;
 		ARG 1 x
 		ARG 2 y

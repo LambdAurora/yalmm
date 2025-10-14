@@ -1,5 +1,5 @@
 CLASS net/minecraft/client/gui/render/state/ColoredRectangleRenderState
-	METHOD <init> (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/client/gui/render/TextureSetup;Lorg/joml/Matrix3x2f;IIIIIILnet/minecraft/client/gui/navigation/ScreenRectangle;)V
+	METHOD <init> (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/client/gui/render/TextureSetup;Lorg/joml/Matrix3x2fc;IIIIIILnet/minecraft/client/gui/navigation/ScreenRectangle;)V
 		ARG 3 pose
 		ARG 4 x0
 		ARG 5 y0
@@ -8,7 +8,7 @@ CLASS net/minecraft/client/gui/render/state/ColoredRectangleRenderState
 		ARG 8 col1
 		ARG 9 col2
 		ARG 10 scissorArea
-	METHOD getBounds (IIIILorg/joml/Matrix3x2f;Lnet/minecraft/client/gui/navigation/ScreenRectangle;)Lnet/minecraft/client/gui/navigation/ScreenRectangle;
+	METHOD getBounds (IIIILorg/joml/Matrix3x2fc;Lnet/minecraft/client/gui/navigation/ScreenRectangle;)Lnet/minecraft/client/gui/navigation/ScreenRectangle;
 		ARG 0 x0
 		ARG 1 y0
 		ARG 2 x1

@@ -1,0 +1,4 @@
+CLASS net/minecraft/gizmos/SimpleGizmoCollector
+	CLASS GizmoInstance
+		METHOD getAlphaMultiplier (J)F
+			ARG 1 currentTime
