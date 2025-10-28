@@ -39,8 +39,6 @@ CLASS net/minecraft/Util
 		ARG 5 o
 	METHOD lambda$anyOf$17 ([Ljava/util/function/Predicate;Ljava/lang/Object;)Z
 		ARG 1 o
-	METHOD lastOf (Ljava/util/List;)Ljava/lang/Object;
-		ARG 0 list
 	METHOD makeDescriptionId (Ljava/lang/String;Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
 		ARG 0 prefix
 		ARG 1 id

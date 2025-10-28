@@ -1,0 +1,3 @@
+CLASS net/minecraft/client/renderer/texture/TextureAtlas
+	FIELD location id Lnet/minecraft/resources/ResourceLocation;
+	METHOD location id ()Lnet/minecraft/resources/ResourceLocation;

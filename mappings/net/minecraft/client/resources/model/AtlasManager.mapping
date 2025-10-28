@@ -1,0 +1,13 @@
+CLASS net/minecraft/client/resources/model/AtlasManager
+	METHOD forEach (Ljava/util/function/BiConsumer;)V
+		ARG 1 consumer
+	CLASS AtlasConfig
+		FIELD definitionLocation definitionId Lnet/minecraft/resources/ResourceLocation;
+		METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;Z)V
+			ARG 3 createMipmaps
+		METHOD definitionLocation definitionId ()Lnet/minecraft/resources/ResourceLocation;
+	CLASS AtlasEntry
+		METHOD scheduleLoad (Lnet/minecraft/server/packs/resources/ResourceManager;Ljava/util/concurrent/Executor;I)Ljava/util/concurrent/CompletableFuture;
+			ARG 1 resourceManager
+			ARG 2 prepareExecutor
+			ARG 3 maxMipmapLevels
