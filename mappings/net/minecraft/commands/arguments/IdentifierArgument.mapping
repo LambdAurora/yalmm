@@ -1,1 +1,1 @@
-CLASS net/minecraft/commands/arguments/ResourceLocationArgument net/minecraft/commands/arguments/IdentifierArgument
+CLASS net/minecraft/commands/arguments/IdentifierArgument net/minecraft/commands/arguments/IdentifierArgument

@@ -1,0 +1,24 @@
+CLASS net/minecraft/advancements/criterion/ItemPredicate
+	COMMENT Represents a predicate to match items with.
+	FIELD components components Lnet/minecraft/advancements/criterion/DataComponentMatchers;
+		COMMENT the data components to match
+	FIELD count count Lnet/minecraft/advancements/criterion/MinMaxBounds$Ints;
+		COMMENT the count of items range to match
+	FIELD items items Ljava/util/Optional;
+		COMMENT the items to match if present
+	METHOD components components ()Lnet/minecraft/advancements/criterion/DataComponentMatchers;
+	METHOD count count ()Lnet/minecraft/advancements/criterion/MinMaxBounds$Ints;
+	METHOD items items ()Ljava/util/Optional;
+	METHOD test (Ljava/lang/Object;)Z
+		ARG 1 item
+	CLASS Builder
+		METHOD of (Lnet/minecraft/core/HolderGetter;[Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/advancements/criterion/ItemPredicate$Builder;
+			ARG 1 registryAccess
+			ARG 2 items
+		METHOD of (Lnet/minecraft/core/HolderGetter;Lnet/minecraft/tags/TagKey;)Lnet/minecraft/advancements/criterion/ItemPredicate$Builder;
+			ARG 1 registryAccess
+			ARG 2 tag
+		METHOD withComponents (Lnet/minecraft/advancements/criterion/DataComponentMatchers;)Lnet/minecraft/advancements/criterion/ItemPredicate$Builder;
+			ARG 1 components
+		METHOD withCount (Lnet/minecraft/advancements/criterion/MinMaxBounds$Ints;)Lnet/minecraft/advancements/criterion/ItemPredicate$Builder;
+			ARG 1 countRange

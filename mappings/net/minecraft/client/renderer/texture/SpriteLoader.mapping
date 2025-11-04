@@ -1,5 +1,5 @@
 CLASS net/minecraft/client/renderer/texture/SpriteLoader
-	FIELD location id Lnet/minecraft/resources/ResourceLocation;
+	FIELD location id Lnet/minecraft/resources/Identifier;
 	METHOD getStitchedSprites (Lnet/minecraft/client/renderer/texture/Stitcher;II)Ljava/util/Map;
 		ARG 1 stitcher
 	METHOD lambda$getStitchedSprites$10 (Ljava/util/Map;IILnet/minecraft/client/renderer/texture/SpriteContents;III)V
@@ -8,7 +8,7 @@ CLASS net/minecraft/client/renderer/texture/SpriteLoader
 		ARG 7 padding
 	METHOD lambda$loadAndStitch$9 (ILjava/util/concurrent/Executor;Ljava/util/List;)Lnet/minecraft/client/renderer/texture/SpriteLoader$Preparations;
 		ARG 3 sprites
-	METHOD loadAndStitch (Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/resources/ResourceLocation;ILjava/util/concurrent/Executor;Ljava/util/Set;)Ljava/util/concurrent/CompletableFuture;
+	METHOD loadAndStitch (Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/resources/Identifier;ILjava/util/concurrent/Executor;Ljava/util/Set;)Ljava/util/concurrent/CompletableFuture;
 		ARG 1 resourceManager
 		ARG 3 maxMipmapLevels
 		ARG 4 prepareExecutor

@@ -219,10 +219,6 @@ CLASS net/minecraft/nbt/CompoundTag net/minecraft/nbt/NbtCompound
 		ARG 1 key
 		ARG 2 input
 		ARG 3 tracker
-	METHOD remove remove (Ljava/lang/String;)V
-		COMMENT Removes the entry with the specified {@code key}. Does nothing if there is none.
-		ARG 1 key
-			COMMENT the key of the entry to remove
 	METHOD shallowCopy shallowCopy ()Lnet/minecraft/nbt/CompoundTag;
 	METHOD size size ()I
 		COMMENT {@return the size of the entries of this compound}

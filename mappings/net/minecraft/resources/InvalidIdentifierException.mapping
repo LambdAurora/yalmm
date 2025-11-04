@@ -1,4 +1,4 @@
-CLASS net/minecraft/ResourceLocationException net/minecraft/resources/InvalidIdentifierException
+CLASS net/minecraft/IdentifierException net/minecraft/resources/InvalidIdentifierException
 	COMMENT Represents an exception thrown when parsing or constructing an {@link Identifier}
 	COMMENT that contains an invalid character.
 	COMMENT This should not be caught, instead {@link Identifier#tryParse} or {@link Identifier#of} should be used.

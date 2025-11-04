@@ -1,6 +1,6 @@
-CLASS net/minecraft/advancements/critereon/EntityPredicate
+CLASS net/minecraft/advancements/criterion/EntityPredicate
 	COMMENT Represents a predicate to match entities with.
-	FIELD components components Lnet/minecraft/advancements/critereon/DataComponentMatchers;
+	FIELD components components Lnet/minecraft/advancements/criterion/DataComponentMatchers;
 	FIELD distanceToPlayer distanceToPlayer Ljava/util/Optional;
 		COMMENT the distance predicate to match if present
 	FIELD effects effects Ljava/util/Optional;
@@ -11,7 +11,7 @@ CLASS net/minecraft/advancements/critereon/EntityPredicate
 		COMMENT the entity equipment predicate to match if present
 	FIELD flags flags Ljava/util/Optional;
 		COMMENT the entity flags predicate to match if present
-	FIELD location location Lnet/minecraft/advancements/critereon/EntityPredicate$LocationWrapper;
+	FIELD location location Lnet/minecraft/advancements/criterion/EntityPredicate$LocationWrapper;
 		COMMENT the location predicates to match if present
 	FIELD movement movement Ljava/util/Optional;
 		COMMENT the movement predicate to match if present
@@ -29,7 +29,7 @@ CLASS net/minecraft/advancements/critereon/EntityPredicate
 		COMMENT the team to match if present
 	FIELD vehicle vehicle Ljava/util/Optional;
 		COMMENT the vehicle predicate to match if present
-	METHOD components components ()Lnet/minecraft/advancements/critereon/DataComponentMatchers;
+	METHOD components components ()Lnet/minecraft/advancements/criterion/DataComponentMatchers;
 	METHOD createContext (Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/world/level/storage/loot/LootContext;
 		ARG 0 player
 	METHOD distanceToPlayer distanceToPlayer ()Ljava/util/Optional;
@@ -37,7 +37,7 @@ CLASS net/minecraft/advancements/critereon/EntityPredicate
 	METHOD entityType entityType ()Ljava/util/Optional;
 	METHOD equipment equipment ()Ljava/util/Optional;
 	METHOD flags flags ()Ljava/util/Optional;
-	METHOD location location ()Lnet/minecraft/advancements/critereon/EntityPredicate$LocationWrapper;
+	METHOD location location ()Lnet/minecraft/advancements/criterion/EntityPredicate$LocationWrapper;
 	METHOD matches (Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/entity/Entity;)Z
 		ARG 1 level
 		ARG 2 playerPos
@@ -53,18 +53,18 @@ CLASS net/minecraft/advancements/critereon/EntityPredicate
 	METHOD targetedEntity targetedEntity ()Ljava/util/Optional;
 	METHOD team team ()Ljava/util/Optional;
 	METHOD vehicle vehicle ()Ljava/util/Optional;
-	METHOD wrap (Lnet/minecraft/advancements/critereon/EntityPredicate;)Lnet/minecraft/advancements/critereon/ContextAwarePredicate;
+	METHOD wrap (Lnet/minecraft/advancements/criterion/EntityPredicate;)Lnet/minecraft/advancements/criterion/ContextAwarePredicate;
 		ARG 0 predicate
 	CLASS Builder
-		METHOD components (Lnet/minecraft/advancements/critereon/DataComponentMatchers;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+		METHOD components (Lnet/minecraft/advancements/criterion/DataComponentMatchers;)Lnet/minecraft/advancements/criterion/EntityPredicate$Builder;
 			ARG 1 components
-		METHOD equipment (Lnet/minecraft/advancements/critereon/EntityEquipmentPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+		METHOD equipment (Lnet/minecraft/advancements/criterion/EntityEquipmentPredicate;)Lnet/minecraft/advancements/criterion/EntityPredicate$Builder;
 			ARG 1 equipment
-		METHOD periodicTick (I)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+		METHOD periodicTick (I)Lnet/minecraft/advancements/criterion/EntityPredicate$Builder;
 			ARG 1 periodicTick
-		METHOD slots (Lnet/minecraft/advancements/critereon/SlotsPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+		METHOD slots (Lnet/minecraft/advancements/criterion/SlotsPredicate;)Lnet/minecraft/advancements/criterion/EntityPredicate$Builder;
 			ARG 1 slots
-		METHOD subPredicate (Lnet/minecraft/advancements/critereon/EntitySubPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+		METHOD subPredicate (Lnet/minecraft/advancements/criterion/EntitySubPredicate;)Lnet/minecraft/advancements/criterion/EntityPredicate$Builder;
 			ARG 1 subPredicate
-		METHOD team (Ljava/lang/String;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+		METHOD team (Ljava/lang/String;)Lnet/minecraft/advancements/criterion/EntityPredicate$Builder;
 			ARG 1 team

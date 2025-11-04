@@ -102,7 +102,7 @@ CLASS net/minecraft/network/chat/Component net/minecraft/network/chat/Text
 		ARG 0 date
 	METHOD translationArg of (Ljava/util/UUID;)Lnet/minecraft/network/chat/Component;
 		ARG 0 uuid
-	METHOD translationArg of (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/network/chat/Component;
+	METHOD translationArg of (Lnet/minecraft/resources/Identifier;)Lnet/minecraft/network/chat/Component;
 		ARG 0 id
 	METHOD translationArg of (Lnet/minecraft/world/level/ChunkPos;)Lnet/minecraft/network/chat/Component;
 		ARG 0 pos

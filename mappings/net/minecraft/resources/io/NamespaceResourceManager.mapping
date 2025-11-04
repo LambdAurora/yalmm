@@ -6,11 +6,9 @@ CLASS net/minecraft/server/packs/resources/FallbackResourceManager net/minecraft
 	METHOD <init> (Lnet/minecraft/server/packs/PackType;Ljava/lang/String;)V
 		ARG 1 type
 		ARG 2 namespace
-	METHOD getMetadataLocation getMetadataPath (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/resources/ResourceLocation;
+	METHOD getMetadataLocation getMetadataPath (Lnet/minecraft/resources/Identifier;)Lnet/minecraft/resources/Identifier;
 		ARG 0 id
-	METHOD getResourceLocationFromMetadata getResourceIdentifierFromMetadata (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/resources/ResourceLocation;
-		ARG 0 id
-	METHOD isMetadata isMetadata (Lnet/minecraft/resources/ResourceLocation;)Z
+	METHOD isMetadata isMetadata (Lnet/minecraft/resources/Identifier;)Z
 		ARG 0 id
 	METHOD push addPack (Lnet/minecraft/server/packs/PackResources;)V
 		COMMENT Adds a resource pack to this resource manager.
@@ -34,16 +32,16 @@ CLASS net/minecraft/server/packs/resources/FallbackResourceManager net/minecraft
 		ARG 3 filter
 	CLASS 1ResourceWithSourceAndIndex FindResourceEntry
 	CLASS EntryStack ResourceEntries
-		FIELD fileLocation path Lnet/minecraft/resources/ResourceLocation;
+		FIELD fileLocation path Lnet/minecraft/resources/Identifier;
+		FIELD metadataLocation metadataId Lnet/minecraft/resources/Identifier;
 		FIELD metaSources metadataSources Ljava/util/Map;
-		FIELD metadataLocation metadataId Lnet/minecraft/resources/ResourceLocation;
-		METHOD <init> (Lnet/minecraft/resources/ResourceLocation;)V
+		METHOD <init> (Lnet/minecraft/resources/Identifier;)V
 			ARG 1 path
-		METHOD fileLocation path ()Lnet/minecraft/resources/ResourceLocation;
+		METHOD fileLocation path ()Lnet/minecraft/resources/Identifier;
+		METHOD metadataLocation metadataId ()Lnet/minecraft/resources/Identifier;
 		METHOD metaSources metadataSources ()Ljava/util/Map;
-		METHOD metadataLocation metadataId ()Lnet/minecraft/resources/ResourceLocation;
 	CLASS LeakedResourceWarningInputStream DebugInputStream
-		METHOD <init> (Ljava/io/InputStream;Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;)V
+		METHOD <init> (Ljava/io/InputStream;Lnet/minecraft/resources/Identifier;Ljava/lang/String;)V
 			ARG 1 parent
 			ARG 2 id
 			ARG 3 packName

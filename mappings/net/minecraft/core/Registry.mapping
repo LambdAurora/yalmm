@@ -39,22 +39,22 @@ CLASS net/minecraft/core/Registry
 	COMMENT This is useful for data packs, as they can define one-time use values directly without having to register them every time.
 	METHOD containsKey containsKey (Lnet/minecraft/resources/ResourceKey;)Z
 		ARG 1 key
-	METHOD containsKey containsId (Lnet/minecraft/resources/ResourceLocation;)Z
+	METHOD containsKey containsId (Lnet/minecraft/resources/Identifier;)Z
 		ARG 1 id
 	METHOD createIntrusiveHolder (Ljava/lang/Object;)Lnet/minecraft/core/Holder$Reference;
 		ARG 1 value
 	METHOD entrySet entrySet ()Ljava/util/Set;
 	METHOD get (I)Ljava/util/Optional;
 		ARG 1 rawId
-	METHOD get (Lnet/minecraft/resources/ResourceLocation;)Ljava/util/Optional;
+	METHOD get (Lnet/minecraft/resources/Identifier;)Ljava/util/Optional;
 		ARG 1 id
-	METHOD getKey getId (Ljava/lang/Object;)Lnet/minecraft/resources/ResourceLocation;
+	METHOD getKey getId (Ljava/lang/Object;)Lnet/minecraft/resources/Identifier;
 		COMMENT {@return the identifier associated with {@code value}, or {@code null} if it is not registered}
 		ARG 1 value
 			COMMENT the value
 	METHOD getOptional getOptional (Lnet/minecraft/resources/ResourceKey;)Ljava/util/Optional;
 		ARG 1 key
-	METHOD getOptional getOptional (Lnet/minecraft/resources/ResourceLocation;)Ljava/util/Optional;
+	METHOD getOptional getOptional (Lnet/minecraft/resources/Identifier;)Ljava/util/Optional;
 		ARG 1 id
 	METHOD getRandom (Lnet/minecraft/util/RandomSource;)Ljava/util/Optional;
 		ARG 1 random
@@ -67,7 +67,7 @@ CLASS net/minecraft/core/Registry
 		COMMENT {@return the value that is assigned to {@code key}, or {@code null} if there is none}
 		ARG 1 key
 			COMMENT the resource key of the value
-	METHOD getValue (Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/Object;
+	METHOD getValue (Lnet/minecraft/resources/Identifier;)Ljava/lang/Object;
 		COMMENT {@return the value that is assigned to {@code id}, or {@code null} if there is none}
 		ARG 1 id
 			COMMENT the identifier of the value
@@ -82,7 +82,7 @@ CLASS net/minecraft/core/Registry
 		ARG 0 registry
 		ARG 1 key
 		ARG 2 value
-	METHOD register register (Lnet/minecraft/core/Registry;Lnet/minecraft/resources/ResourceLocation;Ljava/lang/Object;)Ljava/lang/Object;
+	METHOD register register (Lnet/minecraft/core/Registry;Lnet/minecraft/resources/Identifier;Ljava/lang/Object;)Ljava/lang/Object;
 		ARG 0 registry
 		ARG 1 id
 		ARG 2 value

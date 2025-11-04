@@ -16,11 +16,11 @@ CLASS com/mojang/blaze3d/pipeline/RenderPipeline
 			ARG 1 value
 		METHOD withFragmentShader (Ljava/lang/String;)Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder;
 			ARG 1 path
-		METHOD withFragmentShader (Lnet/minecraft/resources/ResourceLocation;)Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder;
+		METHOD withFragmentShader (Lnet/minecraft/resources/Identifier;)Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder;
 			ARG 1 id
 		METHOD withLocation (Ljava/lang/String;)Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder;
 			ARG 1 path
-		METHOD withLocation (Lnet/minecraft/resources/ResourceLocation;)Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder;
+		METHOD withLocation (Lnet/minecraft/resources/Identifier;)Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder;
 			ARG 1 id
 		METHOD withSampler (Ljava/lang/String;)Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder;
 			ARG 1 sampler
@@ -37,5 +37,5 @@ CLASS com/mojang/blaze3d/pipeline/RenderPipeline
 			ARG 2 type
 		METHOD withVertexShader (Ljava/lang/String;)Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder;
 			ARG 1 path
-		METHOD withVertexShader (Lnet/minecraft/resources/ResourceLocation;)Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder;
+		METHOD withVertexShader (Lnet/minecraft/resources/Identifier;)Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder;
 			ARG 1 id

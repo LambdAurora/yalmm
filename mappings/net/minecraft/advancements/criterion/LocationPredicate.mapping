@@ -1,4 +1,4 @@
-CLASS net/minecraft/advancements/critereon/LocationPredicate
+CLASS net/minecraft/advancements/criterion/LocationPredicate
 	COMMENT Represents a predicate to match a location with.
 	FIELD biomes biomes Ljava/util/Optional;
 		COMMENT the biomes to match if present
@@ -27,16 +27,16 @@ CLASS net/minecraft/advancements/critereon/LocationPredicate
 	METHOD smokey smokey ()Ljava/util/Optional;
 	METHOD structures structures ()Ljava/util/Optional;
 	CLASS Builder
-		METHOD setCanSeeSky (Z)Lnet/minecraft/advancements/critereon/LocationPredicate$Builder;
+		METHOD setCanSeeSky (Z)Lnet/minecraft/advancements/criterion/LocationPredicate$Builder;
 			ARG 1 canSeeSky
-		METHOD setSmokey (Z)Lnet/minecraft/advancements/critereon/LocationPredicate$Builder;
+		METHOD setSmokey (Z)Lnet/minecraft/advancements/criterion/LocationPredicate$Builder;
 			ARG 1 smokey
 	CLASS PositionPredicate
 		METHOD matches (DDD)Z
 			ARG 1 x
 			ARG 3 y
 			ARG 5 z
-		METHOD of (Lnet/minecraft/advancements/critereon/MinMaxBounds$Doubles;Lnet/minecraft/advancements/critereon/MinMaxBounds$Doubles;Lnet/minecraft/advancements/critereon/MinMaxBounds$Doubles;)Ljava/util/Optional;
+		METHOD of (Lnet/minecraft/advancements/criterion/MinMaxBounds$Doubles;Lnet/minecraft/advancements/criterion/MinMaxBounds$Doubles;Lnet/minecraft/advancements/criterion/MinMaxBounds$Doubles;)Ljava/util/Optional;
 			ARG 0 x
 			ARG 1 y
 			ARG 2 z

@@ -1,6 +1,6 @@
 CLASS net/minecraft/client/gui/GuiGraphics
 	FIELD minecraft client Lnet/minecraft/client/Minecraft;
-	METHOD blit drawTexture (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIFFIIII)V
+	METHOD blit drawTexture (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIFFIIII)V
 		ARG 1 renderPipeline
 		ARG 2 texture
 		ARG 3 x
@@ -11,7 +11,7 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 8 height
 		ARG 9 textureWidth
 		ARG 10 textureHeight
-	METHOD blit drawTexture (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIFFIIIII)V
+	METHOD blit drawTexture (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIFFIIIII)V
 		ARG 1 renderPipeline
 		ARG 2 texture
 		ARG 3 x
@@ -23,7 +23,7 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 9 textureWidth
 		ARG 10 textureHeight
 		ARG 11 color
-	METHOD blit drawTexture (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIFFIIIIII)V
+	METHOD blit drawTexture (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIFFIIIIII)V
 		ARG 1 renderPipeline
 		ARG 2 texture
 		ARG 3 x
@@ -36,7 +36,7 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 10 vHeight
 		ARG 11 textureWidth
 		ARG 12 textureHeight
-	METHOD blit drawTexture (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIFFIIIIIII)V
+	METHOD blit drawTexture (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIFFIIIIIII)V
 		ARG 1 renderPipeline
 		ARG 2 texture
 		ARG 3 x
@@ -50,7 +50,7 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 11 textureWidth
 		ARG 12 textureHeight
 		ARG 13 color
-	METHOD blit drawTexture (Lnet/minecraft/resources/ResourceLocation;IIIIFFFF)V
+	METHOD blit drawTexture (Lnet/minecraft/resources/Identifier;IIIIFFFF)V
 		ARG 1 texture
 		ARG 2 startX
 		ARG 3 startY
@@ -111,20 +111,20 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 9 width
 		ARG 10 height
 		ARG 11 color
-	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIII)V
+	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V
 		ARG 1 renderPipeline
 		ARG 2 sprite
 		ARG 3 x
 		ARG 4 y
 		ARG 5 width
 		ARG 6 height
-	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIIIF)V
+	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIIIF)V
 		ARG 3 x
 		ARG 4 y
 		ARG 5 width
 		ARG 6 height
 		ARG 7 opacity
-	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIIII)V
+	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIIII)V
 		ARG 1 renderPipeline
 		ARG 2 sprite
 		ARG 3 x
@@ -132,10 +132,10 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 5 width
 		ARG 6 height
 		ARG 7 color
-	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIIIIIII)V
+	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIIIIIII)V
 		ARG 1 renderPipeline
 		ARG 2 sprite
-	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIIIIIIII)V
+	METHOD blitSprite drawSprite (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIIIIIIII)V
 		ARG 1 renderPipeline
 		ARG 2 sprite
 		ARG 3 textureWidth
@@ -288,7 +288,7 @@ CLASS net/minecraft/client/gui/GuiGraphics
 		ARG 2 endX
 		ARG 3 y
 		ARG 4 color
-	METHOD innerBlit drawTexturedQuad (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/ResourceLocation;IIIIFFFFI)V
+	METHOD innerBlit drawTexturedQuad (Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIIIFFFFI)V
 		ARG 1 renderPipeline
 		ARG 2 texture
 		ARG 3 startX

@@ -2,10 +2,10 @@ CLASS net/minecraft/client/resources/model/AtlasManager
 	METHOD forEach (Ljava/util/function/BiConsumer;)V
 		ARG 1 consumer
 	CLASS AtlasConfig
-		FIELD definitionLocation definitionId Lnet/minecraft/resources/ResourceLocation;
-		METHOD <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/resources/ResourceLocation;Z)V
+		FIELD definitionLocation definitionId Lnet/minecraft/resources/Identifier;
+		METHOD <init> (Lnet/minecraft/resources/Identifier;Lnet/minecraft/resources/Identifier;Z)V
 			ARG 3 createMipmaps
-		METHOD definitionLocation definitionId ()Lnet/minecraft/resources/ResourceLocation;
+		METHOD definitionLocation definitionId ()Lnet/minecraft/resources/Identifier;
 	CLASS AtlasEntry
 		METHOD scheduleLoad (Lnet/minecraft/server/packs/resources/ResourceManager;Ljava/util/concurrent/Executor;I)Ljava/util/concurrent/CompletableFuture;
 			ARG 1 resourceManager
