@@ -1,8 +1,0 @@
-CLASS net/minecraft/world/entity/LivingEntity
-	FIELD xxa sidewaysSpeed F
-	FIELD yBodyRot bodyYaw F
-	FIELD yBodyRotO prevBodyYaw F
-	FIELD yHeadRot headYaw F
-	FIELD yHeadRotO prevHeadYaw F
-	FIELD yya upwardSpeed F
-	FIELD zza forwardSpeed F

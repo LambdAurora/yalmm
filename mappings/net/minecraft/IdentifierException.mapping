@@ -1,0 +1,9 @@
+CLASS net/minecraft/ResourceLocationException net/minecraft/IdentifierException
+	COMMENT Represents an exception thrown when parsing or constructing an {@link net.minecraft.resources.Identifier}
+	COMMENT that contains an invalid character.
+	COMMENT This should not be caught, instead {@link net.minecraft.resources.Identifier#tryParse} or {@link net.minecraft.resources.Identifier#fromNamespaceAndPath} should be used.
+	METHOD <init> (Ljava/lang/String;)V
+		ARG 1 message
+	METHOD <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+		ARG 1 message
+		ARG 2 cause

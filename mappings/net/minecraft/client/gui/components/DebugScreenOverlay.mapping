@@ -1,6 +1,0 @@
-CLASS net/minecraft/client/gui/components/DebugScreenOverlay
-	METHOD render3dCrosshair (Lnet/minecraft/client/Camera;)V
-		ARG 1 camera
-	METHOD renderLines (Lnet/minecraft/client/gui/GuiGraphics;Ljava/util/List;Z)V
-		ARG 2 lines
-		ARG 3 rightSide

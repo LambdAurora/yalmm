@@ -1,3 +1,0 @@
-CLASS net/minecraft/nbt/visitors/FieldTree net/minecraft/nbt/scanner/FieldTree
-	METHOD <init> (I)V
-		ARG 1 depth

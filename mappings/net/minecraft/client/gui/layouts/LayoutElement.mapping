@@ -1,5 +1,0 @@
-CLASS net/minecraft/client/gui/layouts/LayoutElement
-	METHOD setX (I)V
-		ARG 1 x
-	METHOD setY (I)V
-		ARG 1 y

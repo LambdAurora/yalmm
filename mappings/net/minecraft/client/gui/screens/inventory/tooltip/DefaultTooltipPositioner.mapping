@@ -1,7 +1,0 @@
-CLASS net/minecraft/client/gui/screens/inventory/tooltip/DefaultTooltipPositioner
-	METHOD positionTooltip (IILorg/joml/Vector2i;II)V
-		ARG 1 width
-		ARG 2 height
-		ARG 3 pos
-		ARG 4 tooltipWidth
-		ARG 5 tooltipHeight

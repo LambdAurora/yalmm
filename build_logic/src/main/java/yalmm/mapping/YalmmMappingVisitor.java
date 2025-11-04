@@ -13,6 +13,7 @@ public class YalmmMappingVisitor extends ForwardingMappingVisitor {
 	private final MappingTreeView mojangToIntermediary;
 	private final int intermediaryNamespace;
 
+	private String currentClassName;
 	private MappingTreeView.ClassMappingView currentClass;
 	private MappingTreeView.MethodMappingView currentMethod;
 	private boolean allowed = true;
@@ -30,6 +31,7 @@ public class YalmmMappingVisitor extends ForwardingMappingVisitor {
 
 	@Override
 	public boolean visitClass(String srcName) throws IOException {
+		this.currentClassName = srcName;
 		this.currentClass = this.mojangToIntermediary.getClass(srcName);
 		this.allowed = true;
 
@@ -100,6 +102,12 @@ public class YalmmMappingVisitor extends ForwardingMappingVisitor {
 	@Override
 	public void visitDstName(MappedElementKind targetKind, int namespace, String name) throws IOException {
 		if (this.allowed) {
+			if (targetKind == MappedElementKind.CLASS) {
+				if (this.currentClassName.equals(name)) {
+					return;
+				}
+			}
+
 			super.visitDstName(targetKind, namespace, name);
 		}
 	}

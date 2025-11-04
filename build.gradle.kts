@@ -28,11 +28,11 @@ publishing {
 	publications {
 		create<MavenPublication>("maven") {
 			from(components["java"])
-			artifactId = "yalmm"
+			artifactId = "yalmm-mojbackward"
 
 			pom {
-				name = "Yet Another Light Minecraft Mappings"
-				description = "A light Minecraft mappings intended to be used along with the official Mojang mappings."
+				name = "Yet Another Light Minecraft Mappings - Backward Compat Edition"
+				description = "A backward compatibility mapping to adapt early to the Identifier rename from 25w45a."
 			}
 		}
 

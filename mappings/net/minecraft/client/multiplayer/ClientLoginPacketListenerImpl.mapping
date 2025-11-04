@@ -1,1 +1,0 @@
-CLASS net/minecraft/client/multiplayer/ClientHandshakePacketListenerImpl net/minecraft/client/multiplayer/ClientLoginPacketListenerImpl

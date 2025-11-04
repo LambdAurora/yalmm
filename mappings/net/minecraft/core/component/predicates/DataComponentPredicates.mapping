@@ -1,4 +1,0 @@
-CLASS net/minecraft/core/component/predicates/DataComponentPredicates
-	METHOD register (Ljava/lang/String;Lcom/mojang/serialization/Codec;)Lnet/minecraft/core/component/predicates/DataComponentPredicate$Type;
-		ARG 0 name
-		ARG 1 codec

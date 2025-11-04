@@ -1,2 +1,0 @@
-CLASS net/minecraft/client/gui/screens/inventory/AbstractContainerScreen
-	METHOD renderBg renderBackground (Lnet/minecraft/client/gui/GuiGraphics;FII)V

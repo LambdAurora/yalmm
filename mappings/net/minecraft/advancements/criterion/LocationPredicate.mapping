@@ -1,0 +1,35 @@
+CLASS net/minecraft/advancements/critereon/LocationPredicate net/minecraft/advancements/criterion/LocationPredicate
+	COMMENT Represents a predicate to match a location with.
+	FIELD biomes Ljava/util/Optional;
+		COMMENT the biomes to match if present
+	FIELD canSeeSky Ljava/util/Optional;
+		COMMENT {@code true} to match if the given position can see the sky, or {@code false} otherwise
+	FIELD dimension Ljava/util/Optional;
+		COMMENT the dimension to match if present
+	FIELD light Ljava/util/Optional;
+		COMMENT the light predicate to match if present
+	FIELD position Ljava/util/Optional;
+		COMMENT the position predicate to match if present
+	FIELD smokey Ljava/util/Optional;
+		COMMENT {@code true} to match if the given position is smokey, or {@code false} otherwise
+	FIELD structures Ljava/util/Optional;
+		COMMENT the structures to match if present
+	METHOD matches (Lnet/minecraft/server/level/ServerLevel;DDD)Z
+		ARG 1 level
+		ARG 2 x
+		ARG 4 y
+		ARG 6 z
+	CLASS Builder
+		METHOD setCanSeeSky (Z)Lnet/minecraft/advancements/critereon/LocationPredicate$Builder;
+			ARG 1 canSeeSky
+		METHOD setSmokey (Z)Lnet/minecraft/advancements/critereon/LocationPredicate$Builder;
+			ARG 1 smokey
+	CLASS PositionPredicate
+		METHOD matches (DDD)Z
+			ARG 1 x
+			ARG 3 y
+			ARG 5 z
+		METHOD of (Lnet/minecraft/advancements/critereon/MinMaxBounds$Doubles;Lnet/minecraft/advancements/critereon/MinMaxBounds$Doubles;Lnet/minecraft/advancements/critereon/MinMaxBounds$Doubles;)Ljava/util/Optional;
+			ARG 0 x
+			ARG 1 y
+			ARG 2 z

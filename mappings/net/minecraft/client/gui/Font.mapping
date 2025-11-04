@@ -1,2 +1,0 @@
-CLASS net/minecraft/client/gui/Font
-	METHOD split wrapLines (Lnet/minecraft/network/chat/FormattedText;I)Ljava/util/List;

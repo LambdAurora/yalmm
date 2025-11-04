@@ -1,2 +1,0 @@
-CLASS net/minecraft/core/Holder
-	METHOD is isIn (Lnet/minecraft/tags/TagKey;)Z
