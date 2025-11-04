@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "1.*"
+      - "mojbackward/1.*"
       - "!dev/**"
 
 jobs:
