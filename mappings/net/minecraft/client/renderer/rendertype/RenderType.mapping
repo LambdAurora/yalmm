@@ -1,4 +1,4 @@
-CLASS net/minecraft/client/renderer/RenderType
+CLASS net/minecraft/client/renderer/RenderType net/minecraft/client/renderer/rendertype/RenderType
 	METHOD <init> (Ljava/lang/String;IZZLjava/lang/Runnable;Ljava/lang/Runnable;)V
 		ARG 1 name
 		ARG 5 setupState
