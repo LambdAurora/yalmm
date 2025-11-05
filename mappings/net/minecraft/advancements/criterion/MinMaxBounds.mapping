@@ -1,7 +1,4 @@
 CLASS net/minecraft/advancements/critereon/MinMaxBounds net/minecraft/advancements/criterion/MinMaxBounds
-	CLASS Bounds
-		METHOD fromReader (Lcom/mojang/brigadier/StringReader;Ljava/util/function/Function;Ljava/util/function/Supplier;)Lnet/minecraft/advancements/critereon/MinMaxBounds$Bounds;
-			ARG 0 reader
 	CLASS Doubles
 		FIELD ANY Lnet/minecraft/advancements/critereon/MinMaxBounds$Doubles;
 			COMMENT Matches any given double.
