@@ -7,11 +7,5 @@ CLASS net/minecraft/advancements/critereon/ItemPredicate net/minecraft/advanceme
 	METHOD test (Ljava/lang/Object;)Z
 		ARG 1 itemStack
 	CLASS Builder
-		METHOD of (Lnet/minecraft/core/HolderGetter;[Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
-			ARG 1 lookup
-			ARG 2 items
-		METHOD of (Lnet/minecraft/core/HolderGetter;Lnet/minecraft/tags/TagKey;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
-			ARG 1 lookup
-			ARG 2 tag
 		METHOD withCount (Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
 			ARG 1 count

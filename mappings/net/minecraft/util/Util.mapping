@@ -1,9 +1,5 @@
 CLASS net/minecraft/Util net/minecraft/util/Util
-	METHOD allOf ([Ljava/util/function/Predicate;)Ljava/util/function/Predicate;
-		ARG 0 predicates
 	METHOD allOf (Ljava/util/List;)Ljava/util/function/Predicate;
-		ARG 0 predicates
-	METHOD anyOf ([Ljava/util/function/Predicate;)Ljava/util/function/Predicate;
 		ARG 0 predicates
 	METHOD anyOf (Ljava/util/List;)Ljava/util/function/Predicate;
 		ARG 0 predicates
@@ -15,37 +11,11 @@ CLASS net/minecraft/Util net/minecraft/util/Util
 			COMMENT the registry
 		ARG 1 entry
 			COMMENT the entry for which to get the registered name
-	METHOD lambda$allOf$5 (Ljava/lang/Object;)Z
-		ARG 0 o
-	METHOD lambda$allOf$6 (Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-		ARG 2 o
-	METHOD lambda$allOf$7 (Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-		ARG 3 o
-	METHOD lambda$allOf$8 (Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-		ARG 4 o
-	METHOD lambda$allOf$9 (Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-		ARG 5 o
-	METHOD lambda$allOf$10 ([Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-		ARG 1 o
-	METHOD lambda$anyOf$12 (Ljava/lang/Object;)Z
-		ARG 0 o
-	METHOD lambda$anyOf$13 (Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-		ARG 2 o
-	METHOD lambda$anyOf$14 (Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-		ARG 3 o
-	METHOD lambda$anyOf$15 (Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-		ARG 4 o
-	METHOD lambda$anyOf$16 (Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-		ARG 5 o
-	METHOD lambda$anyOf$17 ([Ljava/util/function/Predicate;Ljava/lang/Object;)Z
-		ARG 1 o
 	METHOD lastOf (Ljava/util/List;)Ljava/lang/Object;
 		ARG 0 list
 	METHOD makeDescriptionId (Ljava/lang/String;Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
 		ARG 0 prefix
 		ARG 1 id
-	METHOD makeExecutor (Ljava/lang/String;)Lnet/minecraft/TracingExecutor;
-		ARG 0 name
 	CLASS OS
 		METHOD <init> (Ljava/lang/String;ILjava/lang/String;)V
 			ARG 3 name
