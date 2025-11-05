@@ -1,33 +1,5 @@
 CLASS net/minecraft/advancements/critereon/EntityPredicate net/minecraft/advancements/criterion/EntityPredicate
 	COMMENT Represents a predicate to match entities with.
-	FIELD distanceToPlayer Ljava/util/Optional;
-		COMMENT the distance predicate to match if present
-	FIELD effects Ljava/util/Optional;
-		COMMENT the effect predicate to match if present
-	FIELD entityType Ljava/util/Optional;
-		COMMENT the entity type predicate to match if present
-	FIELD equipment Ljava/util/Optional;
-		COMMENT the entity equipment predicate to match if present
-	FIELD flags Ljava/util/Optional;
-		COMMENT the entity flags predicate to match if present
-	FIELD location Lnet/minecraft/advancements/critereon/EntityPredicate$LocationWrapper;
-		COMMENT the location predicates to match if present
-	FIELD movement Ljava/util/Optional;
-		COMMENT the movement predicate to match if present
-	FIELD nbt Ljava/util/Optional;
-		COMMENT the NBT predicate to match if present
-	FIELD passenger Ljava/util/Optional;
-		COMMENT the passenger predicate to match if present
-	FIELD slots Ljava/util/Optional;
-		COMMENT the slots predicate to match if present
-	FIELD subPredicate Ljava/util/Optional;
-		COMMENT the entity sub predicate to match if present
-	FIELD targetedEntity Ljava/util/Optional;
-		COMMENT the targeted entity predicate to match if present
-	FIELD team Ljava/util/Optional;
-		COMMENT the team to match if present
-	FIELD vehicle Ljava/util/Optional;
-		COMMENT the vehicle predicate to match if present
 	METHOD createContext (Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/entity/Entity;)Lnet/minecraft/world/level/storage/loot/LootContext;
 		ARG 0 player
 	METHOD matches (Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/entity/Entity;)Z
@@ -42,10 +14,6 @@ CLASS net/minecraft/advancements/critereon/EntityPredicate net/minecraft/advance
 	CLASS Builder
 		METHOD equipment (Lnet/minecraft/advancements/critereon/EntityEquipmentPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
 			ARG 1 equipment
-		METHOD periodicTick (I)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
-			ARG 1 periodicTick
-		METHOD slots (Lnet/minecraft/advancements/critereon/SlotsPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
-			ARG 1 slots
 		METHOD subPredicate (Lnet/minecraft/advancements/critereon/EntitySubPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
 			ARG 1 subPredicate
 		METHOD team (Ljava/lang/String;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;

@@ -1,16 +1,4 @@
 CLASS net/minecraft/Util net/minecraft/util/Util
-	METHOD allOf (Ljava/util/List;)Ljava/util/function/Predicate;
-		ARG 0 predicates
-	METHOD anyOf (Ljava/util/List;)Ljava/util/function/Predicate;
-		ARG 0 predicates
-	METHOD getRegisteredName (Lnet/minecraft/core/Registry;Ljava/lang/Object;)Ljava/lang/String;
-		COMMENT Gets the registered name of a given entry in the given registry.
-		COMMENT
-		COMMENT @return the registered name if found, or {@code [unregistered]} otherwise
-		ARG 0 registry
-			COMMENT the registry
-		ARG 1 entry
-			COMMENT the entry for which to get the registered name
 	METHOD lastOf (Ljava/util/List;)Ljava/lang/Object;
 		ARG 0 list
 	METHOD makeDescriptionId (Ljava/lang/String;Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
@@ -19,8 +7,6 @@ CLASS net/minecraft/Util net/minecraft/util/Util
 	CLASS OS
 		METHOD <init> (Ljava/lang/String;ILjava/lang/String;)V
 			ARG 3 name
-		METHOD getOpenUriArguments (Ljava/net/URI;)[Ljava/lang/String;
-			ARG 1 uri
 		METHOD openUri (Ljava/lang/String;)V
 			ARG 1 uri
 		METHOD openUri (Ljava/net/URI;)V

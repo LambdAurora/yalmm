@@ -2,10 +2,6 @@ CLASS net/minecraft/advancements/critereon/ItemPredicate net/minecraft/advanceme
 	COMMENT Represents a predicate to match items with.
 	FIELD count Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;
 		COMMENT the count of items range to match
-	FIELD items Ljava/util/Optional;
-		COMMENT the items to match if present
-	METHOD test (Ljava/lang/Object;)Z
-		ARG 1 itemStack
 	CLASS Builder
 		METHOD withCount (Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
 			ARG 1 count

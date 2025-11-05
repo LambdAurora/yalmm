@@ -12,27 +12,37 @@ CLASS net/minecraft/resources/ResourceLocation net/minecraft/resources/Identifie
 		COMMENT The default namespace whose value is {@value}.
 	FIELD NAMESPACE_SEPARATOR C
 		COMMENT The separator between the namespace and the path whose value is {@value}.
+	METHOD <init> ([Ljava/lang/String;)V
+		ARG 1 parts
+	METHOD <init> (Ljava/lang/String;)V
+		ARG 1 raw
 	METHOD <init> (Ljava/lang/String;Ljava/lang/String;)V
+		ARG 1 namespace
+		ARG 2 path
+	METHOD assertValidNamespace (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+		ARG 0 namespace
+		ARG 1 path
 	METHOD compareTo compareTo (Ljava/lang/Object;)I
 		ARG 1 o
-	METHOD createUntrusted (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
-		ARG 0 namespace
-			COMMENT the namespace of the identifier
-		ARG 1 path
-			COMMENT the path of the identifier
-	METHOD fromNamespaceAndPath (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
-		ARG 0 namespace
-			COMMENT the namespace of the identifier
-		ARG 1 path
-			COMMENT the path of the identifier
+	METHOD decompose (Ljava/lang/String;C)[Ljava/lang/String;
+		ARG 0 raw
+		ARG 1 separator
 	METHOD getNamespace ()Ljava/lang/String;
 		COMMENT {@return the namespace of the identifier}
 		COMMENT <p>
 		COMMENT This returns {@value #DEFAULT_NAMESPACE} for identifiers created without an explicit namespace.
 	METHOD getPath ()Ljava/lang/String;
 		COMMENT {@return the path of the identifier}
-	METHOD parse (Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
-		ARG 0 id
+	METHOD isAllowedInResourceLocation isAllowedInIdentifier (C)Z
+	METHOD isValidNamespace (Ljava/lang/String;)Z
+		ARG 0 namespace
+	METHOD isValidPath (Ljava/lang/String;)Z
+		ARG 0 path
+	METHOD of (Ljava/lang/String;C)Lnet/minecraft/resources/ResourceLocation;
+		ARG 0 raw
+		ARG 1 separator
+	METHOD read (Ljava/lang/String;)Lcom/mojang/serialization/DataResult;
+		ARG 0 raw
 	METHOD toLanguageKey ()Ljava/lang/String;
 		COMMENT {@return the full translation key of this identifier}
 		COMMENT <p>
@@ -88,10 +98,3 @@ CLASS net/minecraft/resources/ResourceLocation net/minecraft/resources/Identifie
 		ARG 0 c
 	METHOD validPathChar (C)Z
 		ARG 0 c
-	METHOD withDefaultNamespace (Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
-		COMMENT Creates a new identifier within the default namespace (whose value is {@value #DEFAULT_NAMESPACE})
-		COMMENT with the given path.
-		COMMENT
-		COMMENT @return a new identifier within the default namespace with the given path
-		ARG 0 path
-			COMMENT the path of the identifier
