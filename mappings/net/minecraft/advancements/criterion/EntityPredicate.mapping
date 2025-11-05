@@ -40,8 +40,6 @@ CLASS net/minecraft/advancements/critereon/EntityPredicate net/minecraft/advance
 	METHOD wrap (Lnet/minecraft/advancements/critereon/EntityPredicate;)Lnet/minecraft/advancements/critereon/ContextAwarePredicate;
 		ARG 0 predicate
 	CLASS Builder
-		METHOD components (Lnet/minecraft/advancements/critereon/DataComponentMatchers;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
-			ARG 1 components
 		METHOD equipment (Lnet/minecraft/advancements/critereon/EntityEquipmentPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
 			ARG 1 equipment
 		METHOD periodicTick (I)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;

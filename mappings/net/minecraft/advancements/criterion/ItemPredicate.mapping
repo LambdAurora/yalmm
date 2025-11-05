@@ -1,7 +1,5 @@
 CLASS net/minecraft/advancements/critereon/ItemPredicate net/minecraft/advancements/criterion/ItemPredicate
 	COMMENT Represents a predicate to match items with.
-	FIELD components Lnet/minecraft/advancements/critereon/DataComponentMatchers;
-		COMMENT the data components to match
 	FIELD count Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;
 		COMMENT the count of items range to match
 	FIELD items Ljava/util/Optional;
@@ -15,7 +13,5 @@ CLASS net/minecraft/advancements/critereon/ItemPredicate net/minecraft/advanceme
 		METHOD of (Lnet/minecraft/core/HolderGetter;Lnet/minecraft/tags/TagKey;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
 			ARG 1 lookup
 			ARG 2 tag
-		METHOD withComponents (Lnet/minecraft/advancements/critereon/DataComponentMatchers;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
-			ARG 1 components
 		METHOD withCount (Lnet/minecraft/advancements/critereon/MinMaxBounds$Ints;)Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;
 			ARG 1 count
