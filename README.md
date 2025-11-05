@@ -22,8 +22,8 @@ repositories {
 dependencies {
 	mappings(loom.layered {
 		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-1.21.8:2025.09.14@zip")
-		mappings("dev.lambdaurora:yalmm-mojbackward:1.21.8+build.<build>")
+		parchment("org.parchmentmc.data:parchment-1.21.5:2025.06.15@zip")
+		mappings("dev.lambdaurora:yalmm-mojbackward:1.21.5+build.<build>")
 	})
 }
 ```
