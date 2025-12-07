@@ -1,0 +1,3 @@
+CLASS net/minecraft/client/searchtree/IdSearchTree
+	FIELD resourceLocationSearchTree identifierSearchTree Lnet/minecraft/client/searchtree/ResourceLocationSearchTree;
+	METHOD searchResourceLocation searchIdentifier (Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
