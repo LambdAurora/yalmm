@@ -1,0 +1,3 @@
+CLASS net/minecraft/network/FriendlyByteBuf
+	METHOD readResourceLocation readIdentifier ()Lnet/minecraft/resources/ResourceLocation;
+	METHOD writeResourceLocation writeIdentifier (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/network/FriendlyByteBuf;
